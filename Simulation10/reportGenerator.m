@@ -81,10 +81,7 @@ fidelityList(:,1)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,1}}));
 fidelityList(:,2)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,2}}));
 fidelityList(:,3)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,3}}));
 fidelityList(:,4)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,4}}));
-% fidelityList{ii,1} = Fidelity(rho_Noise{ii,1},rho_Ideal);
-% fidelityList{ii,2} = Fidelity(rho_Noise{ii,2},rho_Ideal);
-% fidelityList{ii,3} = Fidelity(rho_Noise{ii,3},rho_Ideal);
-% fidelityList{ii,4} = Fidelity(rho_Noise{ii,4},rho_Ideal);
+
     
 %% Calculate Pideal + (1-x)dP
 sim = 3;

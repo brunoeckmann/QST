@@ -10,8 +10,7 @@ b=1;
 nMeasurement=10;
 
 % Create Output file of command window
-diary
-diary('log.txt')
+diary('log.out')
 diary on
 
 %% Complete tomographic set: Measurement basis
@@ -69,7 +68,10 @@ rho_Ideal = psi*psi'; % Density matrix of Ideal State
 n = countSignal(Chi,rho_Ideal);
 P=behaviour(MM, rho_Ideal); 
 
+fprintf('\n#### \t Ideal State QST \t #### \n');
 rho_Ideal_qst=qst_maximumlikelihood(rho_Ideal,Chi,n);
+fprintf('\n#### \t done \t #### \n');
+
 
 % BEHAVIOUR of Ideal State
 P_Ideal=behaviour(MM, rho_Ideal);
@@ -84,61 +86,61 @@ lambda = 0.5;
 Behaviour_P=cell(nMeasurement,4);
 M_Noise=cell(nMeasurement,2);
 rho_Noise=cell(nMeasurement,4);
+ii=1;
+
+fprintf('\n Starting parallel Simulations... \n');
+ppm = ParforProgMon('Simulation Progress', nMeasurement);
 
 parfor ii=1:nMeasurement
+    fprintf('\n#### \t Start Sim.\t %i von\t %i \t #### \n', ii, nMeasurement);
+
     P = Behaviour_P(ii,:);
     M = M_Noise(ii,:);
     r = rho_Noise(ii,:);
      
-    fprintf('\n#### \t Sim.\t %i von\t %i \t #### \n', ii, nMeasurement);
-
     % Apply Noise on each Measurement
     countFactor=100;
     maxCount=1;
-    fprintf('\t Apply Noise to Ideal State\n');
     [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_Ideal, maxCount,countFactor);
 
     % Project on NS Polytop
-    fprintf('\t Project Behaviour to Local Polytope\n');
     P{2} = nonSignaling(P{1});
 
 
     % QST Linear Inversion: Reconstruct Density Matrix
-    fprintf('\t Start QST Linear Inversion for Noisy Behaviour\n');
     tic;
     [r{1}, M{1}] = qst_linearinversion(Chi,P_QST_Selection(P{1}));
-    t = toc;
-    fprintf('\t Elapsed time: %f \n',t);
-    fprintf('\t Start QST Linear Inversion for Projected Behaviour\n');
+    t1 = toc;
     tic;
     [r{2}, M{2}] = qst_linearinversion(Chi,P_QST_Selection(P{2}));
-    t = toc;
-    fprintf('\t Elapsed time: %f \n',t);
+    t2 = toc;
     
     % QST Maximum Likelihood: Reconstruct Density Matrix
-    fprintf('\t Start QST Maximum Likelihood for Noisy Behaviour\n');
     tic;
     r{3} = qst_maximumlikelihood(r{2},Chi,P_QST_Selection(P{1}));
-    t = toc;
-    fprintf('\t Elapsed time: %f \n',t);
-    fprintf('\t Start QST Maximum Likelihood for Projected Behaviour\n');
+    t3 = toc;
     tic;
     r{4} = qst_maximumlikelihood(r{2},Chi,P_QST_Selection(P{2}));
-    t = toc;
-    fprintf('\t Elapsed time: %f \n',t);
+    t4 = toc;
     
+    % Save data
     Behaviour_P(ii,:) = P;
     M_Noise(ii,:) = M;
     rho_Noise(ii,:) = r;
     
-    
+    % Output
+    fprintf('\n#### \t Summary Sim.\t %i of %i \t #### \n', ii, nMeasurement);
+    fprintf('\t QST Linear Inversion for Noisy Behaviour in %f Seconds\n',t1);
+    fprintf('\t QST Linear Inversion for Projected Behaviour in %f Seconds\n',t2);
+    fprintf('\t QST Maximum Likelihood for Noisy Behaviour in %f Seconds\n',t3);
+    fprintf('\t QST Maximum Likelihood for Projected Behaviour in %f Seconds\n',t4);
     fprintf('#### \t #### \t ####\n');
     
-    
+    ppm.increment(); 
 
 end
 
-
+diary off
 
 
 

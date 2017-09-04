@@ -601,3 +601,1361 @@ In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simu
 parfor ii=1:nMeasurement
 } 
 clear
+Starting parallel pool (parpool) using the 'local' profile ... connected to 2 workers.
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 Sim.	 7 von	 10 	 #### 
+	 Apply Noise to Ideal State
+	 Project Behaviour to Local Polytope
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('nonSignaling', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\nonSignaling.m', 54)" style="font-weight:bold">nonSignaling</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\nonSignaling.m',54,0)">line 54</a>)
+Index exceeds matrix dimensions.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulation10', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m', 88)" style="font-weight:bold">simulation10</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m',88,0)">line 88</a>)
+parfor ii=1:nMeasurement
+} 
+simulation10
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 Sim.	 7 von	 10 	 #### 
+	 Apply Noise to Ideal State
+	 Project Behaviour to Local Polytope
+	 Start QST Linear Inversion for Noisy Behaviour
+	 Elapsed time: 0.109190 
+	 Start QST Linear Inversion for Projected Behaviour
+	 Elapsed time: 0.020966 
+	 Start QST Maximum Likelihood for Noisy Behaviour
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Sim.	 4 von	 10 	 #### 
+	 Apply Noise to Ideal State
+	 Project Behaviour to Local Polytope
+	 Start QST Linear Inversion for Noisy Behaviour
+	 Elapsed time: 0.106138 
+	 Start QST Linear Inversion for Projected Behaviour
+	 Elapsed time: 0.025058 
+	 Start QST Maximum Likelihood for Noisy Behaviour
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+	 Elapsed time: 103.684449 
+	 Start QST Maximum Likelihood for Projected Behaviour
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+	 Elapsed time: 135.228357 
+	 Start QST Maximum Likelihood for Projected Behaviour
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+	 Elapsed time: 61.702466 
+#### 	 #### 	 ####
+
+#### 	 Sim.	 3 von	 10 	 #### 
+	 Apply Noise to Ideal State
+	 Project Behaviour to Local Polytope
+	 Start QST Linear Inversion for Noisy Behaviour
+	 Elapsed time: 0.020928 
+	 Start QST Linear Inversion for Projected Behaviour
+	 Elapsed time: 0.014562 
+	 Start QST Maximum Likelihood for Noisy Behaviour
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+	 Elapsed time: 59.991504 
+#### 	 #### 	 ####
+
+#### 	 Sim.	 6 von	 10 	 #### 
+	 Apply Noise to Ideal State
+	 Project Behaviour to Local Polytope
+	 Start QST Linear Inversion for Noisy Behaviour
+	 Elapsed time: 0.019948 
+	 Start QST Linear Inversion for Projected Behaviour
+	 Elapsed time: 0.027232 
+	 Start QST Maximum Likelihood for Noisy Behaviour
+Operation terminated by user during qst_maximumlikelihood>@(t)(measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2/2*(measurementBasis{1}'*rho(t)*measurementBasis{1})+(measurementBasis{2}'*rho(t)*measurementBasis{2}-countSignal(2))^2/2*(measurementBasis{2}'*rho(t)*measurementBasis{2})+(measurementBasis{3}'*rho(t)*measurementBasis{3}-countSignal(3))^2/2*(measurementBasis{3}'*rho(t)*measurementBasis{3})+(measurementBasis{4}'*rho(t)*measurementBasis{4}-countSignal(4))^2/2*(measurementBasis{4}'*rho(t)*measurementBasis{4})+(measurementBasis{5}'*rho(t)*measurementBasis{5}-countSignal(5))^2/2*(measurementBasis{5}'*rho(t)*measurementBasis{5})+(measurementBasis{6}'*rho(t)*measurementBasis{6}-countSignal(6))^2/2*(measurementBasis{6}'*rho(t)*measurementBasis{6})+(measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2/2*(measurementBasis{7}'*rho(t)*measurementBasis{7})+(measurementBasis{8}'*rho(t)*measurementBasis{8}-countSignal(8))^2/2*(measurementBasis{8}'*rho(t)*measurementBasis{8})+(measurementBasis{9}'*rho(t)*measurementBasis{9}-countSignal(9))^2/2*(measurementBasis{9}'*rho(t)*measurementBasis{9})+(measurementBasis{10}'*rho(t)*measurementBasis{10}-countSignal(10))^2/2*(measurementBasis{10}'*rho(t)*measurementBasis{10})+(measurementBasis{11}'*rho(t)*measurementBasis{11}-countSignal(11))^2/2*(measurementBasis{11}'*rho(t)*measurementBasis{11})+(measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2/2*(measurementBasis{12}'*rho(t)*measurementBasis{12})+(measurementBasis{13}'*rho(t)*measurementBasis{13}-countSignal(13))^2/2*(measurementBasis{13}'*rho(t)*measurementBasis{13})+(measurementBasis{14}'*rho(t)*measurementBasis{14}-countSignal(14))^2/2*(measurementBasis{14}'*rho(t)*measurementBasis{14})+(measurementBasis{15}'*rho(t)*measurementBasis{15}-countSignal(15))^2/2*(measurementBasis{15}'*rho(t)*measurementBasis{15})+(measurementBasis{16}'*rho(t)*measurementBasis{16}-countSignal(16))^2/2*(measurementBasis{16}'*rho(t)*measurementBasis{16}) (line 96)
+
+
+In finDiffEvalAndChkErr
+
+In parfinitedifferences
+
+In parallel_function (line 478)
+            consume(base, limit, F(base, limit, supply(base, limit)));
+
+In parfinitedifferences
+
+In computeFinDiffGradAndJac
+
+In levenbergMarquardt (line 252)
+            [JAC,~,~,numEvals,evalOK] = computeFinDiffGradAndJac(XOUT,funfcn,confcn,costFun, ...
+
+In lsqncommon (line 174)
+        levenbergMarquardt(funfcn,xC,flags.verbosity,options,defaultopt,initVals.F,initVals.J, ...
+
+In lsqnonlin (line 240)
+   lsqncommon(funfcn,xCurrent,lb,ub,options,defaultopt,caller,...
+
+In qst_maximumlikelihood (line 141)
+    x = lsqnonlin(L,start,[],[],opt);
+
+In parallel_function>make_general_channel/channel_general (line 914)
+                    O = F(C{:});
+
+In remoteParallelFunction (line 38)
+        out = parallel.internal.pool.serialize(feval(channel, channelArgs{:}));
+
+	 Elapsed time: 75.314319 
+	 Start QST Maximum Likelihood for Projected Behaviour
+Operation terminated by user during trace (line 14)
+
+
+In qst_maximumlikelihood>@(t)TT(t)'*TT(t)/trace(TT(t)'*TT(t)) (line 53)
+    rho = @(t) TT(t)'*TT(t) / trace(TT(t)'*TT(t));
+
+In qst_maximumlikelihood>@(t)(measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2/2*(measurementBasis{1}'*rho(t)*measurementBasis{1})+(measurementBasis{2}'*rho(t)*measurementBasis{2}-countSignal(2))^2/2*(measurementBasis{2}'*rho(t)*measurementBasis{2})+(measurementBasis{3}'*rho(t)*measurementBasis{3}-countSignal(3))^2/2*(measurementBasis{3}'*rho(t)*measurementBasis{3})+(measurementBasis{4}'*rho(t)*measurementBasis{4}-countSignal(4))^2/2*(measurementBasis{4}'*rho(t)*measurementBasis{4})+(measurementBasis{5}'*rho(t)*measurementBasis{5}-countSignal(5))^2/2*(measurementBasis{5}'*rho(t)*measurementBasis{5})+(measurementBasis{6}'*rho(t)*measurementBasis{6}-countSignal(6))^2/2*(measurementBasis{6}'*rho(t)*measurementBasis{6})+(measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2/2*(measurementBasis{7}'*rho(t)*measurementBasis{7})+(measurementBasis{8}'*rho(t)*measurementBasis{8}-countSignal(8))^2/2*(measurementBasis{8}'*rho(t)*measurementBasis{8})+(measurementBasis{9}'*rho(t)*measurementBasis{9}-countSignal(9))^2/2*(measurementBasis{9}'*rho(t)*measurementBasis{9})+(measurementBasis{10}'*rho(t)*measurementBasis{10}-countSignal(10))^2/2*(measurementBasis{10}'*rho(t)*measurementBasis{10})+(measurementBasis{11}'*rho(t)*measurementBasis{11}-countSignal(11))^2/2*(measurementBasis{11}'*rho(t)*measurementBasis{11})+(measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2/2*(measurementBasis{12}'*rho(t)*measurementBasis{12})+(measurementBasis{13}'*rho(t)*measurementBasis{13}-countSignal(13))^2/2*(measurementBasis{13}'*rho(t)*measurementBasis{13})+(measurementBasis{14}'*rho(t)*measurementBasis{14}-countSignal(14))^2/2*(measurementBasis{14}'*rho(t)*measurementBasis{14})+(measurementBasis{15}'*rho(t)*measurementBasis{15}-countSignal(15))^2/2*(measurementBasis{15}'*rho(t)*measurementBasis{15})+(measurementBasis{16}'*rho(t)*measurementBasis{16}-countSignal(16))^2/2*(measurementBasis{16}'*rho(t)*measurementBasis{16}) (line 100)
+         + (measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2 / 2*(measurementBasis{12}'*rho(t)*measurementBasis{12})...
+
+In finDiffEvalAndChkErr
+
+In parfinitedifferences
+
+In parallel_function (line 478)
+            consume(base, limit, F(base, limit, supply(base, limit)));
+
+In parfinitedifferences
+
+In computeFinDiffGradAndJac
+
+In levenbergMarquardt (line 252)
+            [JAC,~,~,numEvals,evalOK] = computeFinDiffGradAndJac(XOUT,funfcn,confcn,costFun, ...
+
+In lsqncommon (line 174)
+        levenbergMarquardt(funfcn,xC,flags.verbosity,options,defaultopt,initVals.F,initVals.J, ...
+
+In lsqnonlin (line 240)
+   lsqncommon(funfcn,xCurrent,lb,ub,options,defaultopt,caller,...
+
+In qst_maximumlikelihood (line 141)
+    x = lsqnonlin(L,start,[],[],opt);
+
+In parallel_function>make_general_channel/channel_general (line 914)
+                    O = F(C{:});
+
+In remoteParallelFunction (line 38)
+        out = parallel.internal.pool.serialize(feval(channel, channelArgs{:}));
+
+{Operation terminated by user during <a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp.remoteparfor/getCompleteIntervals', 'C:\Program Files\MATLAB\R2016b\toolbox\distcomp\distcomp\+distcomp\remoteparfor.m', 127)" style="font-weight:bold">distcomp.remoteparfor/getCompleteIntervals</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\distcomp\distcomp\+distcomp\remoteparfor.m',127,0)">line 127</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p', 820)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p',820,0)">line 820</a>)
+        [tags, out] = P.getCompleteIntervals(chunkSize);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p', 587)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p',587,0)">line 587</a>)
+        R = distributed_execution(...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulation10', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m', 89)" style="font-weight:bold">simulation10</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m',89,0)">line 89</a>)
+rho_Noise=cell(nMeasurement,4);
+} 
+clear
+simulation10
+
+#### 	 Ideal State QST 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 done 	 #### 
+
+ Starting parallel Simulations 
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Sim.	 7 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.021592 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.039585 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 156.460902 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 219.223369 Seconds
+#### 	 #### 	 ####
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Sim.	 4 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.027549 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.025538 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 73.779332 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 218.673392 Seconds
+#### 	 #### 	 ####
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Sim.	 6 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.027596 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.023617 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 62.712100 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 189.990231 Seconds
+#### 	 #### 	 ####
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Sim.	 5 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.033226 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.028455 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 107.052584 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 96.090842 Seconds
+#### 	 #### 	 ####
+
+#### 	 Sim.	 3 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.025185 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.022710 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 308.151207 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 178.925320 Seconds
+#### 	 #### 	 ####
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Sim.	 2 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.029299 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.026716 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 76.203460 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 120.435704 Seconds
+#### 	 #### 	 ####
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulation10', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m', 93)" style="font-weight:bold">simulation10</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m',93,0)">line
+93</a>)
+Error: File:
+C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m
+Line: 94 Column: 69
+Unbalanced or
+unexpected
+parenthesis or
+bracket.
+} 
+simulation10
+
+#### 	 Ideal State QST 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 done 	 #### 
+
+ Starting parallel Simulations 
+[Warning: Invalid
+file or directory
+'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\java'.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaclasspath>local_validate_dynamic_path', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaclasspath.p', 266)" style="font-weight:bold">javaclasspath>local_validate_dynamic_path</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaclasspath.p',266,0)">line 266</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaclasspath>local_javapath', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaclasspath.p', 182)" style="font-weight:bold">javaclasspath>local_javapath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaclasspath.p',182,0)">line 182</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaclasspath', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaclasspath.p', 119)" style="font-weight:bold">javaclasspath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaclasspath.p',119,0)">line 119</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('javaaddpath', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaaddpath.m', 71)" style="font-weight:bold">javaaddpath</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\javaaddpath.m',71,0)">line 71</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('ParforProgMon', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\ParforProgMon.m', 103)" style="font-weight:bold">ParforProgMon</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\ParforProgMon.m',103,0)">line 103</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulation10', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m', 94)" style="font-weight:bold">simulation10</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m',94,0)">line 94</a>)] 
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel.internal.apishared.AttachedFiles.resolvePath', 'C:\Program Files\MATLAB\R2016b\toolbox\distcomp\cluster\+parallel\+internal\+apishared\AttachedFiles.m', 378)" style="font-weight:bold">parallel.internal.apishared.AttachedFiles.resolvePath</a>
+(<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\distcomp\cluster\+parallel\+internal\+apishared\AttachedFiles.m',378,0)">line 378</a>)
+Could not find the
+file or directory
+'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\java'
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp/pCanonicalizeFileDependenciesList', 'C:\Program Files\MATLAB\R2016b\toolbox\distcomp\@distcomp\pCanonicalizeFileDependenciesList.m', 15)" style="font-weight:bold">distcomp/pCanonicalizeFileDependenciesList</a>
+(<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\distcomp\@distcomp\pCanonicalizeFileDependenciesList.m',15,0)">line 15</a>)
+    fullPath =
+    parallel.internal.apishared.AttachedFiles.resolvePath(thisFile);
+    
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel.Pool/addAttachedFiles', 'C:\Program Files\MATLAB\R2016b\toolbox\distcomp\cluster\+parallel\@Pool\addAttachedFiles.m', 33)" style="font-weight:bold">parallel.Pool/addAttachedFiles</a>
+(<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\distcomp\cluster\+parallel\@Pool\addAttachedFiles.m',33,0)">line 33</a>)
+files =
+distcomp.pCanonicalizeFileDependenciesList(files);
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('ParforProgMon', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\ParforProgMon.m', 110)" style="font-weight:bold">ParforProgMon</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\ParforProgMon.m',110,0)">line
+110</a>)
+               pPool.addAttachedFiles(o.strAttachedFilesFolder);
+               
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulation10', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m', 94)" style="font-weight:bold">simulation10</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m',94,0)">line
+94</a>)
+ppm =
+ParforProgMon('Simulation
+Progress',
+nMeasurement, 1,
+300, 50);
+} 
+simulation10
+
+#### 	 Ideal State QST 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 done 	 #### 
+
+ Starting parallel Simulations 
+Operation terminated by user during qst_maximumlikelihood>@(t)[t(1),0,0,0;t(5)+1i*t(6),t(2),0,0;t(11)+1i*t(12),t(7)+1i*t(8),t(3),0;t(15)+1i*t(16),t(13)+1i*t(14),t(9)+1i*t(10),t(4)] (line 52)
+
+
+In qst_maximumlikelihood>@(t)TT(t)'*TT(t)/trace(TT(t)'*TT(t)) (line 53)
+    rho = @(t) TT(t)'*TT(t) / trace(TT(t)'*TT(t));
+
+In qst_maximumlikelihood>@(t)(measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2/2*(measurementBasis{1}'*rho(t)*measurementBasis{1})+(measurementBasis{2}'*rho(t)*measurementBasis{2}-countSignal(2))^2/2*(measurementBasis{2}'*rho(t)*measurementBasis{2})+(measurementBasis{3}'*rho(t)*measurementBasis{3}-countSignal(3))^2/2*(measurementBasis{3}'*rho(t)*measurementBasis{3})+(measurementBasis{4}'*rho(t)*measurementBasis{4}-countSignal(4))^2/2*(measurementBasis{4}'*rho(t)*measurementBasis{4})+(measurementBasis{5}'*rho(t)*measurementBasis{5}-countSignal(5))^2/2*(measurementBasis{5}'*rho(t)*measurementBasis{5})+(measurementBasis{6}'*rho(t)*measurementBasis{6}-countSignal(6))^2/2*(measurementBasis{6}'*rho(t)*measurementBasis{6})+(measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2/2*(measurementBasis{7}'*rho(t)*measurementBasis{7})+(measurementBasis{8}'*rho(t)*measurementBasis{8}-countSignal(8))^2/2*(measurementBasis{8}'*rho(t)*measurementBasis{8})+(measurementBasis{9}'*rho(t)*measurementBasis{9}-countSignal(9))^2/2*(measurementBasis{9}'*rho(t)*measurementBasis{9})+(measurementBasis{10}'*rho(t)*measurementBasis{10}-countSignal(10))^2/2*(measurementBasis{10}'*rho(t)*measurementBasis{10})+(measurementBasis{11}'*rho(t)*measurementBasis{11}-countSignal(11))^2/2*(measurementBasis{11}'*rho(t)*measurementBasis{11})+(measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2/2*(measurementBasis{12}'*rho(t)*measurementBasis{12})+(measurementBasis{13}'*rho(t)*measurementBasis{13}-countSignal(13))^2/2*(measurementBasis{13}'*rho(t)*measurementBasis{13})+(measurementBasis{14}'*rho(t)*measurementBasis{14}-countSignal(14))^2/2*(measurementBasis{14}'*rho(t)*measurementBasis{14})+(measurementBasis{15}'*rho(t)*measurementBasis{15}-countSignal(15))^2/2*(measurementBasis{15}'*rho(t)*measurementBasis{15})+(measurementBasis{16}'*rho(t)*measurementBasis{16}-countSignal(16))^2/2*(measurementBasis{16}'*rho(t)*measurementBasis{16}) (line 95)
+         + (measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2 / 2*(measurementBasis{7}'*rho(t)*measurementBasis{7})...
+
+In levenbergMarquardt (line 212)
+        trialCostFun = feval(funfcn{3},reshape(trialX,xShape),varargin{:});
+
+In lsqncommon (line 174)
+        levenbergMarquardt(funfcn,xC,flags.verbosity,options,defaultopt,initVals.F,initVals.J, ...
+
+In lsqnonlin (line 240)
+   lsqncommon(funfcn,xCurrent,lb,ub,options,defaultopt,caller,...
+
+In qst_maximumlikelihood (line 141)
+    x = lsqnonlin(L,start,[],[],opt);
+
+In parallel_function>make_general_channel/channel_general (line 914)
+                    O = F(C{:});
+
+In remoteParallelFunction (line 38)
+        out = parallel.internal.pool.serialize(feval(channel, channelArgs{:}));
+
+Operation terminated by user during qst_maximumlikelihood>@(t)[t(1),0,0,0;t(5)+1i*t(6),t(2),0,0;t(11)+1i*t(12),t(7)+1i*t(8),t(3),0;t(15)+1i*t(16),t(13)+1i*t(14),t(9)+1i*t(10),t(4)] (line 52)
+
+
+In qst_maximumlikelihood>@(t)TT(t)'*TT(t)/trace(TT(t)'*TT(t)) (line 53)
+    rho = @(t) TT(t)'*TT(t) / trace(TT(t)'*TT(t));
+
+In qst_maximumlikelihood>@(t)(measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2/2*(measurementBasis{1}'*rho(t)*measurementBasis{1})+(measurementBasis{2}'*rho(t)*measurementBasis{2}-countSignal(2))^2/2*(measurementBasis{2}'*rho(t)*measurementBasis{2})+(measurementBasis{3}'*rho(t)*measurementBasis{3}-countSignal(3))^2/2*(measurementBasis{3}'*rho(t)*measurementBasis{3})+(measurementBasis{4}'*rho(t)*measurementBasis{4}-countSignal(4))^2/2*(measurementBasis{4}'*rho(t)*measurementBasis{4})+(measurementBasis{5}'*rho(t)*measurementBasis{5}-countSignal(5))^2/2*(measurementBasis{5}'*rho(t)*measurementBasis{5})+(measurementBasis{6}'*rho(t)*measurementBasis{6}-countSignal(6))^2/2*(measurementBasis{6}'*rho(t)*measurementBasis{6})+(measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2/2*(measurementBasis{7}'*rho(t)*measurementBasis{7})+(measurementBasis{8}'*rho(t)*measurementBasis{8}-countSignal(8))^2/2*(measurementBasis{8}'*rho(t)*measurementBasis{8})+(measurementBasis{9}'*rho(t)*measurementBasis{9}-countSignal(9))^2/2*(measurementBasis{9}'*rho(t)*measurementBasis{9})+(measurementBasis{10}'*rho(t)*measurementBasis{10}-countSignal(10))^2/2*(measurementBasis{10}'*rho(t)*measurementBasis{10})+(measurementBasis{11}'*rho(t)*measurementBasis{11}-countSignal(11))^2/2*(measurementBasis{11}'*rho(t)*measurementBasis{11})+(measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2/2*(measurementBasis{12}'*rho(t)*measurementBasis{12})+(measurementBasis{13}'*rho(t)*measurementBasis{13}-countSignal(13))^2/2*(measurementBasis{13}'*rho(t)*measurementBasis{13})+(measurementBasis{14}'*rho(t)*measurementBasis{14}-countSignal(14))^2/2*(measurementBasis{14}'*rho(t)*measurementBasis{14})+(measurementBasis{15}'*rho(t)*measurementBasis{15}-countSignal(15))^2/2*(measurementBasis{15}'*rho(t)*measurementBasis{15})+(measurementBasis{16}'*rho(t)*measurementBasis{16}-countSignal(16))^2/2*(measurementBasis{16}'*rho(t)*measurementBasis{16}) (line 100)
+         + (measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2 / 2*(measurementBasis{12}'*rho(t)*measurementBasis{12})...
+
+In finDiffEvalAndChkErr
+
+In parfinitedifferences
+
+In parallel_function (line 478)
+            consume(base, limit, F(base, limit, supply(base, limit)));
+
+In parfinitedifferences
+
+In computeFinDiffGradAndJac
+
+In levenbergMarquardt (line 252)
+            [JAC,~,~,numEvals,evalOK] = computeFinDiffGradAndJac(XOUT,funfcn,confcn,costFun, ...
+
+In lsqncommon (line 174)
+        levenbergMarquardt(funfcn,xC,flags.verbosity,options,defaultopt,initVals.F,initVals.J, ...
+
+In lsqnonlin (line 240)
+   lsqncommon(funfcn,xCurrent,lb,ub,options,defaultopt,caller,...
+
+In qst_maximumlikelihood (line 141)
+    x = lsqnonlin(L,start,[],[],opt);
+
+In parallel_function>make_general_channel/channel_general (line 914)
+                    O = F(C{:});
+
+In remoteParallelFunction (line 38)
+        out = parallel.internal.pool.serialize(feval(channel, channelArgs{:}));
+
+{Operation terminated by user during
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp.remoteparfor/getCompleteIntervals', 'C:\Program Files\MATLAB\R2016b\toolbox\distcomp\distcomp\+distcomp\remoteparfor.m', 127)" style="font-weight:bold">distcomp.remoteparfor/getCompleteIntervals</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\distcomp\distcomp\+distcomp\remoteparfor.m',127,0)">line
+127</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p', 820)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p',820,0)">line
+820</a>)
+        [tags, out] =
+        P.getCompleteIntervals(chunkSize);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p', 587)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p',587,0)">line 587</a>)
+        R = distributed_execution(...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulation10', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m', 95)" style="font-weight:bold">simulation10</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m',95,0)">line 95</a>)
+parfor ii=1:nMeasurement
+} 
+simulation10
+
+#### 	 Ideal State QST 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 done 	 #### 
+
+ Starting parallel Simulations 
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+Operation terminated by user during qst_maximumlikelihood>@(t)TT(t)'*TT(t)/trace(TT(t)'*TT(t)) (line 53)
+
+
+In qst_maximumlikelihood>@(t)(measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2/2*(measurementBasis{1}'*rho(t)*measurementBasis{1})+(measurementBasis{2}'*rho(t)*measurementBasis{2}-countSignal(2))^2/2*(measurementBasis{2}'*rho(t)*measurementBasis{2})+(measurementBasis{3}'*rho(t)*measurementBasis{3}-countSignal(3))^2/2*(measurementBasis{3}'*rho(t)*measurementBasis{3})+(measurementBasis{4}'*rho(t)*measurementBasis{4}-countSignal(4))^2/2*(measurementBasis{4}'*rho(t)*measurementBasis{4})+(measurementBasis{5}'*rho(t)*measurementBasis{5}-countSignal(5))^2/2*(measurementBasis{5}'*rho(t)*measurementBasis{5})+(measurementBasis{6}'*rho(t)*measurementBasis{6}-countSignal(6))^2/2*(measurementBasis{6}'*rho(t)*measurementBasis{6})+(measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2/2*(measurementBasis{7}'*rho(t)*measurementBasis{7})+(measurementBasis{8}'*rho(t)*measurementBasis{8}-countSignal(8))^2/2*(measurementBasis{8}'*rho(t)*measurementBasis{8})+(measurementBasis{9}'*rho(t)*measurementBasis{9}-countSignal(9))^2/2*(measurementBasis{9}'*rho(t)*measurementBasis{9})+(measurementBasis{10}'*rho(t)*measurementBasis{10}-countSignal(10))^2/2*(measurementBasis{10}'*rho(t)*measurementBasis{10})+(measurementBasis{11}'*rho(t)*measurementBasis{11}-countSignal(11))^2/2*(measurementBasis{11}'*rho(t)*measurementBasis{11})+(measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2/2*(measurementBasis{12}'*rho(t)*measurementBasis{12})+(measurementBasis{13}'*rho(t)*measurementBasis{13}-countSignal(13))^2/2*(measurementBasis{13}'*rho(t)*measurementBasis{13})+(measurementBasis{14}'*rho(t)*measurementBasis{14}-countSignal(14))^2/2*(measurementBasis{14}'*rho(t)*measurementBasis{14})+(measurementBasis{15}'*rho(t)*measurementBasis{15}-countSignal(15))^2/2*(measurementBasis{15}'*rho(t)*measurementBasis{15})+(measurementBasis{16}'*rho(t)*measurementBasis{16}-countSignal(16))^2/2*(measurementBasis{16}'*rho(t)*measurementBasis{16}) (line 95)
+         + (measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2 / 2*(measurementBasis{7}'*rho(t)*measurementBasis{7})...
+
+In levenbergMarquardt (line 212)
+        trialCostFun = feval(funfcn{3},reshape(trialX,xShape),varargin{:});
+
+In lsqncommon (line 174)
+        levenbergMarquardt(funfcn,xC,flags.verbosity,options,defaultopt,initVals.F,initVals.J, ...
+
+In lsqnonlin (line 240)
+   lsqncommon(funfcn,xCurrent,lb,ub,options,defaultopt,caller,...
+
+In qst_maximumlikelihood (line 141)
+    x = lsqnonlin(L,start,[],[],opt);
+
+In parallel_function>make_general_channel/channel_general (line 914)
+                    O = F(C{:});
+
+In remoteParallelFunction (line 38)
+        out = parallel.internal.pool.serialize(feval(channel, channelArgs{:}));
+
+Operation terminated by user during qst_maximumlikelihood>@(t)(measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2/2*(measurementBasis{1}'*rho(t)*measurementBasis{1})+(measurementBasis{2}'*rho(t)*measurementBasis{2}-countSignal(2))^2/2*(measurementBasis{2}'*rho(t)*measurementBasis{2})+(measurementBasis{3}'*rho(t)*measurementBasis{3}-countSignal(3))^2/2*(measurementBasis{3}'*rho(t)*measurementBasis{3})+(measurementBasis{4}'*rho(t)*measurementBasis{4}-countSignal(4))^2/2*(measurementBasis{4}'*rho(t)*measurementBasis{4})+(measurementBasis{5}'*rho(t)*measurementBasis{5}-countSignal(5))^2/2*(measurementBasis{5}'*rho(t)*measurementBasis{5})+(measurementBasis{6}'*rho(t)*measurementBasis{6}-countSignal(6))^2/2*(measurementBasis{6}'*rho(t)*measurementBasis{6})+(measurementBasis{7}'*rho(t)*measurementBasis{7}-countSignal(7))^2/2*(measurementBasis{7}'*rho(t)*measurementBasis{7})+(measurementBasis{8}'*rho(t)*measurementBasis{8}-countSignal(8))^2/2*(measurementBasis{8}'*rho(t)*measurementBasis{8})+(measurementBasis{9}'*rho(t)*measurementBasis{9}-countSignal(9))^2/2*(measurementBasis{9}'*rho(t)*measurementBasis{9})+(measurementBasis{10}'*rho(t)*measurementBasis{10}-countSignal(10))^2/2*(measurementBasis{10}'*rho(t)*measurementBasis{10})+(measurementBasis{11}'*rho(t)*measurementBasis{11}-countSignal(11))^2/2*(measurementBasis{11}'*rho(t)*measurementBasis{11})+(measurementBasis{12}'*rho(t)*measurementBasis{12}-countSignal(12))^2/2*(measurementBasis{12}'*rho(t)*measurementBasis{12})+(measurementBasis{13}'*rho(t)*measurementBasis{13}-countSignal(13))^2/2*(measurementBasis{13}'*rho(t)*measurementBasis{13})+(measurementBasis{14}'*rho(t)*measurementBasis{14}-countSignal(14))^2/2*(measurementBasis{14}'*rho(t)*measurementBasis{14})+(measurementBasis{15}'*rho(t)*measurementBasis{15}-countSignal(15))^2/2*(measurementBasis{15}'*rho(t)*measurementBasis{15})+(measurementBasis{16}'*rho(t)*measurementBasis{16}-countSignal(16))^2/2*(measurementBasis{16}'*rho(t)*measurementBasis{16}) (line 103)
+
+
+In finDiffEvalAndChkErr
+
+In parfinitedifferences
+
+In parallel_function (line 478)
+            consume(base, limit, F(base, limit, supply(base, limit)));
+
+In parfinitedifferences
+
+In computeFinDiffGradAndJac
+
+In levenbergMarquardt (line 252)
+            [JAC,~,~,numEvals,evalOK] = computeFinDiffGradAndJac(XOUT,funfcn,confcn,costFun, ...
+
+In lsqncommon (line 174)
+        levenbergMarquardt(funfcn,xC,flags.verbosity,options,defaultopt,initVals.F,initVals.J, ...
+
+In lsqnonlin (line 240)
+   lsqncommon(funfcn,xCurrent,lb,ub,options,defaultopt,caller,...
+
+In qst_maximumlikelihood (line 141)
+    x = lsqnonlin(L,start,[],[],opt);
+
+In parallel_function>make_general_channel/channel_general (line 914)
+                    O = F(C{:});
+
+In remoteParallelFunction (line 38)
+        out = parallel.internal.pool.serialize(feval(channel, channelArgs{:}));
+
+{Operation terminated by user during
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('distcomp.remoteparfor/getCompleteIntervals', 'C:\Program Files\MATLAB\R2016b\toolbox\distcomp\distcomp\+distcomp\remoteparfor.m', 127)" style="font-weight:bold">distcomp.remoteparfor/getCompleteIntervals</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\distcomp\distcomp\+distcomp\remoteparfor.m',127,0)">line
+127</a>)
+
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function>distributed_execution', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p', 820)" style="font-weight:bold">parallel_function>distributed_execution</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p',820,0)">line
+820</a>)
+        [tags, out] =
+        P.getCompleteIntervals(chunkSize);
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('parallel_function', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p', 587)" style="font-weight:bold">parallel_function</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\lang\parallel_function.p',587,0)">line 587</a>)
+        R = distributed_execution(...
+
+In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulation10', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m', 95)" style="font-weight:bold">simulation10</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10.m',95,0)">line 95</a>)
+parfor ii=1:nMeasurement
+} 
+simulation10
+
+#### 	 Ideal State QST 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 done 	 #### 
+
+ Starting parallel Simulations... 
+
+#### 	 Start Sim.	 4 von	 10 	 #### 
+
+#### 	 Summary Sim.	 4 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.083112 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.016402 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000134 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000039 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 3 von	 10 	 #### 
+
+#### 	 Summary Sim.	 3 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.030854 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.027186 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000048 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000033 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 2 von	 10 	 #### 
+
+#### 	 Start Sim.	 7 von	 10 	 #### 
+
+#### 	 Summary Sim.	 7 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.086183 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.036170 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000116 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000032 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 6 von	 10 	 #### 
+
+#### 	 Summary Sim.	 6 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.028567 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.034623 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000046 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000030 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 5 von	 10 	 #### 
+
+#### 	 Summary Sim.	 5 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.027645 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.027351 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000048 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000032 Seconds
+#### 	 #### 	 ####
+
+#### 	 Summary Sim.	 2 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.029852 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.027127 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000048 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000030 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 1 von	 10 	 #### 
+
+#### 	 Summary Sim.	 1 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.030228 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.026375 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000047 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000032 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 10 von	 10 	 #### 
+
+#### 	 Summary Sim.	 10 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.030857 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.028798 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000253 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000228 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 9 von	 10 	 #### 
+
+#### 	 Summary Sim.	 9 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.024420 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.021314 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000053 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000037 Seconds
+#### 	 #### 	 ####
+
+#### 	 Start Sim.	 8 von	 10 	 #### 
+
+#### 	 Summary Sim.	 8 von	 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.029613 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.017884 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 0.000238 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 0.000227 Seconds
+#### 	 #### 	 ####
+uiimport('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10_1.mat',1)
+uiimport('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\simulation10_1.mat',1)
+reportGenerator
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 117)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',117,0)">line 117</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 118)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',118,0)">line 118</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 120)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',120,0)">line 120</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 121)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',121,0)">line 121</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 123)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',123,0)">line 123</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 124)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',124,0)">line 124</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 125)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',125,0)">line 125</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [0.9400 0.9400 0.9400]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real component of
+complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 126)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',126,0)">line 126</a>)] 
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> ($P(ab|xy)$ …) with properties:
+
+         String: {1×3 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+
+P =
+
+  Columns 1 through 4
+
+    0.4778    0.5139    0.5215    0.5172
+         0         0         0         0
+         0         0         0         0
+    0.5222    0.4861    0.4785    0.4828
+    0.2888    0.2431    0.2258    0.2915
+    0.2674    0.2752    0.2366    0.2714
+    0.2299    0.2477    0.2903    0.2060
+    0.2139    0.2339    0.2473    0.2312
+    0.2713    0.2394    0.2315    0.2770
+    0.2713    0.2660    0.2266    0.2254
+    0.2287    0.2500    0.2857    0.2770
+    0.2287    0.2447    0.2562    0.2207
+    0.2737    0.2594    0.2404    0.2286
+    0.2211    0.2406    0.2459    0.2857
+    0.2368    0.2500    0.2568    0.2095
+    0.2684    0.2500    0.2568    0.2762
+    0.5024    0.4921    0.5025    0.5223
+         0         0         0         0
+         0         0         0         0
+    0.4976    0.5079    0.4975    0.4777
+    0.2548    0.2602    0.2323    0.2654
+    0.2115    0.2908    0.2727    0.2275
+    0.2548    0.2398    0.2323    0.2796
+    0.2788    0.2092    0.2626    0.2275
+    0.2551    0.2663    0.2611    0.2647
+    0.2602    0.2261    0.2365    0.2402
+    0.2500    0.2663    0.2414    0.2598
+    0.2347    0.2412    0.2611    0.2353
+    0.2268    0.2338    0.2453    0.2268
+    0.2474    0.2488    0.2500    0.2629
+    0.3093    0.2537    0.2689    0.2835
+    0.2165    0.2637    0.2358    0.2268
+    0.0000    0.0000    0.0000    0.0000
+    0.5132    0.5121    0.4895    0.4726
+    0.4868    0.4879    0.5105    0.5274
+         0         0         0         0
+
+  Columns 5 through 8
+
+    0.5174    0.5023    0.5047    0.5051
+         0         0         0         0
+         0         0         0         0
+    0.4826    0.4977    0.4953    0.4949
+    0.2188    0.2121    0.2554    0.2222
+    0.2865    0.2576    0.2500    0.2677
+    0.2604    0.3030    0.2446    0.2374
+    0.2344    0.2273    0.2500    0.2727
+    0.2447    0.2563    0.2615    0.2266
+    0.2819    0.2312    0.2051    0.2562
+    0.2606    0.2462    0.2718    0.2512
+    0.2128    0.2663    0.2615    0.2660
+    0.2488    0.2523    0.2762    0.2462
+    0.2488    0.2196    0.2714    0.2462
+    0.2439    0.2477    0.2238    0.2615
+    0.2585    0.2804    0.2286    0.2462
+    0.4521    0.5160    0.4921    0.5258
+         0         0         0         0
+         0         0         0         0
+    0.5479    0.4840    0.5079    0.4742
+    0.2549    0.2123    0.2277    0.2714
+    0.2304    0.2547    0.2426    0.2524
+    0.2353    0.2642    0.2525    0.2238
+    0.2794    0.2689    0.2772    0.2524
+    0.2593    0.2266    0.2463    0.2356
+    0.2639    0.2315    0.2562    0.2308
+    0.2500    0.3054    0.2069    0.2788
+    0.2269    0.2365    0.2906    0.2548
+    0.2314    0.2166    0.2607    0.2183
+    0.2751    0.2627    0.2607    0.2538
+    0.2489    0.2442    0.2607    0.2690
+    0.2445    0.2765    0.2180    0.2589
+    0.0000    0.0000    0.0000    0.0000
+    0.4842    0.5260    0.4948    0.4817
+    0.5158    0.4740    0.5052    0.5183
+         0         0         0         0
+
+  Columns 9 through 10
+
+    0.4619    0.4681
+         0         0
+         0         0
+    0.5381    0.5319
+    0.2402    0.2822
+    0.2745    0.2327
+    0.2696    0.2426
+    0.2157    0.2426
+    0.2842    0.2250
+    0.2186    0.2550
+    0.2240    0.2550
+    0.2732    0.2650
+    0.2205    0.2460
+    0.2821    0.2406
+    0.2821    0.2406
+    0.2154    0.2727
+    0.5047    0.4656
+         0         0
+         0         0
+    0.4953    0.5344
+    0.2775    0.2751
+    0.2461    0.2275
+    0.2461    0.2540
+    0.2304    0.2434
+    0.2634    0.2315
+    0.2341    0.2512
+    0.2634    0.2512
+    0.2390    0.2660
+    0.2450    0.2158
+    0.2250    0.2737
+    0.2650    0.2526
+    0.2650    0.2579
+    0.0000    0.0000
+    0.5288    0.5023
+    0.4712    0.4977
+         0         0
+
+
+P_Noise_mean =
+
+  <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a>
+
+    [36×1 double]
+
+
+P =
+
+  Columns 1 through 4
+
+    0.5186    0.5158    0.4886    0.5092
+         0         0         0         0
+         0         0         0         0
+    0.4814    0.4842    0.5114    0.4908
+    0.2612    0.2488    0.2336    0.2701
+    0.2574    0.2670    0.2550    0.2391
+    0.2419    0.2555    0.2709    0.2374
+    0.2395    0.2287    0.2405    0.2534
+    0.2599    0.2505    0.2387    0.2666
+    0.2586    0.2653    0.2498    0.2426
+    0.2413    0.2505    0.2611    0.2596
+    0.2401    0.2337    0.2503    0.2312
+    0.2820    0.2648    0.2451    0.2617
+    0.2211    0.2395    0.2594    0.2458
+    0.2366    0.2510    0.2435    0.2475
+    0.2603    0.2447    0.2520    0.2450
+    0.5032    0.5043    0.5045    0.5075
+         0         0         0         0
+         0         0         0         0
+    0.4968    0.4957    0.4955    0.4925
+    0.2694    0.2372    0.2498    0.2638
+    0.2337    0.2671    0.2547    0.2437
+    0.2318    0.2638    0.2500    0.2624
+    0.2650    0.2319    0.2455    0.2301
+    0.2535    0.2614    0.2554    0.2411
+    0.2453    0.2376    0.2447    0.2327
+    0.2651    0.2544    0.2331    0.2681
+    0.2361    0.2466    0.2667    0.2581
+    0.2233    0.2502    0.2429    0.2174
+    0.2754    0.2488    0.2572    0.2564
+    0.2798    0.2541    0.2615    0.2901
+    0.2214    0.2469    0.2383    0.2361
+    0.0000    0.0000    0.0000    0.0000
+    0.4987    0.4990    0.5001    0.4738
+    0.5013    0.5010    0.4999    0.5262
+         0         0         0         0
+
+  Columns 5 through 8
+
+    0.5105    0.4986    0.4855    0.4997
+         0         0         0         0
+         0         0         0         0
+    0.4895    0.5014    0.5145    0.5003
+    0.2212    0.2120    0.2486    0.2458
+    0.2893    0.2866    0.2369    0.2539
+    0.2578    0.2733    0.2578    0.2520
+    0.2317    0.2281    0.2566    0.2483
+    0.2320    0.2620    0.2549    0.2509
+    0.2785    0.2366    0.2307    0.2488
+    0.2645    0.2407    0.2437    0.2594
+    0.2250    0.2607    0.2707    0.2409
+    0.2481    0.2583    0.2483    0.2449
+    0.2309    0.2269    0.2581    0.2528
+    0.2623    0.2403    0.2373    0.2547
+    0.2587    0.2745    0.2563    0.2475
+    0.4790    0.4853    0.5064    0.4978
+         0         0         0         0
+         0         0         0         0
+    0.5210    0.5147    0.4936    0.5022
+    0.2548    0.2336    0.2544    0.2661
+    0.2242    0.2516    0.2520    0.2317
+    0.2417    0.2690    0.2442    0.2443
+    0.2793    0.2457    0.2494    0.2580
+    0.2498    0.2307    0.2622    0.2403
+    0.2537    0.2667    0.2392    0.2493
+    0.2606    0.2679    0.2234    0.2593
+    0.2359    0.2347    0.2752    0.2510
+    0.2293    0.2370    0.2428    0.2319
+    0.2742    0.2603    0.2586    0.2577
+    0.2497    0.2482    0.2637    0.2659
+    0.2468    0.2544    0.2349    0.2445
+    0.0000    0.0000    0.0000    0.0000
+    0.5035    0.4973    0.5014    0.4897
+    0.4965    0.5027    0.4986    0.5103
+         0         0         0         0
+
+  Columns 9 through 10
+
+    0.5016    0.4860
+         0         0
+         0         0
+    0.4984    0.5140
+    0.2338    0.2498
+    0.2678    0.2363
+    0.2766    0.2394
+    0.2218    0.2746
+    0.2830    0.2410
+    0.2186    0.2450
+    0.2241    0.2660
+    0.2744    0.2480
+    0.2239    0.2469
+    0.2865    0.2422
+    0.2776    0.2391
+    0.2120    0.2717
+    0.5104    0.4891
+         0         0
+         0         0
+    0.4896    0.5109
+    0.2622    0.2572
+    0.2482    0.2319
+    0.2449    0.2498
+    0.2447    0.2611
+    0.2485    0.2381
+    0.2444    0.2549
+    0.2530    0.2480
+    0.2540    0.2591
+    0.2569    0.2276
+    0.2360    0.2654
+    0.2535    0.2615
+    0.2536    0.2455
+    0.0000    0.0000
+    0.4929    0.4930
+    0.5071    0.5070
+         0         0
+
+
+P_Noise_mean =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+    [36×1 double]    [36×1 double]
+
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> ($P(ab|xy)$ …) with properties:
+
+         String: {1×3 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> ($\lambda_{f…) with properties:
+
+         String: {1×1 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m', 168)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m',168,0)">line 168</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 202)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',202,0)">line 202</a>)] 
+
+h1 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Histogram" style="font-weight:bold">Histogram</a> with properties:
+
+             Data: [10×1 double]
+           Values: [1×19 double]
+          NumBins: 19
+         BinEdges: [1×20 double]
+         BinWidth: 0.0079
+        BinLimits: [0.9000 1.0500]
+    Normalization: 'count'
+        FaceColor: 'auto'
+        EdgeColor: [0 0 0]
+
+  Show <a href="matlab:if exist('h1', 'var'), matlab.graphics.internal.getForDisplay('h1', h1, 'matlab.graphics.chart.primitive.Histogram'), else, matlab.graphics.internal.getForDisplay('h1'), end">all properties</a>
+
+[Warning: Imaginary parts of complex X and/or
+Y arguments ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 212)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',212,0)">line 212</a>)] 
+[Warning: Imaginary parts of complex X and/or
+Y arguments ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 214)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',214,0)">line 214</a>)] 
+[Warning: Imaginary parts of complex X and/or
+Y arguments ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 216)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',216,0)">line 216</a>)] 
+[Warning: Imaginary parts of complex X and/or
+Y arguments ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 218)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',218,0)">line 218</a>)] 
+
+h = 
+
+  4×1 <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> array:
+
+  Line
+  Line
+  Line
+  Line
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m', 168)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m',168,0)">line 168</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGenerator', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m', 256)" style="font-weight:bold">reportGenerator</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\GitHub\Simulation10\reportGenerator.m',256,0)">line 256</a>)] 
+traceRhoList
+
+traceRhoList =
+
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+    1.0000    1.0000    1.0000    1.0000
+
+fidelityList
+
+fidelityList =
+
+  Columns 1 through 2
+
+   1.0017 - 0.0000i   1.0000 - 0.0000i
+   0.9938 - 0.0000i   1.0000 + 0.0000i
+   1.0043 + 0.0000i   1.0000 - 0.0000i
+   1.0227 - 0.0000i   1.0000 - 0.0000i
+   0.9889 - 0.0000i   1.0000 + 0.0000i
+   1.0014 + 0.0000i   1.0000 + 0.0000i
+   0.9931 + 0.0000i   1.0000 + 0.0000i
+   1.0109 - 0.0000i   1.0000 - 0.0000i
+   1.0007 + 0.0000i   1.0000 - 0.0000i
+   0.9702 + 0.0000i   1.0000 + 0.0000i
+
+  Columns 3 through 4
+
+   0.3683 - 0.0000i   0.3704 + 0.0000i
+   0.9831 - 0.0000i   0.9935 + 0.0000i
+   0.9645 - 0.0000i   0.9844 - 0.0000i
+   0.9876 - 0.0000i   0.9910 - 0.0000i
+   0.9644 + 0.0000i   0.9876 + 0.0000i
+   0.9752 - 0.0000i   0.9803 + 0.0000i
+   0.9749 - 0.0000i   0.9956 - 0.0000i
+   0.9923 - 0.0000i   0.9940 - 0.0000i
+   0.9889 - 0.0000i   0.9711 + 0.0000i
+   0.9474 - 0.0000i   0.9883 + 0.0000i
+
+traceRho2List
+
+traceRho2List =
+
+    1.0319    1.0069    1.0000    0.9999
+    0.9790    1.0024    0.9358    0.9764
+    1.0351    1.0020    0.8769    0.9416
+    1.1144    1.0045    0.9659    0.9692
+    0.9707    1.0072    0.8726    0.9548
+    1.0257    1.0073    0.9265    0.9312
+    0.9978    1.0031    0.9092    0.9854
+    1.0671    1.0016    0.9717    0.9771
+    1.0229    1.0099    0.9744    0.8962
+    0.9133    1.0029    0.8189    0.9557
+
+fidelityList
+
+fidelityList =
+
+  Columns 1 through 2
+
+   1.0017 - 0.0000i   1.0000 - 0.0000i
+   0.9938 - 0.0000i   1.0000 + 0.0000i
+   1.0043 + 0.0000i   1.0000 - 0.0000i
+   1.0227 - 0.0000i   1.0000 - 0.0000i
+   0.9889 - 0.0000i   1.0000 + 0.0000i
+   1.0014 + 0.0000i   1.0000 + 0.0000i
+   0.9931 + 0.0000i   1.0000 + 0.0000i
+   1.0109 - 0.0000i   1.0000 - 0.0000i
+   1.0007 + 0.0000i   1.0000 - 0.0000i
+   0.9702 + 0.0000i   1.0000 + 0.0000i
+
+  Columns 3 through 4
+
+   0.3683 - 0.0000i   0.3704 + 0.0000i
+   0.9831 - 0.0000i   0.9935 + 0.0000i
+   0.9645 - 0.0000i   0.9844 - 0.0000i
+   0.9876 - 0.0000i   0.9910 - 0.0000i
+   0.9644 + 0.0000i   0.9876 + 0.0000i
+   0.9752 - 0.0000i   0.9803 + 0.0000i
+   0.9749 - 0.0000i   0.9956 - 0.0000i
+   0.9923 - 0.0000i   0.9940 - 0.0000i
+   0.9889 - 0.0000i   0.9711 + 0.0000i
+   0.9474 - 0.0000i   0.9883 + 0.0000i
+
+fidelityList
+
+fidelityList =
+
+   1.0017 - 0.0000i   1.0000 - 0.0000i   0.3683 - 0.0000i   0.3704 + 0.0000i
+   0.9938 - 0.0000i   1.0000 + 0.0000i   0.9831 - 0.0000i   0.9935 + 0.0000i
+   1.0043 + 0.0000i   1.0000 - 0.0000i   
