@@ -47,6 +47,7 @@ function P_proj=nonSignaling(P)
 
     % Call NS Projection
     command = 'filter_signals.exe behaviours.txt';
+
     [status,cmdout] = system(command);
     
     % Read output
