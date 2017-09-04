@@ -51,6 +51,7 @@ function P_proj=nonSignaling(P)
     else
         command = './filterRun behaviours.txt';
     end
+    
 
     [status,cmdout] = system(command);
     
