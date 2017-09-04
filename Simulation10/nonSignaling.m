@@ -46,7 +46,11 @@ function P_proj=nonSignaling(P)
     dlmwrite(filename,Psave)
 
     % Call NS Projection
-    command = 'filter_signals.exe behaviours.txt';
+    if isunix==false
+        command = 'filter_signals.exe behaviours.txt';
+    else
+        command = './filterRun behaviours.txt';
+    end
 
     [status,cmdout] = system(command);
     
