@@ -133,7 +133,7 @@ for ii=1:nMeasurement
     fprintf('\t QST Linear Inversion for Projected Behaviour in %f Seconds\n',t2);
     fprintf('\t QST Maximum Likelihood for Noisy Behaviour in %f Seconds\n',t3);
     fprintf('\t QST Maximum Likelihood for Projected Behaviour in %f Seconds\n',t4);
-    fprintf('#### \t #### \t ####\n');
+    fprintf('#### \t \t \t #### \t \t \t \t ####\n');
     
 end
 diary off
