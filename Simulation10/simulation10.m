@@ -83,7 +83,7 @@ lambda = 0.5;
 
 
 %% Start Simulation
-Behaviour_P=cell(nMeasurement,4);
+P_Noise=cell(nMeasurement,4);
 M_Noise=cell(nMeasurement,2);
 rho_Noise=cell(nMeasurement,4);
 ii=1;
@@ -94,7 +94,7 @@ ppm = ParforProgMon('Simulation Progress', nMeasurement);
 parfor ii=1:nMeasurement
     fprintf('\n#### \t Start Sim.\t %i von\t %i \t #### \n', ii, nMeasurement);
 
-    P = Behaviour_P(ii,:);
+    P = P_Noise(ii,:);
     M = M_Noise(ii,:);
     r = rho_Noise(ii,:);
      
@@ -124,7 +124,7 @@ parfor ii=1:nMeasurement
     t4 = toc;
     
     % Save data
-    Behaviour_P(ii,:) = P;
+    P_Noise(ii,:) = P;
     M_Noise(ii,:) = M;
     rho_Noise(ii,:) = r;
     

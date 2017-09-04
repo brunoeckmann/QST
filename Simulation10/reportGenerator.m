@@ -7,6 +7,8 @@ b=1;
 
 report=1;
 simulation=1;
+simIndex=1; % Choose index for detailed report of this simulation
+
 
 outputFolder='Output/';
 
@@ -83,27 +85,14 @@ fidelityList(:,3)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,3}}));
 fidelityList(:,4)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,4}}));
 
     
+
 %% Calculate Pideal + (1-x)dP
-sim = 3;
-deltaP = P_Noise{sim,1}-P_Noise{sim,2}; % P_Noise - P_Proj_LI
+deltaP = P_Noise{simIndex,1}-P_Noise{simIndex,2}; % P_Noise - P_Proj_LI
 x=linspace(0,1,11);
 
 
 for i = 1:11
-    P_List{i} =  P_Noise{sim,2} + (1-x(i))*deltaP;
-    rhoList{i}= qst_linearinversion(Chi,P_QST_Selection(P_List{i}));
-    fid(i) = Fidelity(rhoList{i},rho_Ideal);
-    
-end
-
-%% Calculate Pideal + (1-x)dP
-sim = 3;
-deltaP = P_Noise{sim,1}-P_Noise{sim,2}; % P_Noise - P_Proj_LI
-x=linspace(0,1,11);
-
-
-for i = 1:11
-    P_List{i} =  P_Noise{sim,2} + (1-x(i))*deltaP;
+    P_List{i} =  P_Noise{simIndex,2} + (1-x(i))*deltaP;
     rhoList{i}= qst_linearinversion(Chi,P_QST_Selection(P_List{i}));
     fid(i) = Fidelity(rhoList{i},rho_Ideal);
     
@@ -113,7 +102,6 @@ end
 
 if report==1
     %% Plot Reconstruced States
-    simIndex=2;
     plotRho(rho_Noise{simIndex,1},[outputFolder,'rho_noiseState_li.pdf'],{'\textbf{Reconstructed State $\rho_{Noise}$}','Linear Inversion'});
     plotRho(rho_Noise{simIndex,2},[outputFolder,'rho_projState_li.pdf'],{'\textbf{Reconstructed State after Projection $\rho_{Proj}$}','Linear Inversion'});
 
@@ -206,16 +194,24 @@ if report==1
 
     edges=linspace(0.9,1.05,20);
     h1=histogram(real(fidelityList(:,1)),edges)
-    set(gca,'YLim',[0,110])
+    set(gca,'YLim',[0,length(fidelityList)*1.1])
     hold on
-
-    line([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--')
-    histogram(real(fidelityList(:,2)),edges)
-    line([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--')
     histogram(real(fidelityList(:,3)),edges)
-    line([mean(fidelityList(:,3)), mean(fidelityList(:,3))],get(gca,'YLim'),'LineStyle','--')
+    histogram(real(fidelityList(:,2)),edges)
+    
     histogram(real(fidelityList(:,4)),edges)
-    line([mean(fidelityList(:,4)), mean(fidelityList(:,4))],get(gca,'YLim'),'LineStyle','--')
+    
+    h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood',...
+        '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood',...
+        '$P_{Noise} \in \mathcal{NS}$', '$P_{Proj} \in \mathcal{NS}$');
+    legend('Location','bestoutside')
+    set(h,'Interpreter','latex')
+    ax = gca;
+    ax.ColorOrderIndex = 1;
+    plot([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--')
+    plot([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--')
+    plot([mean(fidelityList(:,3)), mean(fidelityList(:,3))],get(gca,'YLim'),'LineStyle','--')
+    plot([mean(fidelityList(:,4)), mean(fidelityList(:,4))],get(gca,'YLim'),'LineStyle','--')
 
 
     %% Plot Fidelity of Simulation 1
@@ -231,7 +227,7 @@ if report==1
     set(gca,'FontSize',12)
 
     fig.PaperOrientation='landscape';
-    saveas(fig,[outputFolder,'fidelity_sim', num2str(sim),'.pdf']);
+    saveas(fig,[outputFolder,'fidelity_sim', num2str(simIndex),'.pdf']);
     close(fig)
 
     %% Plot Trace
