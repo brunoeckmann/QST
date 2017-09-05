@@ -116,10 +116,10 @@ for ii=1:nMeasurement
     
     % QST Maximum Likelihood: Reconstruct Density Matrix
     tic;
-    r{3} = qst_maximumlikelihood_ga(r{2},Chi,P_QST_Selection(P{1}));
+    r{3} = qst_maximumlikelihood(r{2},Chi,P_QST_Selection(P{1}));
     t3 = toc;
     tic;
-    r{4} = qst_maximumlikelihood_ga(r{2},Chi,P_QST_Selection(P{2}));
+    r{4} = qst_maximumlikelihood(r{2},Chi,P_QST_Selection(P{2}));
     t4 = toc;
     
     % Save data
