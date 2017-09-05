@@ -137,10 +137,10 @@ L = @(t) (measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2 / 2*
     opt = optimoptions('lsqnonlin','MaxFunctionEvaluations', 80000, 'MaxIterations',80000,'UseParallel',1, 'Algorithm', 'levenberg-marquardt');
 
     %x= fminsearch(L,ones(16,1),options);
-    %x=fminsearch(L,start,options);
+    x=fminsearch(L,start,options);
     %x = lsqnonlin(L,start,[],[],opt);
     
-    x = ga(L,16);
+    
     
     T_QST(1,1) = x(1);
     T_QST(2,2) = x(2);
