@@ -1,4 +1,4 @@
-function rho_reconstr = qst_maximumlikelihood_ga(rhoLinearInversion,measurementBasis,countSignal)
+function rho_reconstr = qst_maximumlikelihood_lstsqr(rhoLinearInversion,measurementBasis,countSignal)
     
 
     % Estimate parameters for minimization from QST_LinearInversion
@@ -138,9 +138,7 @@ L = @(t) (measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2 / 2*
 
     %x= fminsearch(L,ones(16,1),options);
     %x=fminsearch(L,start,options);
-    %x = lsqnonlin(L,start,[],[],opt);
-    
-    x = ga(L,16);
+    x = lsqnonlin(L,start,[],[],opt);
     
     T_QST(1,1) = x(1);
     T_QST(2,2) = x(2);
