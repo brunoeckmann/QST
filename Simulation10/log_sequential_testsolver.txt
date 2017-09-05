@@ -1,0 +1,325 @@
+simulationParallelTestSolver
+
+#### 	 Ideal State QST 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 done 	 #### 
+
+ Starting parallel Simulations... 
+
+#### 	 Start Sim.	 7 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+#### 	 Start Sim.	 4 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Summary Sim.	 4 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.080771 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.026134 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 108.941560 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 130.082080 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 112.375834 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 119.199624 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 75.456425 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 59.640304 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 3 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+#### 	 Summary Sim.	 7 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.079820 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.026638 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 94.919536 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 117.118247 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 101.908282 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 114.450387 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 161.877444 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 54.622232 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 6 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Summary Sim.	 6 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.020779 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.027041 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 46.735062 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 34.466970 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 136.606055 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 147.411699 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 54.484613 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 158.426387 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 5 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+#### 	 Summary Sim.	 3 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.031528 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.019020 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 26.080268 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 33.433809 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 83.805630 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 114.333938 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 117.749445 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 156.536052 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 2 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Summary Sim.	 5 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.027342 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.021478 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 37.240609 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 27.733883 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 108.552835 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 94.114935 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 95.170328 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 125.836530 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Start Sim.	 9 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+#### 	 Summary Sim.	 2 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.029006 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.024387 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 88.902565 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 40.967321 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 173.636608 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 164.385157 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 48.433480 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 114.812253 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 1 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Summary Sim.	 9 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.025925 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.019042 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 37.288157 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 58.592488 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 57.214002 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 97.553078 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 115.882684 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 138.136671 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 8 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Summary Sim.	 1 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.027320 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.022928 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 52.621072 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 76.915327 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 89.671400 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 98.085364 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 80.222214 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 390.091710 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Summary Sim.	 8 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.031762 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.026276 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 56.711246 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 31.176051 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 91.417685 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 75.177493 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 118.454028 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 132.092084 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 10 von	 10 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+Local minimum possible.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the function tolerance.
+
+
+
+
+#### 	 Summary Sim.	 10 of 10 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.030917 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.028183 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 37.160600 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 38.185250 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 111.365215 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 110.130434 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 168.848799 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 89.801011 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
