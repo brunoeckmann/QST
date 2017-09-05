@@ -1,0 +1,27 @@
+README - HOW TO USE filter_signals.cpp AS MATLAB-FUNCTION
+=========================================================
+1) Check if mex is running
+--------------------------
+Compile with the following command
+
+    mex HelloWorld.cpp
+
+the HelloWorld.cpp file and check if it prints the output proberly.
+
+2) Install boost on machine
+---------------------------
+Download and install the C++Boost Libs:
+    
+    http://www.boost.org/users/download/
+
+3) Test if Boost is installed properly by creating the 
+
+
+
+
+
+How to compile mex-prepared c++ files:
+    mex file.cpp -I/usr/local/include
+
+ISSUE 2:
+--------
