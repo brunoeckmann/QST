@@ -7,7 +7,7 @@ close('all')
 b=1;
 
 % Choose Number of Simulations
-nMeasurement=10;
+nMeasurement=2;
 
 % Create Output file of command window
 diary('log_sequential.out')

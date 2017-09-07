@@ -284,3 +284,68 @@ ans =
    0.9866 - 0.0000i
 
 Fidel
+#### 	 Ideal State QST 	 #### 
+Starting parallel pool (parpool) using the 'local' profile ...
+connected to 2 workers.
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_init_pt_min','CSHelpWindow');">Initial point is a local minimum</a>.
+
+Optimization completed because the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'lsq_grad_size','CSHelpWindow');">size of the gradient</a> at the initial point
+is less than 1e-4 times the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',1.000000e+02,true,true,'lsqnonlin',4.044453e-33,'default',1.000000e-10,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 done 	 #### 
+
+ Starting sequential Simulations... 
+
+#### 	 Start Sim.	 1 von	 2 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_possible_lsq','CSHelpWindow');">Local minimum possible</a>.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',3.000000e+00,true,true,'lsqnonlin',4.126167e-07,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_possible_lsq','CSHelpWindow');">Local minimum possible</a>.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',3.000000e+00,true,true,'lsqnonlin',8.760150e-07,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 Summary Sim.	 1 of 2 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.093913 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.014035 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 104.224698 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 107.268775 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
+
+#### 	 Start Sim.	 2 von	 2 	 #### 
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_possible_lsq','CSHelpWindow');">Local minimum possible</a>.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',3.000000e+00,true,true,'lsqnonlin',5.668431e-07,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+<a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'local_min_possible_lsq','CSHelpWindow');">Local minimum possible</a>.
+
+lsqnonlin stopped because the final change in the sum of squares relative to 
+its initial value is less than the default value of the <a href = "matlab: helpview([docroot '/toolbox/optim/msg_csh/optim_msg_csh.map'],'function_tolerance_lsq','CSHelpWindow');">function tolerance</a>.
+
+<<a href = "matlab: createExitMsg('levenbergMarquardt',3.000000e+00,true,true,'lsqnonlin',5.895547e-07,'default',1.000000e-06,0.000000e+00,'',0.000000e+00,0.000000e+00,'',0.000000e+00);">stopping criteria details</a>>
+
+
+#### 	 Summary Sim.	 2 of 2 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.022526 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.032914 Seconds
+	 QST Maximum Likelihood for Noisy Behaviour in 158.786315 Seconds
+	 QST Maximum Likelihood for Projected Behaviour in 173.395086 Seconds
+#### 	 	 	 #### 	 	 	 	 ####
