@@ -10,7 +10,11 @@ simulation=4;
 simIndex=1; % Choose index for detailed report of this simulation
 
 
-outputFolder='OutputSolverTest/';
+outputFolder='OutputSolverTest100/';
+
+if (exist(outputFolder) == false)
+    mkdir(outputFolder);
+end
 
 %% Complete tomographic set: Measurement basis
 
@@ -62,15 +66,10 @@ nonsignalingList(:,1) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,1}})); % 
 nonsignalingList(:,2) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,2}})); % Projected Behaviour
 
 %% Calculate Traces
-traceRhoList(:,1) = cellfun(@(A) trace(A), {rho_Noise{:,1}}); % rho Noise LinearInversion
-traceRhoList(:,2) = cellfun(@trace, {rho_Noise{:,2}}); % rho Proj LinearInversion
-traceRhoList(:,3) = cellfun(@trace, {rho_Noise{:,3}}); % rho Noise MaximumLikelihood
-traceRhoList(:,4) = cellfun(@trace, {rho_Noise{:,4}}); % rho Proj MaximumLikelihood
-traceRho2List(:,1) = cellfun(@(A) trace(A^2), {rho_Noise{:,1}}); % rho Noise LinearInversion
-traceRho2List(:,2) = cellfun(@(A) trace(A^2), {rho_Noise{:,2}}); % rho Proj LinearInversion
-traceRho2List(:,3) = cellfun(@(A) trace(A^2), {rho_Noise{:,3}}); % rho Noise MaximumLikelihood
-traceRho2List(:,4) = cellfun(@(A) trace(A^2), {rho_Noise{:,4}}); % rho Proj MaximumLikelihood
-
+for i=1:8
+    traceRhoList(:,i) = cellfun(@(A) trace(A), {rho_Noise{:,i}});
+    traceRho2List(:,i) = cellfun(@(A) trace(A^2), {rho_Noise{:,i}}); 
+end
 
 %% Calculate Delta P
 delta_P(:,1)=cellfun(@(A) A-P_Ideal,{P_Noise{:,1}}, 'UniformOutput', false);
@@ -294,8 +293,8 @@ fig=figure();%'units','normalized','outerposition',[0 0 0.8 0.8]);
 %plot(cell2mat(traceRhoList))
 hold on
 h=plot(traceRho2List)
-set(h,{'LineStyle'},{'-';'-';'--';'--'})
-set(h,{'Color'},{'r';'b';'r';'b'})
+set(h,{'LineStyle'},{'-';'-';'--';'--';'-.';'-.';':';':'})
+set(h,{'Color'},{'r';'b';'r';'b';'r';'b';'r';'b'})
 xlabel('# simulation','interpreter','latex')
 ylabel('Trace','interpreter','latex')
 xlim([1,size(fidelityList,1)])
@@ -304,14 +303,16 @@ grid on
 %     'Tr($\rho_{Noise}$) Maximum Likelihood','Tr($\rho_{Proj}$) Maximum Likelihood',...
 %     'Tr($\rho_{Noise}^2$)','Tr($\rho_{Proj}^2$)');
 h=legend('Tr($\rho_{Noise}^2$) Linear Inversion','Tr($\rho_{Proj}^2$) Linear Inversion',...
-    'Tr($\rho_{Noise}^2$) Maximum Likelihood','Tr($\rho_{Proj}^2$) Maximum Likelihood');
+    'Tr($\rho_{Noise}^2$) Maximum Likelihood fmin','Tr($\rho_{Proj}^2$) Maximum Likelihood fmin',...
+    'Tr($\rho_{Noise}^2$) Maximum Likelihood ga','Tr($\rho_{Proj}^2$) Maximum Likelihood ga',...
+    'Tr($\rho_{Noise}^2$) Maximum Likelihood lstsqr','Tr($\rho_{Proj}^2$) Maximum Likelihood lstsqr');
 %legend('Location','bestoutside')
 set(h,'Interpreter','latex')
 fig.PaperOrientation='landscape';
 fig.PaperPositionMode = 'auto';
 %saveas(fig,[outputFolder,'trace.pdf']);
 print('-fillpage',[outputFolder, 'trace'],'-dpdf')
-close(fig)
+%close(fig)
 
 %% Plot Time
 fig=figure();
@@ -329,3 +330,6 @@ h=legend(['fminsearch on $\rho_{Noise}$, Average: ',num2str(avgrTime(1)),' sec']
 set(h,'Interpreter','latex')
 fig.PaperOrientation='landscape';
 print('-fillpage',[outputFolder, 'timesolverml'],'-dpdf')
+
+%%
+%autoArrangeFigures()

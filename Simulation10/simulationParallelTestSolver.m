@@ -7,10 +7,14 @@ close('all')
 b=1;
 
 % Choose Number of Simulations
-nMeasurement=10;
+nMeasurement=100;
 
 % Create Output file of command window
-diary('log_sequential_testsolver.txt')
+logfile = 'log_sequential_testsolver.txt';
+if (exist(logfile))
+  delete(logfile);
+ end
+diary(logfile)
 diary on
 
 %% Complete tomographic set: Measurement basis

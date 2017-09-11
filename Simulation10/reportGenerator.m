@@ -235,8 +235,8 @@ if report==1
     %plot(cell2mat(traceRhoList))
     hold on
     h=plot(traceRho2List)
-    set(h,{'LineStyle'},{'-';'-';'--';'--'})
-    set(h,{'Color'},{'r';'b';'r';'b'})
+    set(h,{'LineStyle'},{'-';'-';'--';'--';'-.';'-.';':';':'})
+    set(h,{'Color'},{'r';'b';'r';'b';'r';'b';'r';'b'})
     xlabel('# simulation','interpreter','latex')
     ylabel('Trace','interpreter','latex')
     xlim([1,size(fidelityList,1)])
@@ -244,12 +244,14 @@ if report==1
     % h=legend('Tr($\rho_{Noise}$) Linear Inversion','Tr($\rho_{Proj}$) Linear Inversion',...
     %     'Tr($\rho_{Noise}$) Maximum Likelihood','Tr($\rho_{Proj}$) Maximum Likelihood',...
     %     'Tr($\rho_{Noise}^2$)','Tr($\rho_{Proj}^2$)');
-    h=legend('Tr($\rho_{Noise}^2$) Linear Inversion','Tr($\rho_{Proj}^2$) Linear Inversion',...
+    hh=legend('Tr($\rho_{Noise}^2$) Linear Inversion','Tr($\rho_{Proj}^2$) Linear Inversion',...
         'Tr($\rho_{Noise}^2$) Maximum Likelihood','Tr($\rho_{Proj}^2$) Maximum Likelihood');
     %legend('Location','bestoutside')
-    set(h,'Interpreter','latex')
+    set(hh,'Interpreter','latex')
     fig.PaperOrientation='landscape';
     saveas(fig,[outputFolder,'trace.pdf']);
     close(fig)
 
 end
+%%
+autoArrangeFigures()

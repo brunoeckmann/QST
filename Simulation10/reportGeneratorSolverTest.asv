@@ -10,7 +10,11 @@ simulation=4;
 simIndex=1; % Choose index for detailed report of this simulation
 
 
-outputFolder='OutputSolverTest/';
+outputFolder='OutputSolverTest100/';
+
+if (exist(outputFolder) == false)
+    mkdir(outputFolder);
+end
 
 %% Complete tomographic set: Measurement basis
 
@@ -62,15 +66,10 @@ nonsignalingList(:,1) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,1}})); % 
 nonsignalingList(:,2) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,2}})); % Projected Behaviour
 
 %% Calculate Traces
-traceRhoList(:,1) = cellfun(@(A) trace(A), {rho_Noise{:,1}}); % rho Noise LinearInversion
-traceRhoList(:,2) = cellfun(@trace, {rho_Noise{:,2}}); % rho Proj LinearInversion
-traceRhoList(:,3) = cellfun(@trace, {rho_Noise{:,3}}); % rho Noise MaximumLikelihood
-traceRhoList(:,4) = cellfun(@trace, {rho_Noise{:,4}}); % rho Proj MaximumLikelihood
-traceRho2List(:,1) = cellfun(@(A) trace(A^2), {rho_Noise{:,1}}); % rho Noise LinearInversion
-traceRho2List(:,2) = cellfun(@(A) trace(A^2), {rho_Noise{:,2}}); % rho Proj LinearInversion
-traceRho2List(:,3) = cellfun(@(A) trace(A^2), {rho_Noise{:,3}}); % rho Noise MaximumLikelihood
-traceRho2List(:,4) = cellfun(@(A) trace(A^2), {rho_Noise{:,4}}); % rho Proj MaximumLikelihood
-
+for i=1:8
+    traceRhoList(:,i) = cellfun(@(A) trace(A), {rho_Noise{:,i}});
+    traceRho2List(:,i) = cellfun(@(A) trace(A^2), {rho_Noise{:,i}}); 
+end
 
 %% Calculate Delta P
 delta_P(:,1)=cellfun(@(A) A-P_Ideal,{P_Noise{:,1}}, 'UniformOutput', false);
@@ -190,7 +189,16 @@ yticks([0 1])
 plt = gca;
 plt.YAxis(2).Color='k';
 
-subplot(2,1,1)
+
+h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion',...
+    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood fminsearch',...
+    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood ga',...
+    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood lstsqr',...
+    '$P_{Noise} \in \mathcal{NS}$', '$P_{Proj} \in \mathcal{NS}$');
+legend('Location','bestoutside')
+set(h,'Interpreter','latex')
+
+subplot(2,1,2)
 plot(real((fidelityList(:,2))),'r')
 hold on
 plot(real((fidelityList(:,4))),'r--')
@@ -203,19 +211,26 @@ ylabel('Fidelity $\mathcal{F}$','interpreter','latex')
 xlim([1,size(fidelityList,1)])
 
 
+yyaxis right
+ylabel('$P(ab|xy) \in \mathcal{NS}$','interpreter','latex')
+set(gca,'ColorOrder',[0 0 1;1 0 1])
+set(gca,'FontSize',12)
+plot(cell2mat(nonsignalingList),'d')
+ylim([-0.25 1.25])
+yticks([0 1])
+plt = gca;
+plt.YAxis(2).Color='k';
 
 
-h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion',...
-    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood fminsearch',...
-    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood ga',...
-    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood lstsqr',...
-    '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion',...
+h=legend('$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion',...
     '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood fminsearch',...
     '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood ga',...
     '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood lstsqr',...
     '$P_{Noise} \in \mathcal{NS}$', '$P_{Proj} \in \mathcal{NS}$');
 legend('Location','bestoutside')
 set(h,'Interpreter','latex')
+
+
 
 fig.PaperOrientation='landscape';
 %saveas(fig,[outputFolder,'fidelity.pdf']);
@@ -278,7 +293,7 @@ fig=figure();%'units','normalized','outerposition',[0 0 0.8 0.8]);
 %plot(cell2mat(traceRhoList))
 hold on
 h=plot(traceRho2List)
-set(h,{'LineStyle'},{'-';'-';'--';'--'})
+set(h,{'LineStyle'},{'-';'-';'--';'--','.-','.-'})
 set(h,{'Color'},{'r';'b';'r';'b'})
 xlabel('# simulation','interpreter','latex')
 ylabel('Trace','interpreter','latex')

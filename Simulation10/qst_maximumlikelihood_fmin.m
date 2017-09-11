@@ -132,7 +132,7 @@ L = @(t) (measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2 / 2*
 
     %phat = mle(countSignal,'pdf',custpdf,'start',start)
     %options = optimset('MaxIter',4000);
-    options = optimset('MaxFunEvals',80000,'MaxIter',80000);
+    options = optimset('MaxFunEvals',80000,'MaxIter',80000,'TolFun',1e-6);
 
     opt = optimoptions('lsqnonlin','MaxFunctionEvaluations', 80000, 'MaxIterations',80000,'UseParallel',1, 'Algorithm', 'levenberg-marquardt');
 
