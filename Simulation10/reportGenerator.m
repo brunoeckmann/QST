@@ -10,7 +10,7 @@ simulation=1;
 simIndex=1; % Choose index for detailed report of this simulation
 
 
-outputFolder='Output/';
+outputFolder='OutputSolverTest5/';
 
 %% Complete tomographic set: Measurement basis
 

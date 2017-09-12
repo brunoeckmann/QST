@@ -1,4 +1,4 @@
-function rho_reconstr = qst_maximumlikelihood_fmin(rhoLinearInversion,measurementBasis,countSignal)
+function [rho_reconstr, output] = qst_maximumlikelihood_fmin(rhoLinearInversion,measurementBasis,countSignal)
     
 
     % Estimate parameters for minimization from QST_LinearInversion
@@ -132,11 +132,19 @@ L = @(t) (measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2 / 2*
 
     %phat = mle(countSignal,'pdf',custpdf,'start',start)
     %options = optimset('MaxIter',4000);
-    options = optimset('MaxFunEvals',80000,'MaxIter',80000,'TolFun',1e-6);
+    options = optimset('MaxFunEvals',80000,'MaxIter',80000,'TolFun',1e-6,'OutputFcn',@outfun);
 
     opt = optimoptions('lsqnonlin','MaxFunctionEvaluations', 80000, 'MaxIterations',80000,'UseParallel',1, 'Algorithm', 'levenberg-marquardt');
 
-    %x= fminsearch(L,ones(16,1),options);
+    output={};
+    function stop = outfun(x,optimvalues,state)
+        stop=false;
+        output{size(output,1)+1,1} =optimvalues.iteration;
+        output{size(output,1),2} =optimvalues.fval;
+        output{size(output,1),3} =state;
+    end
+    
+    
     x=fminsearch(L,start,options);
     %x = lsqnonlin(L,start,[],[],opt);
     

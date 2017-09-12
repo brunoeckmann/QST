@@ -1,4 +1,7 @@
 close('all')
+fclose('all');
+poolobj = gcp('nocreate');
+delete(poolobj);
 %% User Input
 
 % Choose Basis b
@@ -7,13 +10,36 @@ close('all')
 b=1;
 
 % Choose Number of Simulations
-nMeasurement=100;
+nMeasurement=5;
 
-% Create Output file of command window
-logfile = 'log_sequential_testsolver.txt';
+% Choose White Noise Model lambda factor
+lambda = 0.8;
+
+% Choose Noise Factor
+countFactor=20; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+maxCount=1;
+
+% Choose Active MaximumLikelihood Solvers
+ga=1;
+fmin=1;
+lstsqr=1;
+
+% Choose if Solver Convergence Output is created
+solverOutput=1;
+OutputFolder = 'OutputSolverTest100_HighNoise/';
+
+% Choose Logfile
+logfile = [OutputFolder,'log_sequential_testsolver.txt'];
+
+
+%% Activate Logfile
+if(exist(OutputFolder)==0)
+    mkdir(OutputFolder)
+end
+
 if (exist(logfile))
-  delete(logfile);
- end
+    delete(logfile);
+end
 diary(logfile)
 diary on
 
@@ -70,20 +96,26 @@ rho_Ideal = psi*psi'; % Density matrix of Ideal State
 %plotRho(rho_Ideal,[outputFolder,'rho_targetState.pdf'],'\textbf{Target State $\rho_{ideal}$}');
 
 n = countSignal(Chi,rho_Ideal);
-P=behaviour(MM, rho_Ideal); 
+%P=behaviour(MM, rho_Ideal); 
 
 fprintf('\n#### \t Ideal State QST \t #### \n');
-rho_Ideal_qst=qst_maximumlikelihood_lstsqr(rho_Ideal,Chi,n);
+tic
+[rho_Ideal_qst, Output_Ideal]=qst_maximumlikelihood_ga(rho_Ideal,Chi,n);
+toc
 fprintf('\n#### \t done \t #### \n');
 
 
 % BEHAVIOUR of Ideal State
 P_Ideal=behaviour(MM, rho_Ideal);
-lambda = 0.5;
 
-%rho_WNM = rho_Ideal * lambda + (1-lambda)/4*eye(4);
-%P_WNM = behaviour(MM, rho_WNM);
-%[rho_WNM_QST, M_WNM] = qst_linearinversion(Chi,P_QST_Selection(P_WNM));
+% White Noise Model
+rho_WNM = rho_Ideal * lambda + (1-lambda)/4*eye(4);
+P_WNM = behaviour(MM, rho_WNM);
+fprintf('\n#### \t Ideal State with White Noise QST \t #### \n');
+tic
+[rho_WNM, Output_WNM] = qst_maximumlikelihood_ga(rho_WNM,Chi,P_QST_Selection(P_WNM));
+toc
+fprintf('\n#### \done \t #### \n');
 
 
 %% Start Simulation
@@ -93,6 +125,7 @@ rho_Noise=cell(nMeasurement,8);
 tElapsed=zeros(nMeasurement,8);
 
 fprintf('\n Starting parallel Simulations... \n');
+poolobj = parpool;
 ppm = ParforProgMon('Simulation Progress', nMeasurement);
 
 parfor ii=1:nMeasurement
@@ -104,14 +137,12 @@ parfor ii=1:nMeasurement
     t = tElapsed(ii,:);
     
     % Apply Noise on each Measurement
-    countFactor=100;
-    maxCount=1;
-    [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_Ideal, maxCount,countFactor);
+    [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_WNM, maxCount,countFactor);
 
     % Project on NS Polytop
     P{2} = nonSignaling(P{1});
 
-
+    
     % QST Linear Inversion: Reconstruct Density Matrix
     tic;
     [r{1}, M{1}] = qst_linearinversion(Chi,P_QST_Selection(P{1}));
@@ -120,29 +151,62 @@ parfor ii=1:nMeasurement
     [r{2}, M{2}] = qst_linearinversion(Chi,P_QST_Selection(P{2}));
     t(2) = toc;
     
-    % QST Maximum Likelihood fminsearch: Reconstruct Density Matrix
-    tic;
-    r{3} = qst_maximumlikelihood_fmin(r{2},Chi,P_QST_Selection(P{1}));
-    t(3) = toc;
-    tic;
-    r{4} = qst_maximumlikelihood_fmin(r{2},Chi,P_QST_Selection(P{2}));
-    t(4) = toc;
+    formatSpec = '%i\t %e\t %s\n';
     
-    % QST Maximum Likelihood ga: Reconstruct Density Matrix
-    tic;
-    r{5} = qst_maximumlikelihood_ga(r{2},Chi,P_QST_Selection(P{1}));
-    t(5) = toc;
-    tic;
-    r{6} = qst_maximumlikelihood_ga(r{2},Chi,P_QST_Selection(P{2}));
-    t(6) = toc;
+    if fmin==1
+        
+        % QST Maximum Likelihood fminsearch: Reconstruct Density Matrix
+        tic;
+        [r{3},Output] = qst_maximumlikelihood_fmin(r{2},Chi,P_QST_Selection(P{1}));
+        fileID = fopen([OutputFolder, 'solver_fmin_noise_',num2str(ii),'.txt'],'w');
+        O=Output.';
+        fprintf(fileID,formatSpec, O{:,:});
+        fclose(fileID);
+        t(3) = toc;
+        tic;
+        [r{4},Output] = qst_maximumlikelihood_fmin(r{2},Chi,P_QST_Selection(P{2}));
+        fileID = fopen([OutputFolder, 'solver_fmin_proj_',num2str(ii),'.txt'],'w');
+        O=Output.';
+        fprintf(fileID,formatSpec, O{:,:});
+        fclose(fileID);
+        t(4) = toc;
+    end
     
-    % QST Maximum Likelihood lstsqr: Reconstruct Density Matrix
-    tic;
-    r{7} = qst_maximumlikelihood_lstsqr(r{2},Chi,P_QST_Selection(P{1}));
-    t(7) = toc;
-    tic;
-    r{8} = qst_maximumlikelihood_lstsqr(r{2},Chi,P_QST_Selection(P{2}));
-    t(8) = toc;
+    if ga==1
+        % QST Maximum Likelihood ga: Reconstruct Density Matrix
+        tic;
+        [r{5},Output] = qst_maximumlikelihood_ga(r{2},Chi,P_QST_Selection(P{1}));
+        fileID = fopen([OutputFolder, 'solver_ga_noise_',num2str(ii),'.txt'],'w');
+        O=Output.';
+        fprintf(fileID,formatSpec, O{:,:});
+        fclose(fileID);
+        t(5) = toc;
+        tic;
+        [r{6},Output] = qst_maximumlikelihood_ga(r{2},Chi,P_QST_Selection(P{2}));
+        fileID = fopen([OutputFolder, 'solver_ga_proj_',num2str(ii),'.txt'],'w');
+        O=Output.';
+        fprintf(fileID,formatSpec, O{:,:});
+        fclose(fileID);
+        t(6) = toc;
+    end
+    
+    if lstsqr==1
+        % QST Maximum Likelihood lstsqr: Reconstruct Density Matrix
+        tic;
+        [r{7},Output] = qst_maximumlikelihood_lstsqr(r{2},Chi,P_QST_Selection(P{1}));
+        fileID = fopen([OutputFolder, 'solver_lstsqr_noise_',num2str(ii),'.txt'],'w');
+        O=Output.';
+        fprintf(fileID,formatSpec, O{:,:});        
+        fclose(fileID);
+        t(7) = toc;
+        tic;
+        [r{8},Output] = qst_maximumlikelihood_lstsqr(r{2},Chi,P_QST_Selection(P{2}));
+        fileID = fopen([OutputFolder, 'solver_lstsqr_proj_',num2str(ii),'.txt'],'w');
+        O=Output.';
+        fprintf(fileID,formatSpec, O{:,:});
+        fclose(fileID);
+        t(8) = toc;
+    end
     
     % Save data
     P_Noise(ii,:) = P;
@@ -165,7 +229,9 @@ parfor ii=1:nMeasurement
     ppm.increment(); 
 
 end
+delete(poolobj)
 diary off
+
 
 
 

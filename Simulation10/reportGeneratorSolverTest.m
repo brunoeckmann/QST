@@ -246,12 +246,13 @@ subplot(2,1,1)
 h1=histogram(real(fidelityList(:,1)),edges) % Noisy with LI
 set(gca,'YLim',[0,length(fidelityList)*1.1]) 
 hold on
-histogram(real(fidelityList(:,3)),edges) % Noisy with ML
+histogram(real(fidelityList(:,5)),edges) % Noisy with ML
 ax = gca;
 ax.ColorOrderIndex = 1;
 plot([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--')
-plot([mean(fidelityList(:,3)), mean(fidelityList(:,3))],get(gca,'YLim'),'LineStyle','--')
-h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood');
+plot([mean(fidelityList(:,5)), mean(fidelityList(:,5))],get(gca,'YLim'),'LineStyle','--')
+h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood ga',...
+    'average','average');
 legend('Location','bestoutside')
 set(h,'Interpreter','latex')
 
@@ -259,12 +260,13 @@ subplot(2,1,2)
 histogram(real(fidelityList(:,2)),edges) % Proj with LI
 set(gca,'YLim',[0,length(fidelityList)*1.1]) 
 hold on
-histogram(real(fidelityList(:,4)),edges) % Proj with ML
+histogram(real(fidelityList(:,6)),edges) % Proj with ML
 ax = gca;
 ax.ColorOrderIndex = 1;
 plot([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--')
-plot([mean(fidelityList(:,4)), mean(fidelityList(:,4))],get(gca,'YLim'),'LineStyle','--')
-h=legend('$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood');
+plot([mean(fidelityList(:,6)), mean(fidelityList(:,6))],get(gca,'YLim'),'LineStyle','--')
+h=legend('$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood ga',...
+    'average','average');
 legend('Location','bestoutside')
 set(h,'Interpreter','latex')
 
