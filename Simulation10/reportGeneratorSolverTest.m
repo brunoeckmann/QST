@@ -5,12 +5,19 @@ close('all')
 % 2 = Thew
 b=1;
 
-report=1;
-simulation=4;
+closefig=0; % Close figures after completion?
+
 simIndex=1; % Choose index for detailed report of this simulation
 
+% Choose Active MaximumLikelihood Solvers
+ga=1;
+fmin=1;
+lstsqr=1;
 
-outputFolder='OutputSolverTest100/';
+solverdetails=[61,54,34]; % Choose simulations for which detailed solver analysis is done
+
+
+outputFolder = 'OutputSolverTest100_HighNoise_WNM08/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -333,5 +340,83 @@ set(h,'Interpreter','latex')
 fig.PaperOrientation='landscape';
 print('-fillpage',[outputFolder, 'timesolverml'],'-dpdf')
 
+%% Generate Convergence Plots
+if (fmin==1 || ga==1 || lstsqr==1)
+    formatSpec = '%d\t %f\t %s\n';
+
+    for i=1:length(solverdetails)
+        fig=figure();
+        if fmin==1
+            subplot(2,1,1)
+            filename = 'solver_fmin_noise_';
+            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            data = textscan(fileID,formatSpec);
+            fclose(fileID);
+            semilogy(data{:,2},'DisplayName','fmin Noise')
+            hold on
+            subplot(2,1,2)
+            filename = 'solver_fmin_proj_';
+            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            data = textscan(fileID,formatSpec);
+            fclose(fileID);
+            semilogy(data{:,2},'DisplayName','fmin Proj')
+            hold on
+        end
+        if ga==1
+            subplot(2,1,1)
+            filename = 'solver_ga_noise_';
+            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            data = textscan(fileID,formatSpec,'HeaderLines',1);
+            fclose(fileID);
+            semilogy(data{:,2},'DisplayName','GA Noise')
+            hold on
+            subplot(2,1,2)
+            filename = 'solver_ga_proj_';
+            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            data = textscan(fileID,formatSpec,'HeaderLines',1);
+            fclose(fileID);
+            semilogy(data{:,2},'DisplayName','GA Proj')
+            hold on
+        end
+        if lstsqr==1
+            subplot(2,1,1)
+            filename = 'solver_lstsqr_noise_';
+            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            data = textscan(fileID,formatSpec);
+            fclose(fileID);
+            semilogy(data{:,2},'DisplayName','LSTSQR Noise')
+            hold on
+            subplot(2,1,2)
+            filename = 'solver_lstsqr_proj_';
+            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            data = textscan(fileID,formatSpec);
+            fclose(fileID);
+            semilogy(data{:,2},'DisplayName','LSTSQR Proj')
+        end
+        
+        subplot(2,1,1)
+        title(['Convergence in Simulation #',num2str(solverdetails(i))])
+
+        legend('show')
+        ylim([10e-5 10e-3])
+        xlim([0 2000])
+        xlabel('# Iterations','interpreter','latex')
+        ylabel('min($\mathcal{L}$)','interpreter','latex')
+        
+        subplot(2,1,2)
+        legend('show')
+        ylim([0 0.005])
+        xlim([0 2000])
+        xlabel('# Iterations','interpreter','latex')
+        ylabel('min($\mathcal{L}$)','interpreter','latex')
+        
+        fig.PaperOrientation='landscape';
+        print('-fillpage',[outputFolder, 'convergence_sim_',num2str(solverdetails(i))],'-dpdf')
+    end
+end
+
 %%
+if(closefig==1)
+    close('all')
+end
 %autoArrangeFigures()

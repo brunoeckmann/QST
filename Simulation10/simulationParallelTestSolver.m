@@ -10,10 +10,10 @@ delete(poolobj);
 b=1;
 
 % Choose Number of Simulations
-nMeasurement=5;
+nMeasurement=100;
 
 % Choose White Noise Model lambda factor
-lambda = 0.8;
+lambda = 1;
 
 % Choose Noise Factor
 countFactor=20; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
@@ -26,10 +26,10 @@ lstsqr=1;
 
 % Choose if Solver Convergence Output is created
 solverOutput=1;
-OutputFolder = 'OutputSolverTest100_HighNoise/';
+OutputFolder = 'OutputSolverTest100_HighNoise_WNM08/';
 
 % Choose Logfile
-logfile = [OutputFolder,'log_sequential_testsolver.txt'];
+logfile = [OutputFolder,'log.txt'];
 
 
 %% Activate Logfile
