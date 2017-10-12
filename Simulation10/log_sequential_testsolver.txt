@@ -1,0 +1,39 @@
+
+#### 	 Ideal State QST 	 #### 
+if system_dependent('IsDebugMode')==1, dbquit; end
+clear
+qst_maximumlikelihood_ga
+{Not enough input
+arguments.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('qst_maximumlikelihood_ga', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\qst_maximumlikelihood_ga.m', 6)" style="font-weight:bold">qst_maximumlikelihood_ga</a>
+(<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\qst_maximumlikelihood_ga.m',6,0)">line 6</a>)
+    D=det(rhoLinearInversion);} 
+simulationParallelTestSolver
+[Warning: File not found
+or permission denied] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulationParallelTestSolver', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationParallelTestSolver.m', 29)" style="font-weight:bold">simulationParallelTestSolver</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationParallelTestSolver.m',29,0)">line 29</a>)] 
+
+#### 	 Ideal State QST 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+#### 	 done 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+ Starting parallel Simulations... 
+
+#### 	 Start Sim.	 1 von	 1 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+
+#### 	 Summary Sim.	 1 of 1 	 #### 
+	 QST Linear Inversion for Noisy Behaviour in 0.191906 Seconds
+	 QST Linear Inversion for Projected Behaviour in 0.021537 Seconds
+	 QST Maximum Likelihood fminsearch for Noisy Behaviour in 0.000000 Seconds
+	 QST Maximum Likelihood fminsearch for Projected Behaviour in 0.000000 Seconds
+	 QST Maximum Likelihood ga for Noisy Behaviour in 102.247344 Seconds
+	 QST Maximum Likelihood ga for Projected Behaviour in 100.767139 Seconds
+	 QST Maximum Likelihood lstsqr for Noisy Behaviour in 0.000000 Seconds
+	 QST Maximum Likelihood lstsqr for Projected Behaviour in 0.000000 Seconds
+#### 	 	 	 #### 	 	 	 	 ####

@@ -28,6 +28,6 @@ function plotBehaviour(P_Ideal,P_Noise, simIndex,filename,titleString)
     
     fig.PaperOrientation='landscape';
     saveas(fig,filename);
-    close(fig)
+    %close(fig)
 
 end

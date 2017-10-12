@@ -283,6 +283,7 @@ ans =
 
    0.9866 - 0.0000i
 
+<<<<<<< HEAD
 Fidel
 #### 	 Ideal State QST 	 #### 
 Starting parallel pool (parpool) using the 'local' profile ...
@@ -349,3 +350,1469 @@ its initial value is less than the default value of the <a href = "matlab: helpv
 	 QST Maximum Likelihood for Noisy Behaviour in 158.786315 Seconds
 	 QST Maximum Likelihood for Projected Behaviour in 173.395086 Seconds
 #### 	 	 	 #### 	 	 	 	 ####
+=======
+Fidelity(rho_Noise{2},rho_Ideal)
+
+ans =
+
+   1.0000 + 0.0000i
+
+Fidelity(rho_Noise{1},rho_Ideal)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Inner matrix dimensions must agree.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Fidelity', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\Fidelity.m', 4)" style="font-weight:bold">Fidelity</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\Fidelity.m',4,0)">line 4</a>)
+    F = trace(sqrtm(sqrtm(rho)*rhoTarget*sqrtm(rho)));
+} 
+Fidelity(rho_Noise{4},rho_Ideal)
+
+ans =
+
+   0.9811 + 0.0000i
+
+Fidelity(rho_Noise{6},rho_Ideal)
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('mtimes')" style="font-weight:bold"> * </a>
+Inner matrix dimensions must agree.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('Fidelity', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\Fidelity.m', 4)" style="font-weight:bold">Fidelity</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\Fidelity.m',4,0)">line 4</a>)
+    F = trace(sqrtm(sqrtm(rho)*rhoTarget*sqrtm(rho)));
+} 
+IdleTimeout has been reached.
+Parallel pool using the 'local' profile is shutting down.
+uiopen('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\qst_maximumlikelihood_fmin.m',1)
+uiopen('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\qst_maximumlikelihood_lstsqr.m',1)
+uiopen('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationSequentialTestSolver.m',1)
+uiopen('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',1)
+{Undefined function or variable
+'traceRho2List'.
+} 
+load('simulation10_2.mat')
+{Undefined function or variable
+'traceRho2List'.
+} 
+load('simulation10_1.mat')
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plot')" style="font-weight:bold">plot</a>
+Invalid first data argument
+} 
+reportGeneratorSolverTest
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+{Conversion to cell from double is
+not possible.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 65)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',65,0)">line
+65</a>)
+traceRhoList(:,1) = cellfun(@(A)
+trace(A), {rho_Noise{:,1}}); %
+rho Noise LinearInversion
+} 
+clear
+{Undefined function or variable
+'traceRho2List'.
+} 
+reportGeneratorSolverTest
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 104)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',104,0)">line 104</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 105)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',105,0)">line 105</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 107)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',107,0)">line 107</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 108)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',108,0)">line 108</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 110)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',110,0)">line 110</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 111)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',111,0)">line 111</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 112)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',112,0)">line 112</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 113)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',113,0)">line 113</a>)] 
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> (…) with properties:
+
+         String: {1×3 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+
+P =
+
+  Columns 1 through 3
+
+    0.4778    0.5139    0.5215
+         0         0         0
+         0         0         0
+    0.5222    0.4861    0.4785
+    0.2888    0.2431    0.2258
+    0.2674    0.2752    0.2366
+    0.2299    0.2477    0.2903
+    0.2139    0.2339    0.2473
+    0.2713    0.2394    0.2315
+    0.2713    0.2660    0.2266
+    0.2287    0.2500    0.2857
+    0.2287    0.2447    0.2562
+    0.2737    0.2594    0.2404
+    0.2211    0.2406    0.2459
+    0.2368    0.2500    0.2568
+    0.2684    0.2500    0.2568
+    0.5024    0.4921    0.5025
+         0         0         0
+         0         0         0
+    0.4976    0.5079    0.4975
+    0.2548    0.2602    0.2323
+    0.2115    0.2908    0.2727
+    0.2548    0.2398    0.2323
+    0.2788    0.2092    0.2626
+    0.2551    0.2663    0.2611
+    0.2602    0.2261    0.2365
+    0.2500    0.2663    0.2414
+    0.2347    0.2412    0.2611
+    0.2268    0.2338    0.2453
+    0.2474    0.2488    0.2500
+    0.3093    0.2537    0.2689
+    0.2165    0.2637    0.2358
+    0.0000    0.0000    0.0000
+    0.5132    0.5121    0.4895
+    0.4868    0.4879    0.5105
+         0         0         0
+
+  Columns 4 through 6
+
+    0.5172    0.5174    0.5023
+         0         0         0
+         0         0         0
+    0.4828    0.4826    0.4977
+    0.2915    0.2188    0.2121
+    0.2714    0.2865    0.2576
+    0.2060    0.2604    0.3030
+    0.2312    0.2344    0.2273
+    0.2770    0.2447    0.2563
+    0.2254    0.2819    0.2312
+    0.2770    0.2606    0.2462
+    0.2207    0.2128    0.2663
+    0.2286    0.2488    0.2523
+    0.2857    0.2488    0.2196
+    0.2095    0.2439    0.2477
+    0.2762    0.2585    0.2804
+    0.5223    0.4521    0.5160
+         0         0         0
+         0         0         0
+    0.4777    0.5479    0.4840
+    0.2654    0.2549    0.2123
+    0.2275    0.2304    0.2547
+    0.2796    0.2353    0.2642
+    0.2275    0.2794    0.2689
+    0.2647    0.2593    0.2266
+    0.2402    0.2639    0.2315
+    0.2598    0.2500    0.3054
+    0.2353    0.2269    0.2365
+    0.2268    0.2314    0.2166
+    0.2629    0.2751    0.2627
+    0.2835    0.2489    0.2442
+    0.2268    0.2445    0.2765
+    0.0000    0.0000    0.0000
+    0.4726    0.4842    0.5260
+    0.5274    0.5158    0.4740
+         0         0         0
+
+  Columns 7 through 9
+
+    0.5047    0.5051    0.4619
+         0         0         0
+         0         0         0
+    0.4953    0.4949    0.5381
+    0.2554    0.2222    0.2402
+    0.2500    0.2677    0.2745
+    0.2446    0.2374    0.2696
+    0.2500    0.2727    0.2157
+    0.2615    0.2266    0.2842
+    0.2051    0.2562    0.2186
+    0.2718    0.2512    0.2240
+    0.2615    0.2660    0.2732
+    0.2762    0.2462    0.2205
+    0.2714    0.2462    0.2821
+    0.2238    0.2615    0.2821
+    0.2286    0.2462    0.2154
+    0.4921    0.5258    0.5047
+         0         0         0
+         0         0         0
+    0.5079    0.4742    0.4953
+    0.2277    0.2714    0.2775
+    0.2426    0.2524    0.2461
+    0.2525    0.2238    0.2461
+    0.2772    0.2524    0.2304
+    0.2463    0.2356    0.2634
+    0.2562    0.2308    0.2341
+    0.2069    0.2788    0.2634
+    0.2906    0.2548    0.2390
+    0.2607    0.2183    0.2450
+    0.2607    0.2538    0.2250
+    0.2607    0.2690    0.2650
+    0.2180    0.2589    0.2650
+    0.0000    0.0000    0.0000
+    0.4948    0.4817    0.5288
+    0.5052    0.5183    0.4712
+         0         0         0
+
+  Column 10
+
+    0.4681
+         0
+         0
+    0.5319
+    0.2822
+    0.2327
+    0.2426
+    0.2426
+    0.2250
+    0.2550
+    0.2550
+    0.2650
+    0.2460
+    0.2406
+    0.2406
+    0.2727
+    0.4656
+         0
+         0
+    0.5344
+    0.2751
+    0.2275
+    0.2540
+    0.2434
+    0.2315
+    0.2512
+    0.2512
+    0.2660
+    0.2158
+    0.2737
+    0.2526
+    0.2579
+    0.0000
+    0.5023
+    0.4977
+         0
+
+
+P_Noise_mean =
+
+  <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a>
+
+    [36×1 double]
+
+
+P =
+
+  Columns 1 through 3
+
+    0.5186    0.5158    0.4886
+         0         0         0
+         0         0         0
+    0.4814    0.4842    0.5114
+    0.2612    0.2488    0.2336
+    0.2574    0.2670    0.2550
+    0.2419    0.2555    0.2709
+    0.2395    0.2287    0.2405
+    0.2599    0.2505    0.2387
+    0.2586    0.2653    0.2498
+    0.2413    0.2505    0.2611
+    0.2401    0.2337    0.2503
+    0.2820    0.2648    0.2451
+    0.2211    0.2395    0.2594
+    0.2366    0.2510    0.2435
+    0.2603    0.2447    0.2520
+    0.5032    0.5043    0.5045
+         0         0         0
+         0         0         0
+    0.4968    0.4957    0.4955
+    0.2694    0.2372    0.2498
+    0.2337    0.2671    0.2547
+    0.2318    0.2638    0.2500
+    0.2650    0.2319    0.2455
+    0.2535    0.2614    0.2554
+    0.2453    0.2376    0.2447
+    0.2651    0.2544    0.2331
+    0.2361    0.2466    0.2667
+    0.2233    0.2502    0.2429
+    0.2754    0.2488    0.2572
+    0.2798    0.2541    0.2615
+    0.2214    0.2469    0.2383
+    0.0000    0.0000    0.0000
+    0.4987    0.4990    0.5001
+    0.5013    0.5010    0.4999
+         0         0         0
+
+  Columns 4 through 6
+
+    0.5092    0.5105    0.4986
+         0         0         0
+         0         0         0
+    0.4908    0.4895    0.5014
+    0.2701    0.2212    0.2120
+    0.2391    0.2893    0.2866
+    0.2374    0.2578    0.2733
+    0.2534    0.2317    0.2281
+    0.2666    0.2320    0.2620
+    0.2426    0.2785    0.2366
+    0.2596    0.2645    0.2407
+    0.2312    0.2250    0.2607
+    0.2617    0.2481    0.2583
+    0.2458    0.2309    0.2269
+    0.2475    0.2623    0.2403
+    0.2450    0.2587    0.2745
+    0.5075    0.4790    0.4853
+         0         0         0
+         0         0         0
+    0.4925    0.5210    0.5147
+    0.2638    0.2548    0.2336
+    0.2437    0.2242    0.2516
+    0.2624    0.2417    0.2690
+    0.2301    0.2793    0.2457
+    0.2411    0.2498    0.2307
+    0.2327    0.2537    0.2667
+    0.2681    0.2606    0.2679
+    0.2581    0.2359    0.2347
+    0.2174    0.2293    0.2370
+    0.2564    0.2742    0.2603
+    0.2901    0.2497    0.2482
+    0.2361    0.2468    0.2544
+    0.0000    0.0000    0.0000
+    0.4738    0.5035    0.4973
+    0.5262    0.4965    0.5027
+         0         0         0
+
+  Columns 7 through 9
+
+    0.4855    0.4997    0.5016
+         0         0         0
+         0         0         0
+    0.5145    0.5003    0.4984
+    0.2486    0.2458    0.2338
+    0.2369    0.2539    0.2678
+    0.2578    0.2520    0.2766
+    0.2566    0.2483    0.2218
+    0.2549    0.2509    0.2830
+    0.2307    0.2488    0.2186
+    0.2437    0.2594    0.2241
+    0.2707    0.2409    0.2744
+    0.2483    0.2449    0.2239
+    0.2581    0.2528    0.2865
+    0.2373    0.2547    0.2776
+    0.2563    0.2475    0.2120
+    0.5064    0.4978    0.5104
+         0         0         0
+         0         0         0
+    0.4936    0.5022    0.4896
+    0.2544    0.2661    0.2622
+    0.2520    0.2317    0.2482
+    0.2442    0.2443    0.2449
+    0.2494    0.2580    0.2447
+    0.2622    0.2403    0.2485
+    0.2392    0.2493    0.2444
+    0.2234    0.2593    0.2530
+    0.2752    0.2510    0.2540
+    0.2428    0.2319    0.2569
+    0.2586    0.2577    0.2360
+    0.2637    0.2659    0.2535
+    0.2349    0.2445    0.2536
+    0.0000    0.0000    0.0000
+    0.5014    0.4897    0.4929
+    0.4986    0.5103    0.5071
+         0         0         0
+
+  Column 10
+
+    0.4860
+         0
+         0
+    0.5140
+    0.2498
+    0.2363
+    0.2394
+    0.2746
+    0.2410
+    0.2450
+    0.2660
+    0.2480
+    0.2469
+    0.2422
+    0.2391
+    0.2717
+    0.4891
+         0
+         0
+    0.5109
+    0.2572
+    0.2319
+    0.2498
+    0.2611
+    0.2381
+    0.2549
+    0.2480
+    0.2591
+    0.2276
+    0.2654
+    0.2615
+    0.2455
+    0.0000
+    0.4930
+    0.5070
+         0
+
+
+P_Noise_mean =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+  Column 1
+
+    [36×1 double]
+
+  Column 2
+
+    [36×1 double]
+
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> (…) with properties:
+
+         String: {1×3 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> (…) with properties:
+
+         String: {1×1 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m', 168)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m',168,0)">line 168</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 189)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',189,0)">line 189</a>)] 
+
+h1 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Histogram" style="font-weight:bold">Histogram</a> with properties:
+
+             Data: [10×1 double]
+           Values: [1×19 double]
+          NumBins: 19
+         BinEdges: [1×20 double]
+         BinWidth: 0.0079
+        BinLimits: [1×2 double]
+    Normalization: 'count'
+        FaceColor: 'auto'
+        EdgeColor: [0 0 0]
+
+  Show <a href="matlab:if exist('h1', 'var'), matlab.graphics.internal.getForDisplay('h1', h1, 'matlab.graphics.chart.primitive.Histogram'), else, matlab.graphics.internal.getForDisplay('h1'), end">all properties</a>
+
+[Warning: Ignoring extra legend
+entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 658)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',658,0)">line 658</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 334)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',334,0)">line 334</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 282)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',282,0)">line 282</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 203)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',203,0)">line 203</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 210)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',210,0)">line 210</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 211)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',211,0)">line 211</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 212)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',212,0)">line 212</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 213)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',213,0)">line 213</a>)] 
+
+h = 
+
+  4×1 <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> array:
+
+  Line
+  Line
+  Line
+  Line
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m', 168)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m',168,0)">line 168</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 252)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',252,0)">line 252</a>)] 
+
+h = 
+
+  4×1 <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> array:
+
+  Line
+  Line
+  Line
+  Line
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m', 168)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m',168,0)">line 168</a>)] 
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('name', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\private\name.m', 102)" style="font-weight:bold">name</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\private\name.m',102,0)">line 102</a>)
+Cannot create output file
+'OutputSolverTest\trace.pdf'.
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 85)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',85,0)">line 85</a>)
+    pj = name( pj );
+
+Error in <a href="matlab:matlab.internal.language.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m', 168)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m',168,0)">line 168</a>)
+        print( h, name, ['-d'
+        dev{i}] )
+} 
+
+h = 
+
+  4×1 <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> array:
+
+  Line
+  Line
+  Line
+  Line
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('saveas', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m', 168)" style="font-weight:bold">saveas</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\general\saveas.m',168,0)">line 168</a>)] 
+
+h = 
+
+  4×1 <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> array:
+
+  Line
+  Line
+  Line
+  Line
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)] 
+print('-fillpage','trace','-dpdf')
+
+
+h = 
+
+  4×1 <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> array:
+
+  Line
+  Line
+  Line
+  Line
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)] 
+reportGeneratorSolverTest
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 104)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',104,0)">line 104</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 105)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',105,0)">line 105</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 107)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',107,0)">line 107</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 108)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',108,0)">line 108</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 110)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',110,0)">line 110</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 111)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',111,0)">line 111</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 112)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',112,0)">line 112</a>)] 
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (1) with properties:
+
+      Number: 1
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+[Warning: Using only the real
+component of complex data.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('getRealData', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m', 52)" style="font-weight:bold">getRealData</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\private\getRealData.m',52,0)">line 52</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('makebars', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m', 118)" style="font-weight:bold">makebars</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\makebars.m',118,0)">line 118</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('bar3', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m', 37)" style="font-weight:bold">bar3</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\specgraph\bar3.m',37,0)">line 37</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('plotRho', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m', 6)" style="font-weight:bold">plotRho</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\plotRho.m',6,0)">line 6</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 113)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',113,0)">line 113</a>)] 
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> (…) with properties:
+
+         String: {1×3 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+
+P =
+
+  Columns 1 through 3
+
+    0.4778    0.5139    0.5215
+         0         0         0
+         0         0         0
+    0.5222    0.4861    0.4785
+    0.2888    0.2431    0.2258
+    0.2674    0.2752    0.2366
+    0.2299    0.2477    0.2903
+    0.2139    0.2339    0.2473
+    0.2713    0.2394    0.2315
+    0.2713    0.2660    0.2266
+    0.2287    0.2500    0.2857
+    0.2287    0.2447    0.2562
+    0.2737    0.2594    0.2404
+    0.2211    0.2406    0.2459
+    0.2368    0.2500    0.2568
+    0.2684    0.2500    0.2568
+    0.5024    0.4921    0.5025
+         0         0         0
+         0         0         0
+    0.4976    0.5079    0.4975
+    0.2548    0.2602    0.2323
+    0.2115    0.2908    0.2727
+    0.2548    0.2398    0.2323
+    0.2788    0.2092    0.2626
+    0.2551    0.2663    0.2611
+    0.2602    0.2261    0.2365
+    0.2500    0.2663    0.2414
+    0.2347    0.2412    0.2611
+    0.2268    0.2338    0.2453
+    0.2474    0.2488    0.2500
+    0.3093    0.2537    0.2689
+    0.2165    0.2637    0.2358
+    0.0000    0.0000    0.0000
+    0.5132    0.5121    0.4895
+    0.4868    0.4879    0.5105
+         0         0         0
+
+  Columns 4 through 6
+
+    0.5172    0.5174    0.5023
+         0         0         0
+         0         0         0
+    0.4828    0.4826    0.4977
+    0.2915    0.2188    0.2121
+    0.2714    0.2865    0.2576
+    0.2060    0.2604    0.3030
+    0.2312    0.2344    0.2273
+    0.2770    0.2447    0.2563
+    0.2254    0.2819    0.2312
+    0.2770    0.2606    0.2462
+    0.2207    0.2128    0.2663
+    0.2286    0.2488    0.2523
+    0.2857    0.2488    0.2196
+    0.2095    0.2439    0.2477
+    0.2762    0.2585    0.2804
+    0.5223    0.4521    0.5160
+         0         0         0
+         0         0         0
+    0.4777    0.5479    0.4840
+    0.2654    0.2549    0.2123
+    0.2275    0.2304    0.2547
+    0.2796    0.2353    0.2642
+    0.2275    0.2794    0.2689
+    0.2647    0.2593    0.2266
+    0.2402    0.2639    0.2315
+    0.2598    0.2500    0.3054
+    0.2353    0.2269    0.2365
+    0.2268    0.2314    0.2166
+    0.2629    0.2751    0.2627
+    0.2835    0.2489    0.2442
+    0.2268    0.2445    0.2765
+    0.0000    0.0000    0.0000
+    0.4726    0.4842    0.5260
+    0.5274    0.5158    0.4740
+         0         0         0
+
+  Columns 7 through 9
+
+    0.5047    0.5051    0.4619
+         0         0         0
+         0         0         0
+    0.4953    0.4949    0.5381
+    0.2554    0.2222    0.2402
+    0.2500    0.2677    0.2745
+    0.2446    0.2374    0.2696
+    0.2500    0.2727    0.2157
+    0.2615    0.2266    0.2842
+    0.2051    0.2562    0.2186
+    0.2718    0.2512    0.2240
+    0.2615    0.2660    0.2732
+    0.2762    0.2462    0.2205
+    0.2714    0.2462    0.2821
+    0.2238    0.2615    0.2821
+    0.2286    0.2462    0.2154
+    0.4921    0.5258    0.5047
+         0         0         0
+         0         0         0
+    0.5079    0.4742    0.4953
+    0.2277    0.2714    0.2775
+    0.2426    0.2524    0.2461
+    0.2525    0.2238    0.2461
+    0.2772    0.2524    0.2304
+    0.2463    0.2356    0.2634
+    0.2562    0.2308    0.2341
+    0.2069    0.2788    0.2634
+    0.2906    0.2548    0.2390
+    0.2607    0.2183    0.2450
+    0.2607    0.2538    0.2250
+    0.2607    0.2690    0.2650
+    0.2180    0.2589    0.2650
+    0.0000    0.0000    0.0000
+    0.4948    0.4817    0.5288
+    0.5052    0.5183    0.4712
+         0         0         0
+
+  Column 10
+
+    0.4681
+         0
+         0
+    0.5319
+    0.2822
+    0.2327
+    0.2426
+    0.2426
+    0.2250
+    0.2550
+    0.2550
+    0.2650
+    0.2460
+    0.2406
+    0.2406
+    0.2727
+    0.4656
+         0
+         0
+    0.5344
+    0.2751
+    0.2275
+    0.2540
+    0.2434
+    0.2315
+    0.2512
+    0.2512
+    0.2660
+    0.2158
+    0.2737
+    0.2526
+    0.2579
+    0.0000
+    0.5023
+    0.4977
+         0
+
+
+P_Noise_mean =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+  Column 1
+
+    [36×1 double]
+
+  Column 2
+
+    [36×1 double]
+
+
+P =
+
+  Columns 1 through 3
+
+    0.5186    0.5158    0.4886
+         0         0         0
+         0         0         0
+    0.4814    0.4842    0.5114
+    0.2612    0.2488    0.2336
+    0.2574    0.2670    0.2550
+    0.2419    0.2555    0.2709
+    0.2395    0.2287    0.2405
+    0.2599    0.2505    0.2387
+    0.2586    0.2653    0.2498
+    0.2413    0.2505    0.2611
+    0.2401    0.2337    0.2503
+    0.2820    0.2648    0.2451
+    0.2211    0.2395    0.2594
+    0.2366    0.2510    0.2435
+    0.2603    0.2447    0.2520
+    0.5032    0.5043    0.5045
+         0         0         0
+         0         0         0
+    0.4968    0.4957    0.4955
+    0.2694    0.2372    0.2498
+    0.2337    0.2671    0.2547
+    0.2318    0.2638    0.2500
+    0.2650    0.2319    0.2455
+    0.2535    0.2614    0.2554
+    0.2453    0.2376    0.2447
+    0.2651    0.2544    0.2331
+    0.2361    0.2466    0.2667
+    0.2233    0.2502    0.2429
+    0.2754    0.2488    0.2572
+    0.2798    0.2541    0.2615
+    0.2214    0.2469    0.2383
+    0.0000    0.0000    0.0000
+    0.4987    0.4990    0.5001
+    0.5013    0.5010    0.4999
+         0         0         0
+
+  Columns 4 through 6
+
+    0.5092    0.5105    0.4986
+         0         0         0
+         0         0         0
+    0.4908    0.4895    0.5014
+    0.2701    0.2212    0.2120
+    0.2391    0.2893    0.2866
+    0.2374    0.2578    0.2733
+    0.2534    0.2317    0.2281
+    0.2666    0.2320    0.2620
+    0.2426    0.2785    0.2366
+    0.2596    0.2645    0.2407
+    0.2312    0.2250    0.2607
+    0.2617    0.2481    0.2583
+    0.2458    0.2309    0.2269
+    0.2475    0.2623    0.2403
+    0.2450    0.2587    0.2745
+    0.5075    0.4790    0.4853
+         0         0         0
+         0         0         0
+    0.4925    0.5210    0.5147
+    0.2638    0.2548    0.2336
+    0.2437    0.2242    0.2516
+    0.2624    0.2417    0.2690
+    0.2301    0.2793    0.2457
+    0.2411    0.2498    0.2307
+    0.2327    0.2537    0.2667
+    0.2681    0.2606    0.2679
+    0.2581    0.2359    0.2347
+    0.2174    0.2293    0.2370
+    0.2564    0.2742    0.2603
+    0.2901    0.2497    0.2482
+    0.2361    0.2468    0.2544
+    0.0000    0.0000    0.0000
+    0.4738    0.5035    0.4973
+    0.5262    0.4965    0.5027
+         0         0         0
+
+  Columns 7 through 9
+
+    0.4855    0.4997    0.5016
+         0         0         0
+         0         0         0
+    0.5145    0.5003    0.4984
+    0.2486    0.2458    0.2338
+    0.2369    0.2539    0.2678
+    0.2578    0.2520    0.2766
+    0.2566    0.2483    0.2218
+    0.2549    0.2509    0.2830
+    0.2307    0.2488    0.2186
+    0.2437    0.2594    0.2241
+    0.2707    0.2409    0.2744
+    0.2483    0.2449    0.2239
+    0.2581    0.2528    0.2865
+    0.2373    0.2547    0.2776
+    0.2563    0.2475    0.2120
+    0.5064    0.4978    0.5104
+         0         0         0
+         0         0         0
+    0.4936    0.5022    0.4896
+    0.2544    0.2661    0.2622
+    0.2520    0.2317    0.2482
+    0.2442    0.2443    0.2449
+    0.2494    0.2580    0.2447
+    0.2622    0.2403    0.2485
+    0.2392    0.2493    0.2444
+    0.2234    0.2593    0.2530
+    0.2752    0.2510    0.2540
+    0.2428    0.2319    0.2569
+    0.2586    0.2577    0.2360
+    0.2637    0.2659    0.2535
+    0.2349    0.2445    0.2536
+    0.0000    0.0000    0.0000
+    0.5014    0.4897    0.4929
+    0.4986    0.5103    0.5071
+         0         0         0
+
+  Column 10
+
+    0.4860
+         0
+         0
+    0.5140
+    0.2498
+    0.2363
+    0.2394
+    0.2746
+    0.2410
+    0.2450
+    0.2660
+    0.2480
+    0.2469
+    0.2422
+    0.2391
+    0.2717
+    0.4891
+         0
+         0
+    0.5109
+    0.2572
+    0.2319
+    0.2498
+    0.2611
+    0.2381
+    0.2549
+    0.2480
+    0.2591
+    0.2276
+    0.2654
+    0.2615
+    0.2455
+    0.0000
+    0.4930
+    0.5070
+         0
+
+
+P_Noise_mean =
+
+  1×2 <a href="matlab:helpPopup cell" style="font-weight:bold">cell</a> array
+
+  Column 1
+
+    [36×1 double]
+
+  Column 2
+
+    [36×1 double]
+
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> (…) with properties:
+
+         String: {1×3 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+
+h = 
+
+  <a href="matlab:helpPopup matlab.graphics.illustration.Legend" style="font-weight:bold">Legend</a> (…) with properties:
+
+         String: {1×1 cell}
+       Location: 'northeast'
+    Orientation: 'vertical'
+       FontSize: 9
+       Position: [1×4 double]
+          Units: 'normalized'
+
+  Show <a href="matlab:if exist('h', 'var'), matlab.graphics.internal.getForDisplay('h', h, 'matlab.graphics.illustration.Legend'), else, matlab.graphics.internal.getForDisplay('h'), end">all properties</a>
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 192)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',192,0)">line 192</a>)] 
+
+h1 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Histogram" style="font-weight:bold">Histogram</a> with properties:
+
+             Data: [10×1 double]
+           Values: [1×19 double]
+          NumBins: 19
+         BinEdges: [1×20 double]
+         BinWidth: 0.0079
+        BinLimits: [1×2 double]
+    Normalization: 'count'
+        FaceColor: 'auto'
+        EdgeColor: [0 0 0]
+
+  Show <a href="matlab:if exist('h1', 'var'), matlab.graphics.internal.getForDisplay('h1', h1, 'matlab.graphics.chart.primitive.Histogram'), else, matlab.graphics.internal.getForDisplay('h1'), end">all properties</a>
+
+[Warning: Ignoring extra legend
+entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 658)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',658,0)">line 658</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 334)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',334,0)">line 334</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 282)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',282,0)">line 282</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 207)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',207,0)">line 207</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 214)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',214,0)">line 214</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 215)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',215,0)">line 215</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 216)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',216,0)">line 216</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 217)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',217,0)">line 217</a>)] 
+{Invalid or deleted object.
+
+Error in
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('reportGeneratorSolverTest', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m', 219)" style="font-weight:bold">reportGeneratorSolverTest</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',219,0)">line
+219</a>)
+fig.PaperOrientation='landscape';
+} 
+opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\reportGeneratorSolverTest.m',219,0)
+
+fig = 
+
+  <a href="matlab:helpPopup matlab.ui.Figure" style="font-weight:bold">Figure</a> (2) with properties:
+
+      Number: 2
+        Name: ''
+       Color: [1×3 double]
+    Position: [403 246 560 420]
+       Units: 'pixels'
+
+  Show <a href="matlab:if exist('fig', 'var'), matlab.graphics.internal.getForDisplay('fig', fig, 'matlab.ui.Figure'), else, matlab.graphics.internal.getForDisplay('fig'), end">all properties</a>
+
+
+h1 = 
+
+  <a href="matlab:helpPopup matlab.graphics.chart.primitive.Histogram" style="font-weight:bold">Histogram</a> with properties:
+
+             Data: [10×1 double]
+           Values: [1×19 double]
+          NumBins: 19
+         BinEdges: [1×20 double]
+         BinWidth: 0.0079
+        BinLimits: [1×2 double]
+    Normalization: 'count'
+        FaceColor: 'auto'
+        EdgeColor: [0 0 0]
+
+  Show <a href="matlab:if exist('h1', 'var'), matlab.graphics.internal.getForDisplay('h1', h1, 'matlab.graphics.chart.primitive.Histogram'), else, matlab.graphics.internal.getForDisplay('h1'), end">all properties</a>
+
+[Warning: Ignoring extra legend
+entries.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>set_children_and_strings', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 658)" style="font-weight:bold">legend>set_children_and_strings</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',658,0)">line 658</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend>make_legend', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 334)" style="font-weight:bold">legend>make_legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',334,0)">line 334</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('legend', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p', 282)" style="font-weight:bold">legend</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\scribe\legend.p',282,0)">line 282</a>)] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+[Warning: Imaginary parts of
+complex X and/or Y arguments
+ignored] 
+
+h = 
+
+  4×1 <a href="matlab:helpPopup matlab.graphics.chart.primitive.Line" style="font-weight:bold">Line</a> array:
+
+  Line
+  Line
+  Line
+  Line
+
+[Warning: Error updating Text.
+
+ Character vector must have valid
+ interpreter syntax:
+# simulation
+] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('defaulterrorcallback', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m', 12)" style="font-weight:bold">defaulterrorcallback</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\defaulterrorcallback.m',12,0)">line 12</a>)
+  In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('print', 'C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m', 36)" style="font-weight:bold">print</a> (<a href="matlab: opentoline('C:\Program Files\MATLAB\R2016b\toolbox\matlab\graphics\print.m',36,0)">line 36</a>)] 
+doc
+simulationSequentialTestSolver
+>>>>>>> MaximumLikelihood-Solver-Analysis

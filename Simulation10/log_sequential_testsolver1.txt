@@ -1,0 +1,91 @@
+
+#### 	 Ideal State QST 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Elapsed time is 128.852251 seconds.
+
+#### 	 done 	 #### 
+
+#### 	 Ideal State with White Noise QST 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+Elapsed time is 117.678258 seconds.
+[Warning: Escaped character '\d' is
+not valid. See 'doc sprintf' for
+supported special characters.] 
+[> In <a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulationParallelTestSolver', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationParallelTestSolver.m', 111)" style="font-weight:bold">simulationParallelTestSolver</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationParallelTestSolver.m',111,0)">line 111</a>)] 
+
+#### 
+ Starting parallel Simulations... 
+
+#### 	 Start Sim.	 1 von	 1 	 #### 
+Optimization terminated: average change in the fitness value less than options.FunctionTolerance.
+{Error using
+<a href="matlab:matlab.internal.language.introspective.errorDocCallback('simulationParallelTestSolver', 'C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationParallelTestSolver.m', 123)" style="font-weight:bold">simulationParallelTestSolver</a> (<a href="matlab: opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationParallelTestSolver.m',123,0)">line
+123</a>)
+Invalid file identifier. Use fopen
+to generate a valid file
+identifier.
+} 
+opentoline('C:\Users\Laura\polybox\ETH\6_6.Semester\Semesterarbeit\Matlab\Git\QST\Simulation10\simulationParallelTestSolver.m',123,0)
+fileID
+{Undefined function or variable
+'fileID'.
+} 
+ii
+
+ii =
+
+     6
+
+        fileID = fopen([OutputFolder, 'solver_ga_noise_',num2str(ii),'.txt'],'w');
+{Undefined function or variable
+'OutputFolder'.
+} 
+        fileID = fopen([OutputFolder, 'solver_ga_noise_',num2str(ii),'.txt'],'w');
+
+Output
+
+Output = 
+
+  <a href="matlab:helpPopup struct" style="font-weight:bold">struct</a> with fields:
+
+      problemtype: 'unconstrained'
+         rngstate: [1×1 struct]
+      generations: 158
+        funccount: 31800
+          message: 'Optimizatio…'
+    maxconstraint: []
+
+        fprintf(fileID,Output);
+{Error using <a href="matlab:matlab.internal.language.introspective.errorDocCallback('fprintf')" style="font-weight:bold">fprintf</a>
+Invalid file identifier. Use fopen
+to generate a valid file
+identifier.
+} 
+        fileID = fopen([OutputFolder, 'solver_fmin_proj_',num2str(ii),'.txt'],'w');
+fileID
+
+fileID =
+
+    -1
+
+[OutputFolder, 'solver_fmin_proj_',num2str(ii),'.txt']
+
+ans =
+
+OutputSolverTest1\solver_fmin_proj_6.txt
+
+fopen([OutputFolder, 'solver_fmin_proj_',num2str(ii),'.txt'],'w');
+fileID=fopen([OutputFolder, 'solver_fmin_proj_',num2str(ii),'.txt'],'w');
+fileID
+
+fileID =
+
+    -1
+
+fileID=fopen('solver_fmin_proj_',num2str(ii),'.txt'],'w');
+ fileID=fopen('solver_fmin_proj_',num2str(ii),'.txt'],'w');
+                                                    
+{Error: Unbalanced or unexpected
+parenthesis or bracket.
+} 
+fileID=fopen(['solver_fmin_proj_',num2str(ii),'.txt'],'w');
