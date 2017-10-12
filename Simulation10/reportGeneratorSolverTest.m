@@ -17,7 +17,7 @@ lstsqr=1;
 solverdetails=[61,54,34,17]; % Choose simulations for which detailed solver analysis is done
 
 
-outputFolder = 'OutputSolverTest100_Noise100_WNM1/';
+outputFolder = 'OutputSolverTest100_Noise100_WNM08/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -330,7 +330,7 @@ fig.PaperPositionMode = 'auto';
 print('-fillpage',[outputFolder, 'trace'],'-dpdf')
 %close(fig)
 
-%% Plot Time
+%% Plot Solver Time
 fig=figure();
 avgrTime = mean(tElapsed(:,3:8),1);
 plot(tElapsed(:,3:8))
@@ -356,14 +356,14 @@ if (fmin==1 || ga==1 || lstsqr==1)
         if fmin==1
             subplot(2,1,1)
             filename = 'solver_fmin_noise_';
-            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
             semilogy(data{3},data{:,2},'DisplayName','fminsearch')
             hold on
             subplot(2,1,2)
             filename = 'solver_fmin_proj_';
-            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
             semilogy(data{3},data{:,2},'DisplayName','fminsearch')
@@ -372,14 +372,14 @@ if (fmin==1 || ga==1 || lstsqr==1)
         if ga==1
             subplot(2,1,1)
             filename = 'solver_ga_noise_';
-            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec,'HeaderLines',1);
             fclose(fileID);
             semilogy(data{3},data{:,2},'DisplayName','genetic algorithm')
             hold on
             subplot(2,1,2)
             filename = 'solver_ga_proj_';
-            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec,'HeaderLines',1);
             fclose(fileID);
             semilogy(data{3},data{2},'DisplayName','genetic algorithm')
@@ -388,14 +388,14 @@ if (fmin==1 || ga==1 || lstsqr==1)
         if lstsqr==1
             subplot(2,1,1)
             filename = 'solver_lstsqr_noise_';
-            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
             semilogy(data{3},data{:,2},'DisplayName','nonlinlsq')
             hold on
             subplot(2,1,2)
             filename = 'solver_lstsqr_proj_';
-            fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+            fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
             semilogy(data{3},data{:,2},'DisplayName','nonlinlsq')
