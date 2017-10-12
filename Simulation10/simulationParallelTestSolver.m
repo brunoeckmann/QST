@@ -13,10 +13,10 @@ b=1;
 nMeasurement=100;
 
 % Choose White Noise Model lambda factor
-lambda = 1;
+lambda = 0.8;
 
 % Choose Noise Factor
-countFactor=20; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+countFactor=100; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
@@ -26,7 +26,7 @@ lstsqr=1;
 
 % Choose if Solver Convergence Output is created
 solverOutput=1;
-OutputFolder = 'OutputSolverTest100_HighNoise_WNM08/';
+OutputFolder = 'OutputSolverTest100_Noise100_WNM08/';
 
 % Choose Logfile
 logfile = [OutputFolder,'log.txt'];
@@ -100,7 +100,7 @@ n = countSignal(Chi,rho_Ideal);
 
 fprintf('\n#### \t Ideal State QST \t #### \n');
 tic
-[rho_Ideal_qst, Output_Ideal]=qst_maximumlikelihood_ga(rho_Ideal,Chi,n);
+[rho_Ideal_qst, Output_Ideal]=qst_maximumlikelihood_lstsqr(rho_Ideal,Chi,n);
 toc
 fprintf('\n#### \t done \t #### \n');
 
@@ -113,9 +113,9 @@ rho_WNM = rho_Ideal * lambda + (1-lambda)/4*eye(4);
 P_WNM = behaviour(MM, rho_WNM);
 fprintf('\n#### \t Ideal State with White Noise QST \t #### \n');
 tic
-[rho_WNM, Output_WNM] = qst_maximumlikelihood_ga(rho_WNM,Chi,P_QST_Selection(P_WNM));
+[rho_WNM_qst, Output_WNM] = qst_maximumlikelihood_lstsqr(rho_WNM,Chi,P_QST_Selection(P_WNM));
 toc
-fprintf('\n#### \done \t #### \n');
+fprintf('\n#### \t done \t #### \n');
 
 
 %% Start Simulation
@@ -125,7 +125,7 @@ rho_Noise=cell(nMeasurement,8);
 tElapsed=zeros(nMeasurement,8);
 
 fprintf('\n Starting parallel Simulations... \n');
-poolobj = parpool;
+%poolobj = parpool;
 ppm = ParforProgMon('Simulation Progress', nMeasurement);
 
 parfor ii=1:nMeasurement
@@ -151,7 +151,7 @@ parfor ii=1:nMeasurement
     [r{2}, M{2}] = qst_linearinversion(Chi,P_QST_Selection(P{2}));
     t(2) = toc;
     
-    formatSpec = '%i\t %e\t %s\n';
+    formatSpec = '%i\t %e\t %i\t %s\n';
     
     if fmin==1
         
@@ -232,6 +232,18 @@ end
 delete(poolobj)
 diary off
 
-
+% %% Test
+% P = P_Noise(ii,:);
+% M = M_Noise(ii,:);
+% r = rho_Noise(ii,:);
+% t = tElapsed(ii,:);
+% 
+% tic
+% [A,B] = qst_maximumlikelihood_gs(r{2},Chi,P_QST_Selection(P{2}));
+% fileID = fopen([OutputFolder, 'solver_gs_proj_',num2str(ii),'.txt'],'w');
+% O=Output.';
+% fprintf(fileID,formatSpec, O{:,:});
+% fclose(fileID);
+% toc
 
 

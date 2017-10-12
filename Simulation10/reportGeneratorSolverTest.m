@@ -14,10 +14,10 @@ ga=1;
 fmin=1;
 lstsqr=1;
 
-solverdetails=[61,54,34]; % Choose simulations for which detailed solver analysis is done
+solverdetails=[61,54,34,17]; % Choose simulations for which detailed solver analysis is done
 
 
-outputFolder = 'OutputSolverTest100_HighNoise_WNM08/';
+outputFolder = 'OutputSolverTest100_Noise100_WNM1/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -67,6 +67,8 @@ MM{3,2}=chi{6};
 
 %% Initial State
 plotRho(rho_Ideal,[outputFolder,'rho_targetState.pdf'],'\textbf{Target State $\rho_{ideal}$}');
+plotRho(rho_Ideal,[outputFolder,'rho_targetStateWNM.pdf'],['\textbf{Target State $\rho_{WNM}$ White Noise $\lambda=$',num2str(lambda),'}']);
+
 
 %% Check Signaling of Noisy and Projected Behaviours
 nonsignalingList(:,1) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,1}})); % Noisy Behaviour
@@ -246,40 +248,45 @@ print('-fillpage',[outputFolder, 'fidelity'],'-dpdf')
 %close(fig)
 
 %% Plot Fidelity Histogram
+str_list={'fminsearch','genetic algorithm','nonlinlsq'};
 
-fig=figure()
-edges=linspace(0.9,1.05,20);
-subplot(2,1,1)
-h1=histogram(real(fidelityList(:,1)),edges) % Noisy with LI
-set(gca,'YLim',[0,length(fidelityList)*1.1]) 
-hold on
-histogram(real(fidelityList(:,5)),edges) % Noisy with ML
-ax = gca;
-ax.ColorOrderIndex = 1;
-plot([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--')
-plot([mean(fidelityList(:,5)), mean(fidelityList(:,5))],get(gca,'YLim'),'LineStyle','--')
-h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood ga',...
-    'average','average');
-legend('Location','bestoutside')
-set(h,'Interpreter','latex')
+for i=1:3
+    fig=figure()
+    edges=linspace(0.8525,1.0475,40);
+    subplot(2,1,1)
+    h1=histogram(real(fidelityList(:,1)),edges) % Noisy with LI
+    set(gca,'YLim',[0,length(fidelityList)*1.1]) 
+    hold on
+    histogram(real(fidelityList(:,2)),edges) % Proj with LI
+    ax = gca;
+    ax.ColorOrderIndex = 1;
+    plot([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--')
+    plot([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--')
 
-subplot(2,1,2)
-histogram(real(fidelityList(:,2)),edges) % Proj with LI
-set(gca,'YLim',[0,length(fidelityList)*1.1]) 
-hold on
-histogram(real(fidelityList(:,6)),edges) % Proj with ML
-ax = gca;
-ax.ColorOrderIndex = 1;
-plot([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--')
-plot([mean(fidelityList(:,6)), mean(fidelityList(:,6))],get(gca,'YLim'),'LineStyle','--')
-h=legend('$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood ga',...
-    'average','average');
-legend('Location','bestoutside')
-set(h,'Interpreter','latex')
+    h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion',...
+        'average','average');
+    legend('Location','northwest')
+    set(h,'Interpreter','latex')
 
-fig.PaperOrientation='landscape';
-print('-fillpage',[outputFolder, 'fidelityHistogramm'],'-dpdf')
+    subplot(2,1,2)
+    %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
+    histogram(real(fidelityList(:,5)),edges) % Noisy with ML
+    hold on
+    histogram(real(fidelityList(:,6)),edges) % Proj with ML
 
+    ax = gca;
+    ax.ColorOrderIndex = 1;
+    plot([mean(fidelityList(:,5)), mean(fidelityList(:,5))],get(gca,'YLim'),'LineStyle','--')
+    plot([mean(fidelityList(:,6)), mean(fidelityList(:,6))],get(gca,'YLim'),'LineStyle','--')
+    h=legend(['$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ ML ',str_list{i}],['$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ ML ',str_list{i}],...
+        'average','average');
+    legend('Location','northwest')
+    set(h,'Interpreter','latex')
+
+    fig.PaperOrientation='landscape';
+    print('-fillpage',[outputFolder, 'fidelityHistogramm_',str_list{i}],'-dpdf')
+end
+    
 %% Plot Fidelity of Simulation 1
 fig=figure('units','normalized','outerposition',[0 0 0.8 0.8]);
 
@@ -342,7 +349,7 @@ print('-fillpage',[outputFolder, 'timesolverml'],'-dpdf')
 
 %% Generate Convergence Plots
 if (fmin==1 || ga==1 || lstsqr==1)
-    formatSpec = '%d\t %f\t %s\n';
+    formatSpec = '%d\t %f\t %d\t %s\n';
 
     for i=1:length(solverdetails)
         fig=figure();
@@ -352,14 +359,14 @@ if (fmin==1 || ga==1 || lstsqr==1)
             fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
-            semilogy(data{:,2},'DisplayName','fmin Noise')
+            semilogy(data{3},data{:,2},'DisplayName','fminsearch')
             hold on
             subplot(2,1,2)
             filename = 'solver_fmin_proj_';
             fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
-            semilogy(data{:,2},'DisplayName','fmin Proj')
+            semilogy(data{3},data{:,2},'DisplayName','fminsearch')
             hold on
         end
         if ga==1
@@ -368,14 +375,14 @@ if (fmin==1 || ga==1 || lstsqr==1)
             fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
             data = textscan(fileID,formatSpec,'HeaderLines',1);
             fclose(fileID);
-            semilogy(data{:,2},'DisplayName','GA Noise')
+            semilogy(data{3},data{:,2},'DisplayName','genetic algorithm')
             hold on
             subplot(2,1,2)
             filename = 'solver_ga_proj_';
             fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
             data = textscan(fileID,formatSpec,'HeaderLines',1);
             fclose(fileID);
-            semilogy(data{:,2},'DisplayName','GA Proj')
+            semilogy(data{3},data{2},'DisplayName','genetic algorithm')
             hold on
         end
         if lstsqr==1
@@ -384,30 +391,31 @@ if (fmin==1 || ga==1 || lstsqr==1)
             fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
-            semilogy(data{:,2},'DisplayName','LSTSQR Noise')
+            semilogy(data{3},data{:,2},'DisplayName','nonlinlsq')
             hold on
             subplot(2,1,2)
             filename = 'solver_lstsqr_proj_';
             fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
-            semilogy(data{:,2},'DisplayName','LSTSQR Proj')
+            semilogy(data{3},data{:,2},'DisplayName','nonlinlsq')
         end
         
         subplot(2,1,1)
-        title(['Convergence in Simulation #',num2str(solverdetails(i))])
+        title(['Convergence in Simulation #',num2str(solverdetails(i)),' QST Maximum Likelihood \rho_{Noise}'])
 
         legend('show')
-        ylim([10e-5 10e-3])
-        xlim([0 2000])
-        xlabel('# Iterations','interpreter','latex')
+        %ylim([10e-5 10e-3])
+        %xlim([0 2000])
+        xlabel('# function evaluations','interpreter','latex')
         ylabel('min($\mathcal{L}$)','interpreter','latex')
         
         subplot(2,1,2)
+        title(['Convergence in Simulation #',num2str(solverdetails(i)),' QST Maximum Likelihood \rho_{Proj}'])
         legend('show')
-        ylim([0 0.005])
-        xlim([0 2000])
-        xlabel('# Iterations','interpreter','latex')
+        %lim([0 0.005])
+        %xlim([0 2000])
+        xlabel('# function evaluations','interpreter','latex')
         ylabel('min($\mathcal{L}$)','interpreter','latex')
         
         fig.PaperOrientation='landscape';

@@ -150,8 +150,8 @@ L = @(t) (measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2 / 2*
         else
             output{size(output,1),2} =state.Best(end);
         end
-        
-        output{size(output,1),3} =flag;
+        output{size(output,1),3} =state.FunEval;
+        output{size(output,1),4} =flag;
     end
     
     x = ga(L,16,[],[],[],[],[],[],[],[],options);

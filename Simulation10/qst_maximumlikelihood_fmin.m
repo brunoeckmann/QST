@@ -141,7 +141,8 @@ L = @(t) (measurementBasis{1}'*rho(t)*measurementBasis{1}-countSignal(1))^2 / 2*
         stop=false;
         output{size(output,1)+1,1} =optimvalues.iteration;
         output{size(output,1),2} =optimvalues.fval;
-        output{size(output,1),3} =state;
+        output{size(output,1),3} =optimvalues.funccount;
+        output{size(output,1),4} =state;
     end
     
     
