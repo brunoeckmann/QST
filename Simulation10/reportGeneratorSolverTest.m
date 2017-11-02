@@ -12,12 +12,12 @@ simIndex=1; % Choose index for detailed report of this simulation
 % Choose Active MaximumLikelihood Solvers
 ga=1;
 fmin=1;
-lstsqr=1;
+lsqnonlin=1;
 
-solverdetails=[61,54,34,17]; % Choose simulations for which detailed solver analysis is done
+solverdetails=[1]; % Choose simulations for which detailed solver analysis is done
 
 
-outputFolder = 'OutputSolverTest100_Noise100_WNM08/';
+outputFolder = 'OutputSolverTest100_Noise20_WNM1/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -45,14 +45,14 @@ for ii=1:4
     end
 end
 
-%% Extended Tomographic Set: Basis for NS projection
+%% Extended Tomographic Set: Basis for NS regularization
 chi{5}=1/sqrt(2)*([1;0]-[0;1]);
 chi{6}=1/sqrt(2)*([-1;1i]);
 
-ChiProj=cell(36,1);
+ChiReg=cell(36,1);
 for ii=1:6
    for j=1:6
-      ChiProj{6*(ii-1)+j}=kron(chi{ii},chi{j}); 
+      ChiReg{6*(ii-1)+j}=kron(chi{ii},chi{j}); 
    end
 end
 
@@ -70,9 +70,9 @@ plotRho(rho_Ideal,[outputFolder,'rho_targetState.pdf'],'\textbf{Target State $\r
 plotRho(rho_Ideal,[outputFolder,'rho_targetStateWNM.pdf'],['\textbf{Target State $\rho_{WNM}$ White Noise $\lambda=$',num2str(lambda),'}']);
 
 
-%% Check Signaling of Noisy and Projected Behaviours
+%% Check Signaling of Noisy and Regularized Behaviours
 nonsignalingList(:,1) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,1}})); % Noisy Behaviour
-nonsignalingList(:,2) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,2}})); % Projected Behaviour
+nonsignalingList(:,2) = num2cell(cellfun(@checkNonSignaling,{P_Noise{:,2}})); % regected Behaviour
 
 %% Calculate Traces
 for i=1:8
@@ -84,16 +84,32 @@ end
 delta_P(:,1)=cellfun(@(A) A-P_Ideal,{P_Noise{:,1}}, 'UniformOutput', false);
 delta_P(:,2)=cellfun(@(A) A-P_Ideal,{P_Noise{:,2}}, 'UniformOutput', false);
 delta_P_Vector=cell2mat(cellfun(@(A) reshape(A-P_Ideal,36,1), {P_Noise{:,1}}, 'UniformOutput', false));
-delta_P_Vector_Proj=cell2mat(cellfun(@(A) reshape(A-P_Ideal,36,1), {P_Noise{:,2}}, 'UniformOutput', false));
+delta_P_Vector_reg=cell2mat(cellfun(@(A) reshape(A-P_Ideal,36,1), {P_Noise{:,2}}, 'UniformOutput', false));
 
 %% Calculate Fidelity
-for i = 1:8
-    fidelityList(:,i)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,i}}));
+ll = [1,2];
+if fmin==1
+    ll = [ll,3,4];
+end
+if ga==1
+    ll = [ll,5,6];
+end
+if lsqnonlin==1
+    ll=[ll,7,8];
+end
+
+for i = ll
+    fidelityList(:,i)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,i}})); % Fidelity with respect to 
+    superfidelityList(:,i)=(cellfun(@(A) SuperFidelity(A,rho_Ideal),{rho_Noise{:,i}})); % Fidelity with respect to 
+
+    %fidelityList(:,i)=(cellfun(@(A)
+    %Fidelity(A,rho_WNM),{rho_Noise{:,i}})); %Fidelity with respect to
+    %rho_WNM
 end
     
 
 %% Calculate Pideal + (1-x)dP
-deltaP = P_Noise{simIndex,1}-P_Noise{simIndex,2}; % P_Noise - P_Proj_LI
+deltaP = P_Noise{simIndex,1}-P_Noise{simIndex,2}; % P_Noise - P_reg_LI
 x=linspace(0,1,11);
 
 
@@ -108,29 +124,29 @@ end
 
 %% Plot Reconstruced States
 plotRho(rho_Noise{simIndex,1},[outputFolder,'rho_noiseState_li.pdf'],{'\textbf{Reconstructed State $\rho_{Noise}$}','Linear Inversion'});
-plotRho(rho_Noise{simIndex,2},[outputFolder,'rho_projState_li.pdf'],{'\textbf{Reconstructed State after Projection $\rho_{Proj}$}','Linear Inversion'});
+plotRho(rho_Noise{simIndex,2},[outputFolder,'rho_regState_li.pdf'],{'\textbf{Reconstructed State after Regularization $\rho_{reg}$}','Linear Inversion'});
 
 plotRho(rho_Noise{simIndex,3},[outputFolder,'rho_noiseState_ml_fmin.pdf'],{'\textbf{Reconstructed State $\rho_{Noise}$}','Maximum Likelihood'});
-plotRho(rho_Noise{simIndex,4},[outputFolder,'rho_projState_ml_fmin.pdf'],{'\textbf{Reconstructed State after Projection $\rho_{Proj}$}','Maximum Likelihood'});
+plotRho(rho_Noise{simIndex,4},[outputFolder,'rho_regState_ml_fmin.pdf'],{'\textbf{Reconstructed State after Regularization $\rho_{reg}$}','Maximum Likelihood'});
 
 plotRho(rho_Noise{simIndex,5},[outputFolder,'rho_noiseState_ml_ga.pdf'],{'\textbf{Reconstructed State $\rho_{Noise}$}','Maximum Likelihood'});
-plotRho(rho_Noise{simIndex,6},[outputFolder,'rho_projState_ml_ga.pdf'],{'\textbf{Reconstructed State after Projection $\rho_{Proj}$}','Maximum Likelihood'});
+plotRho(rho_Noise{simIndex,6},[outputFolder,'rho_regState_ml_ga.pdf'],{'\textbf{Reconstructed State after Regularization $\rho_{reg}$}','Maximum Likelihood'});
 
-plotRho(rho_Noise{simIndex,7},[outputFolder,'rho_noiseState_ml_lstsqr.pdf'],{'\textbf{Reconstructed State $\rho_{Noise}$}','Maximum Likelihood'});
-plotRho(rho_Noise{simIndex,8},[outputFolder,'rho_projState_ml_lstsqr.pdf'],{'\textbf{Reconstructed State after Projection $\rho_{Proj}$}','Maximum Likelihood'});
+plotRho(rho_Noise{simIndex,7},[outputFolder,'rho_noiseState_ml_lsqnonlin.pdf'],{'\textbf{Reconstructed State $\rho_{Noise}$}','Maximum Likelihood'});
+plotRho(rho_Noise{simIndex,8},[outputFolder,'rho_regState_ml_lsqnonlin.pdf'],{'\textbf{Reconstructed State after Regularization $\rho_{reg}$}','Maximum Likelihood'});
 
 
-plotRho(rho_Noise{simIndex,1}-rho_Ideal,[outputFolder,'rho_deltaNoiseState_li.pdf'],{'\textbf{Difference to Target State before Projection $\rho_{Noise}-\rho_{Ideal}$}','Linear Inversion'});
-plotRho(rho_Noise{simIndex,2}-rho_Ideal,[outputFolder,'rho_deltaProjState_li.pdf'],{'\textbf{Difference to Target State after Projection $\rho_{Proj}-\rho_{Ideal}$}','Maximum Likelihood'});
-plotRho(rho_Noise{simIndex,3}-rho_Ideal,[outputFolder,'rho_deltaNoiseState_ml.pdf'],{'\textbf{Difference to Target State before Projection $\rho_{Noise}-\rho_{Ideal}$}','Maximum Likelihood'});
-plotRho(rho_Noise{simIndex,4}-rho_Ideal,[outputFolder,'rho_deltaProjState_ml.pdf'],{'\textbf{Difference to Target State after Projection $\rho_{Proj}-\rho_{Ideal}$}','Maximum Likelihood'});
+plotRho(rho_Noise{simIndex,1}-rho_Ideal,[outputFolder,'rho_deltaNoiseState_li.pdf'],{'\textbf{Difference to Target State before Regularization $\rho_{Noise}-\rho_{Ideal}$}','Linear Inversion'});
+plotRho(rho_Noise{simIndex,2}-rho_Ideal,[outputFolder,'rho_deltaregState_li.pdf'],{'\textbf{Difference to Target State after Regularization $\rho_{reg}-\rho_{Ideal}$}','Maximum Likelihood'});
+plotRho(rho_Noise{simIndex,3}-rho_Ideal,[outputFolder,'rho_deltaNoiseState_ml.pdf'],{'\textbf{Difference to Target State before Regularization $\rho_{Noise}-\rho_{Ideal}$}','Maximum Likelihood'});
+plotRho(rho_Noise{simIndex,4}-rho_Ideal,[outputFolder,'rho_deltaregState_ml.pdf'],{'\textbf{Difference to Target State after Regularization $\rho_{reg}-\rho_{Ideal}$}','Maximum Likelihood'});
 
 %% Plot Behaviour
 plotBehaviour(P_Ideal,P_Noise, simIndex,[outputFolder,'behaviour.pdf'],['\textbf{Behaviour $P(ab| xy)$ of Simulation ',num2str(simIndex),'}']);
 
 P = cell2mat(cellfun(@(A) {reshape(A,36,1)}, {P_Noise{:,1}})) % Behaviour with Noise
 P_Noise_mean{1,1}=mean(P,2)
-P = cell2mat(cellfun(@(A) {reshape(A,36,1)}, {P_Noise{:,2}})) % Behaviour with Noise after Projection
+P = cell2mat(cellfun(@(A) {reshape(A,36,1)}, {P_Noise{:,2}})) % Behaviour with Noise after Regularization
 P_Noise_mean{1,2}=mean(P,2)
 
 plotBehaviour(P_Ideal, P_Noise_mean, 1, [outputFolder,'behaviour_mean.pdf'],'\textbf{Mean Behaviour $P(ab| xy)$}')
@@ -150,22 +166,22 @@ set(h,'Interpreter','latex')
 
 for jj=1:36 
     pd = fitdist(abs(delta_P_Vector(jj,:))','poisson');
-    pd_proj = fitdist(abs(delta_P_Vector_Proj(jj,:))','poisson');
+    pd_reg = fitdist(abs(delta_P_Vector_reg(jj,:))','poisson');
     var_fit(jj)=pd.lambda*countFactor;
-    var_fit_proj(jj)=pd_proj.lambda;
+    var_fit_reg(jj)=pd_reg.lambda;
 
     var_P(jj)=var(delta_P_Vector(jj,:)*countFactor);
-    var_P_proj(jj)=var(delta_P_Vector_Proj(jj,:)*countFactor);
+    var_P_reg(jj)=var(delta_P_Vector_reg(jj,:)*countFactor);
 end
 
 fig=figure;
 plot(var_P)
 hold on
-plot(var_P_proj)
+plot(var_P_reg)
 plot(var_fit,'--')
-plot(var_fit_proj,'--')
+plot(var_fit_reg,'--')
 plot(reshape(P_Ideal,36,1),'LineWidth',2)
-legend('Poisson Fit', 'Poisson Fit after NS Projection','Variance Func','Variance Func after NS Projection','P Ideal')
+legend('Poisson Fit', 'Poisson Fit after NS Regularization','Variance Func','Variance Func after NS Regularization','P Ideal')
 %saveas(fig,[outputFolder,'noise.pdf']);
 print('-fillpage',[outputFolder, 'noise'],'-dpdf')
 
@@ -180,11 +196,20 @@ mean_delta_P{1}=mean_delta_P{1} / nMeasurement;
 %% Plot Fidelity and P element of NS
 fig=figure('units','normalized','outerposition',[0 0 0.8 0.8]);
 subplot(2,1,1)
-plot(real((fidelityList(:,1))),'b')
+
+plot(real((fidelityList(:,1))),'b','DisplayName','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion')
 hold on
-plot(real((fidelityList(:,3))),'b--')
-plot(real((fidelityList(:,5))),'b:')
-plot(real((fidelityList(:,7))),'b-.')
+
+
+if fmin==1
+    plot(real((fidelityList(:,3))),'b--','DisplayName','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood fminsearch')
+end
+if ga==1
+    plot(real((fidelityList(:,5))),'b:','DisplayName','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood ga')
+end
+if lsqnonlin==1
+    plot(real((fidelityList(:,7))),'b-.','DisplayName','$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood lsqnonlin')
+end
 xlabel('# simulation','interpreter','latex')
 ylabel('Fidelity $\mathcal{F}$','interpreter','latex')
 
@@ -192,50 +217,40 @@ yyaxis right
 ylabel('$P(ab|xy) \in \mathcal{NS}$','interpreter','latex')
 set(gca,'ColorOrder',[0 0 1;1 0 1])
 set(gca,'FontSize',12)
-plot(cell2mat(nonsignalingList),'d')
+plot(cell2mat(nonsignalingList(:,1)),'d','DisplayName','$P_{Noise} \in \mathcal{NS}$');
 ylim([-0.25 1.25])
 yticks([0 1])
 plt = gca;
 plt.YAxis(2).Color='k';
 
-
-h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion',...
-    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood fminsearch',...
-    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood ga',...
-    '$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Maximum Likelihood lstsqr',...
-    '$P_{Noise} \in \mathcal{NS}$', '$P_{Proj} \in \mathcal{NS}$');
+h=legend('show')
 legend('Location','bestoutside')
 set(h,'Interpreter','latex')
 
 subplot(2,1,2)
-plot(real((fidelityList(:,2))),'r')
+plot(real((fidelityList(:,2))),'r','DisplayName','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Linear Inversion')
 hold on
-plot(real((fidelityList(:,4))),'r--')
-plot(real((fidelityList(:,6))),'r:')
-plot(real((fidelityList(:,8))),'r-.')
+if fmin==1
+    plot(real((fidelityList(:,4))),'r--','DisplayName','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Maximum Likelihood fminsearch')
+end
+if ga==1
+    plot(real((fidelityList(:,6))),'r:','DisplayName','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Maximum Likelihood ga')
+end
+if lsqnonlin==1
+    plot(real((fidelityList(:,8))),'r-.',{'DisplayName'},'$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Maximum Likelihood lsqnonlin')
+end
 xlabel('# simulation','interpreter','latex')
 ylabel('Fidelity $\mathcal{F}$','interpreter','latex')
-
-
 xlim([1,size(fidelityList,1)])
-
-
 yyaxis right
 ylabel('$P(ab|xy) \in \mathcal{NS}$','interpreter','latex')
 set(gca,'ColorOrder',[0 0 1;1 0 1])
 set(gca,'FontSize',12)
-plot(cell2mat(nonsignalingList),'d')
-ylim([-0.25 1.25])
+plot(cell2mat(nonsignalingList(:,2)),'d','DisplayName','$P_{reg} \in \mathcal{NS}$');ylim([-0.25 1.25])
 yticks([0 1])
 plt = gca;
 plt.YAxis(2).Color='k';
-
-
-h=legend('$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion',...
-    '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood fminsearch',...
-    '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood ga',...
-    '$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Maximum Likelihood lstsqr',...
-    '$P_{Noise} \in \mathcal{NS}$', '$P_{Proj} \in \mathcal{NS}$');
+h=legend('show')
 legend('Location','bestoutside')
 set(h,'Interpreter','latex')
 
@@ -248,38 +263,60 @@ print('-fillpage',[outputFolder, 'fidelity'],'-dpdf')
 %close(fig)
 
 %% Plot Fidelity Histogram
-str_list={'fminsearch','genetic algorithm','nonlinlsq'};
+str_list={'fminsearch','genetic algorithm','lsqnonlin'};
 
 for i=1:3
     fig=figure()
     edges=linspace(0.8525,1.0475,40);
     subplot(2,1,1)
     h1=histogram(real(fidelityList(:,1)),edges) % Noisy with LI
-    set(gca,'YLim',[0,length(fidelityList)*1.1]) 
+    %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
     hold on
-    histogram(real(fidelityList(:,2)),edges) % Proj with LI
+    histogram(real(fidelityList(:,2)),edges) % reg with LI
     ax = gca;
     ax.ColorOrderIndex = 1;
     plot([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--')
     plot([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--')
 
-    h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ Linear Inversion',...
+    h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Linear Inversion',...
         'average','average');
     legend('Location','northwest')
     set(h,'Interpreter','latex')
 
     subplot(2,1,2)
     %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
-    histogram(real(fidelityList(:,5)),edges) % Noisy with ML
-    hold on
-    histogram(real(fidelityList(:,6)),edges) % Proj with ML
+    if fmin==1 && i==1
+        histogram(real(fidelityList(:,3)),edges) % Noisy with ML
+        hold on
+        histogram(real(fidelityList(:,4)),edges) % reg with ML
+        ax = gca;
+        ax.ColorOrderIndex = 1;
+        plot([mean(fidelityList(:,3)), mean(fidelityList(:,3))],get(gca,'YLim'),'LineStyle','--')
+        plot([mean(fidelityList(:,4)), mean(fidelityList(:,4))],get(gca,'YLim'),'LineStyle','--')
 
-    ax = gca;
-    ax.ColorOrderIndex = 1;
-    plot([mean(fidelityList(:,5)), mean(fidelityList(:,5))],get(gca,'YLim'),'LineStyle','--')
-    plot([mean(fidelityList(:,6)), mean(fidelityList(:,6))],get(gca,'YLim'),'LineStyle','--')
-    h=legend(['$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ ML ',str_list{i}],['$\mathcal{F}(\rho_{Proj},\rho_{Ideal})$ ML ',str_list{i}],...
-        'average','average');
+    end
+    
+    if ga==1 && i==2
+        histogram(real(fidelityList(:,5)),edges) % Noisy with ga
+        hold on
+        histogram(real(fidelityList(:,6)),edges) % reg with ga
+            ax = gca;
+        ax.ColorOrderIndex = 1;
+        plot([mean(fidelityList(:,5)), mean(fidelityList(:,5))],get(gca,'YLim'),'LineStyle','--')
+        plot([mean(fidelityList(:,6)), mean(fidelityList(:,6))],get(gca,'YLim'),'LineStyle','--')
+    end
+    
+    if lsqnonlin==1 && i==3
+        histogram(real(fidelityList(:,7)),edges) % Noisy with nonlinlsq
+        hold on
+        histogram(real(fidelityList(:,8)),edges) % reg with nonlinlsq
+        ax = gca;
+        ax.ColorOrderIndex = 1;    
+        plot([mean(fidelityList(:,7)), mean(fidelityList(:,7))],get(gca,'YLim'),'LineStyle','--')
+        plot([mean(fidelityList(:,8)), mean(fidelityList(:,8))],get(gca,'YLim'),'LineStyle','--')
+    end
+   
+    h=legend(['$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ ML ',str_list{i}],['$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ ML ',str_list{i}]);
     legend('Location','northwest')
     set(h,'Interpreter','latex')
 
@@ -292,7 +329,7 @@ fig=figure('units','normalized','outerposition',[0 0 0.8 0.8]);
 
 plot(x,real((fid)),'o--')
 grid on
-title(['Fidelity $\mathcal{F}(\rho_x,\rho_{ideal} )$ with $P_x = x P_{proj} + (1-x) P_{noise}$'],'interpreter','latex')
+title(['Fidelity $\mathcal{F}(\rho_x,\rho_{ideal} )$ with $P_x = x P_{reg} + (1-x) P_{noise}$'],'interpreter','latex')
 xlabel('x','interpreter','latex')
 ylabel('Fidelity $\mathcal{F}$','interpreter','latex')
 %xlim([1,size(fidelityList,1)])
@@ -315,13 +352,13 @@ xlabel('# simulation','interpreter','latex')
 ylabel('Trace','interpreter','latex')
 xlim([1,size(fidelityList,1)])
 grid on
-% h=legend('Tr($\rho_{Noise}$) Linear Inversion','Tr($\rho_{Proj}$) Linear Inversion',...
-%     'Tr($\rho_{Noise}$) Maximum Likelihood','Tr($\rho_{Proj}$) Maximum Likelihood',...
-%     'Tr($\rho_{Noise}^2$)','Tr($\rho_{Proj}^2$)');
-h=legend('Tr($\rho_{Noise}^2$) Linear Inversion','Tr($\rho_{Proj}^2$) Linear Inversion',...
-    'Tr($\rho_{Noise}^2$) Maximum Likelihood fmin','Tr($\rho_{Proj}^2$) Maximum Likelihood fmin',...
-    'Tr($\rho_{Noise}^2$) Maximum Likelihood ga','Tr($\rho_{Proj}^2$) Maximum Likelihood ga',...
-    'Tr($\rho_{Noise}^2$) Maximum Likelihood lstsqr','Tr($\rho_{Proj}^2$) Maximum Likelihood lstsqr');
+% h=legend('Tr($\rho_{Noise}$) Linear Inversion','Tr($\rho_{reg}$) Linear Inversion',...
+%     'Tr($\rho_{Noise}$) Maximum Likelihood','Tr($\rho_{reg}$) Maximum Likelihood',...
+%     'Tr($\rho_{Noise}^2$)','Tr($\rho_{reg}^2$)');
+h=legend('Tr($\rho_{Noise}^2$) Linear Inversion','Tr($\rho_{reg}^2$) Linear Inversion',...
+    'Tr($\rho_{Noise}^2$) Maximum Likelihood fmin','Tr($\rho_{reg}^2$) Maximum Likelihood fmin',...
+    'Tr($\rho_{Noise}^2$) Maximum Likelihood ga','Tr($\rho_{reg}^2$) Maximum Likelihood ga',...
+    'Tr($\rho_{Noise}^2$) Maximum Likelihood lsqnonlin','Tr($\rho_{reg}^2$) Maximum Likelihood lsqnonlin');
 %legend('Location','bestoutside')
 set(h,'Interpreter','latex')
 fig.PaperOrientation='landscape';
@@ -338,18 +375,65 @@ title('Evaluation time for different Maximum Likelihood Solvers','interpreter','
 xlabel('# simulation','interpreter','latex')
 ylabel('Time [sec]','interpreter','latex')
 h=legend(['fminsearch on $\rho_{Noise}$, Average: ',num2str(avgrTime(1)),' sec'],...
-    ['fminsearch on $\rho_{Proj}$, Average: ',num2str(avgrTime(2)),' sec'],...
+    ['fminsearch on $\rho_{reg}$, Average: ',num2str(avgrTime(2)),' sec'],...
     ['genetic algorithm on $\rho_{Noise}$, Average: ',num2str(avgrTime(3)),' sec'],...
-    ['genetic algorithm on $\rho_{Proj}$, Average: ',num2str(avgrTime(4)),' sec'],...
-    ['lstsqr on $\rho_{Noise}$, Average: ',num2str(avgrTime(5)),' sec'],...
-    ['lstsqr on $\rho_{Proj}$, Average: ',num2str(avgrTime(6)),' sec']);
+    ['genetic algorithm on $\rho_{reg}$, Average: ',num2str(avgrTime(4)),' sec'],...
+    ['lsqnonlin on $\rho_{Noise}$, Average: ',num2str(avgrTime(5)),' sec'],...
+    ['lsqnonlin on $\rho_{reg}$, Average: ',num2str(avgrTime(6)),' sec']);
 set(h,'Interpreter','latex')
 fig.PaperOrientation='landscape';
 print('-fillpage',[outputFolder, 'timesolverml'],'-dpdf')
 
+%% Histrogram Plot Solver Time
+fig=figure();
+subplot(2,1,1)
+if fmin==1
+h1=histogram(tElapsed(:,3),'DisplayName','fminsearch $\rho_{noise}$')
+h1.BinWidth=20;
+hold on
+end
+if ga==1
+h2=histogram(tElapsed(:,5),'DisplayName','genetic algorithm $\rho_{noise}$')
+h2.BinWidth=20;
+hold on
+end
+if lsqnonlin==1
+h3=histogram(tElapsed(:,7),'DisplayName','lsqnonlin $\rho_{noise}$')
+h3.BinWidth=20;
+end
+ylabel('run','interpreter','latex')
+xlabel('evaluation time [sec]','interpreter','latex')
+l=legend('show')
+set(l,'interpreter','latex')
+xl=get(gca,'xlim')
+yl=get(gca,'ylim')
+subplot(2,1,2)
+if fmin==1
+h1=histogram(tElapsed(:,4),'DisplayName','fminsearch $\rho_{reg}$')
+h1.BinWidth=10;
+hold on
+end
+if ga==1
+h2=histogram(tElapsed(:,6),'DisplayName','genetic algorithm $\rho_{reg}$')
+h2.BinWidth=10;
+hold on
+end
+if lsqnonlin==1
+h3=histogram(tElapsed(:,8),'DisplayName','lsqnonlin $\rho_{reg}$')
+h3.BinWidth=10;
+end
+l=legend('show')
+set(l,'interpreter','latex')
+%set(gca,'xlim',xl)
+%set(gca,'ylim',yl)
+ylabel('run','interpreter','latex')
+xlabel('evaluation time [sec]','interpreter','latex')
+fig.PaperOrientation='landscape';
+print('-fillpage',[outputFolder, 'time_histogram'],'-dpdf')
+
 %% Generate Convergence Plots
-if (fmin==1 || ga==1 || lstsqr==1)
-    formatSpec = '%d\t %f\t %d\t %s\n';
+if (fmin==1 || ga==1 || lsqnonlin==1)
+    formatSpec = '%d\t %f\t %d\t %s';
 
     for i=1:length(solverdetails)
         fig=figure();
@@ -385,20 +469,20 @@ if (fmin==1 || ga==1 || lstsqr==1)
             semilogy(data{3},data{2},'DisplayName','genetic algorithm')
             hold on
         end
-        if lstsqr==1
+        if lsqnonlin==1
             subplot(2,1,1)
-            filename = 'solver_lstsqr_noise_';
+            filename = 'solver_lsqnonlin_noise_';
             fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
-            semilogy(data{3},data{:,2},'DisplayName','nonlinlsq')
+            semilogy(data{3},data{:,2},'DisplayName','lsqnonlin')
             hold on
             subplot(2,1,2)
-            filename = 'solver_lstsqr_proj_';
+            filename = 'solver_lsqnonlin_proj_';
             fileID = fopen([outputFolder, filename, num2str(solverdetails(i)),'.txt'],'r');
             data = textscan(fileID,formatSpec);
             fclose(fileID);
-            semilogy(data{3},data{:,2},'DisplayName','nonlinlsq')
+            semilogy(data{3},data{:,2},'DisplayName','lsqnonlin')
         end
         
         subplot(2,1,1)
@@ -408,20 +492,111 @@ if (fmin==1 || ga==1 || lstsqr==1)
         %ylim([10e-5 10e-3])
         %xlim([0 2000])
         xlabel('# function evaluations','interpreter','latex')
-        ylabel('min($\mathcal{L}$)','interpreter','latex')
+        ylabel('log[min($\mathcal{L}$)]','interpreter','latex')
         
         subplot(2,1,2)
-        title(['Convergence in Simulation #',num2str(solverdetails(i)),' QST Maximum Likelihood \rho_{Proj}'])
+        title(['Convergence in Simulation #',num2str(solverdetails(i)),' QST Maximum Likelihood \rho_{reg}'])
         legend('show')
         %lim([0 0.005])
         %xlim([0 2000])
         xlabel('# function evaluations','interpreter','latex')
-        ylabel('min($\mathcal{L}$)','interpreter','latex')
+        ylabel('log[min($\mathcal{L}$)]','interpreter','latex')
         
         fig.PaperOrientation='landscape';
         print('-fillpage',[outputFolder, 'convergence_sim_',num2str(solverdetails(i))],'-dpdf')
     end
 end
+
+%% Histogram Convergence Residuals
+% Read residuals
+formatSpec = '%d\t %f\t %d\t %s';
+res=[];
+for i=1:nMeasurement
+    if fmin==1
+        filename = 'solver_fmin_noise_';
+        fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+        data = textscan(fileID,formatSpec);
+        fclose(fileID);
+        res(i,1)=data{2}(end);
+        filename = 'solver_fmin_proj_';
+        fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+        data = textscan(fileID,formatSpec);
+        fclose(fileID);
+        res(i,2)=(data{2}(end));
+    end
+    
+    if ga==1
+        filename = 'solver_ga_noise_';
+        fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+        data = textscan(fileID,formatSpec,'HeaderLines',1);
+        fclose(fileID);
+        res(i,3)=(data{2}(end));
+        filename = 'solver_ga_proj_';
+        fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+        data = textscan(fileID,formatSpec,'HeaderLines',1);
+        fclose(fileID);
+        res(i,4)=(data{2}(end));
+    end
+    
+    if lsqnonlin==1
+        filename = 'solver_lsqnonlin_noise_';
+        fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+        data = textscan(fileID,formatSpec);
+        fclose(fileID);
+        res(i,5)=(data{2}(end));
+        filename = 'solver_lsqnonlin_proj_';
+        fileID = fopen([outputFolder, filename, num2str(i),'.txt'],'r');
+        data = textscan(fileID,formatSpec);
+        fclose(fileID);
+        res(i,6)=(data{2}(end));
+    end
+end
+
+fig=figure();
+subplot(2,1,1)
+if fmin==1
+h1=histogram(log(res(:,1)),'DisplayName','fminsearch $\rho_{noise}$')
+h1.BinWidth=0.4;
+hold on
+end
+if ga==1
+h2=histogram(log(res(:,3)),'DisplayName','genetic algorithm $\rho_{noise}$')
+h2.BinWidth=0.4;
+hold on
+end
+if lsqnonlin==1
+h3=histogram(log(res(:,5)),'DisplayName','lsqnonlin $\rho_{noise}$')
+h3.BinWidth=0.4;
+end
+ylabel('counts','interpreter','latex')
+xlabel('log[min($\mathcal{L}$)]','interpreter','latex')
+l=legend('show')
+set(l,'interpreter','latex')
+xl=get(gca,'xlim')
+yl=get(gca,'ylim')
+subplot(2,1,2)
+if fmin==1
+h1=histogram(log(res(:,2)),'DisplayName','fminsearch $\rho_{reg}$')
+h1.BinWidth=2;
+hold on
+end
+if ga==1
+h2=histogram(log(res(:,4)),'DisplayName','genetic algorithm $\rho_{reg}$')
+h2.BinWidth=2;
+hold on
+end
+if lsqnonlin==1
+h3=histogram(log(res(:,6)),'DisplayName','lsqnonlin $\rho_{reg}$')
+h3.BinWidth=2;
+end
+l=legend('show')
+set(l,'interpreter','latex')
+%set(gca,'xlim',xl)
+%set(gca,'ylim',yl)
+ylabel('counts','interpreter','latex')
+xlabel('log[min($\mathcal{L}$)]','interpreter','latex')
+fig.PaperOrientation='landscape';
+print('-fillpage',[outputFolder, 'convergence_residual_histogram'],'-dpdf')
 
 %%
 if(closefig==1)

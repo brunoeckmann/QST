@@ -1,5 +1,6 @@
 close('all')
 fclose('all');
+rng default; %reset random number generator
 poolobj = gcp('nocreate');
 delete(poolobj);
 %% User Input
@@ -9,8 +10,12 @@ delete(poolobj);
 % 2 = Thew
 b=1;
 
+% Choose NS Regularization Method
+ns_method = 'liang';
+%ns_method = 'alberto';
+
 % Choose Number of Simulations
-nMeasurement=100;
+nMeasurement=1000;
 
 % Choose White Noise Model lambda factor
 lambda = 0.8;
@@ -20,13 +25,13 @@ countFactor=100; % >0, if countFactor is low, Noise is higher. Good values are a
 maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
-ga=1;
+ga=0;
 fmin=1;
-lstsqr=1;
+lstsqr=0;
 
 % Choose if Solver Convergence Output is created
 solverOutput=1;
-OutputFolder = 'OutputSolverTest100_Noise100_WNM08/';
+OutputFolder = 'Output1000_Noise100_WNM08/';
 
 % Choose Logfile
 logfile = [OutputFolder,'log.txt'];
@@ -140,7 +145,12 @@ parfor ii=1:nMeasurement
     [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_WNM, maxCount,countFactor);
 
     % Project on NS Polytop
-    P{2} = nonSignaling(P{1});
+    if strcmp(ns_method,'alberto')
+        P{2} = nonSignaling(P{1});
+    elseif strcmp(ns_method,'liang')
+        P{2} = FindNA_KL_PENLAB(P{1},[]);
+    end
+    
 
     
     % QST Linear Inversion: Reconstruct Density Matrix
@@ -149,7 +159,7 @@ parfor ii=1:nMeasurement
     t(1) = toc;
     tic;
     [r{2}, M{2}] = qst_linearinversion(Chi,P_QST_Selection(P{2}));
-    t(2) = toc;
+    t(2) = toc; 
     
     formatSpec = '%i\t %e\t %i\t %s\n';
     
@@ -194,14 +204,14 @@ parfor ii=1:nMeasurement
         % QST Maximum Likelihood lstsqr: Reconstruct Density Matrix
         tic;
         [r{7},Output] = qst_maximumlikelihood_lstsqr(r{2},Chi,P_QST_Selection(P{1}));
-        fileID = fopen([OutputFolder, 'solver_lstsqr_noise_',num2str(ii),'.txt'],'w');
+        fileID = fopen([OutputFolder, 'solver_lsqnonlin_noise_',num2str(ii),'.txt'],'w');
         O=Output.';
         fprintf(fileID,formatSpec, O{:,:});        
         fclose(fileID);
         t(7) = toc;
         tic;
         [r{8},Output] = qst_maximumlikelihood_lstsqr(r{2},Chi,P_QST_Selection(P{2}));
-        fileID = fopen([OutputFolder, 'solver_lstsqr_proj_',num2str(ii),'.txt'],'w');
+        fileID = fopen([OutputFolder, 'solver_lsqnonlin_proj_',num2str(ii),'.txt'],'w');
         O=Output.';
         fprintf(fileID,formatSpec, O{:,:});
         fclose(fileID);
@@ -231,19 +241,5 @@ parfor ii=1:nMeasurement
 end
 delete(poolobj)
 diary off
-
-% %% Test
-% P = P_Noise(ii,:);
-% M = M_Noise(ii,:);
-% r = rho_Noise(ii,:);
-% t = tElapsed(ii,:);
-% 
-% tic
-% [A,B] = qst_maximumlikelihood_gs(r{2},Chi,P_QST_Selection(P{2}));
-% fileID = fopen([OutputFolder, 'solver_gs_proj_',num2str(ii),'.txt'],'w');
-% O=Output.';
-% fprintf(fileID,formatSpec, O{:,:});
-% fclose(fileID);
-% toc
 
 
