@@ -10,14 +10,14 @@ closefig=0; % Close figures after completion?
 simIndex=1; % Choose index for detailed report of this simulation
 
 % Choose Active MaximumLikelihood Solvers
-ga=1;
+ga=0;
 fmin=1;
-lsqnonlin=1;
+lsqnonlin=0;
 
-solverdetails=[1]; % Choose simulations for which detailed solver analysis is done
+solverdetails=[1,100]; % Choose simulations for which detailed solver analysis is done
 
 
-outputFolder = 'OutputSolverTest100_Noise20_WNM1/';
+outputFolder = 'Output1000_Noise20_WNM08/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -237,7 +237,7 @@ if ga==1
     plot(real((fidelityList(:,6))),'r:','DisplayName','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Maximum Likelihood ga')
 end
 if lsqnonlin==1
-    plot(real((fidelityList(:,8))),'r-.',{'DisplayName'},'$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Maximum Likelihood lsqnonlin')
+    plot(real((fidelityList(:,8))),'r-.','DisplayName','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Maximum Likelihood lsqnonlin')
 end
 xlabel('# simulation','interpreter','latex')
 ylabel('Fidelity $\mathcal{F}$','interpreter','latex')

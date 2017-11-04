@@ -15,7 +15,7 @@ ns_method = 'liang';
 %ns_method = 'alberto';
 
 % Choose Number of Simulations
-nMeasurement=1000;
+nMeasurement=5;
 
 % Choose White Noise Model lambda factor
 lambda = 0.8;
