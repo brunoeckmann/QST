@@ -66,19 +66,6 @@ MM{3,1}=chi{4};
 MM{3,2}=chi{6};
 
 
-%% Generate Artificial Signaling Behaviour
-p_sig=zeros(2,2,3,3);
-
-p_sig(:,:,1,1) = [0.5 0;0 0.5];
-p_sig(:,:,1,2) = [0.5 0;0 0.5];
-p_sig(:,:,1,3) = [1 0;0 0];
-p_sig(:,:,2,1) = [0.5 0;0 0.5];
-p_sig(:,:,2,2) = [0.5 0;0 0.5];
-p_sig(:,:,2,3) = [0.5 0;0 0.5];
-p_sig(:,:,3,1) = [0.5 0;0 0.5];
-p_sig(:,:,3,2) = [0.5 0;0 0.5];
-p_sig(:,:,3,3) = [0.5 0;0 0.5];
-
 
 %% Initial State
     
@@ -96,14 +83,15 @@ P_Ideal=behaviour(MM, rho_Ideal);
 sig_coeff=linspace(0,0.95,10);
 
 
+%% Generate Systematic Signaling Behaviour
+P_sys_sig=P_Ideal;
+
+P_sys_sig(:,:,1,1) = [1 0;0 0];
 
 %% Start Simulation
 P_Noise=cell(length(sig_coeff),nMeasurement,2);
 
 for m=1:length(sig_coeff)
-    P_SIG = P_Ideal*(1-sig_coeff(m)) + sig_coeff(m)*p_sig;
-    check = checkNormalization(P_SIG)
-
 
     for ii=1:nMeasurement
         fprintf('\n#### \t Start Sim.\t %i von\t %i \t #### \n', ii, nMeasurement);
@@ -114,11 +102,15 @@ for m=1:length(sig_coeff)
 
         % Apply Noise on each Measurement
         [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_Ideal, maxCount,countFactor);
-        [P{2}, Sigma{ii,1}] = P_Noise_Poisson(P_SIG, maxCount,countFactor);
+        
+        P_SYS_SIG = P{1}*(1-sig_coeff(m)) + sig_coeff(m)*P_sys_sig;
+        [P{2}, Sigma{ii,1}] = P_Noise_Poisson(P_SYS_SIG, maxCount,countFactor);
 
         P_Noise(m,ii,:) = P;
 
     end
+    check(m) = checkNormalization(P_SYS_SIG);
+
 end
 %%
 for m=1:length(sig_coeff)
@@ -139,15 +131,16 @@ end
 %% Calculate Kullback-Leibler Divergence
 for m=1:length(sig_coeff)
     for i=1:nMeasurement
-       D_KL(m,i,1) = kullback_leibler_divergence(P_Reg{m,1},P_Noise{m,i,1});
-       D_KL(m,i,2) = kullback_leibler_divergence(P_Reg{m,2},P_Noise{m,i,2});
+       D_KL1(m,i) = kullback_leibler_divergence(FindNA_KL_PENLAB(P_Noise{m,i,1},[],0),P_Noise{m,i,1});
+       D_KL2(m,i) = kullback_leibler_divergence(FindNA_KL_PENLAB(P_Noise{m,i,2},[],0),P_Noise{m,i,2});
     end
 
-stdDev(m,1) = std(D_KL(m,:,1));
-stdDev(m,2) = std(D_KL(m,:,2));
+% Std-Deviation for kullback-leibler divergence    
+stdDev(m,1) = std(D_KL1(m,:));
+stdDev(m,2) = std(D_KL2(m,:)); % 
 
-D_KL_mean(m,1)=kullback_leibler_divergence(P_Reg{m,1},P_mean{m,1});
-D_KL_mean(m,2)=kullback_leibler_divergence(P_Reg{m,2},P_mean{m,2});
+D_KL_mean(m,1)=mean(D_KL1(m,:));
+D_KL_mean(m,2)=mean(D_KL2(m,:));
 
 fprintf('<D(reg,stat)> / sigma = %f\n', D_KL_mean(m,1)/stdDev(m,1))
 fprintf('<D(reg,syst)> / sigma = %f\n', D_KL_mean(m,2)/stdDev(m,2))
@@ -155,10 +148,14 @@ fprintf('<D(reg,syst)> / sigma = %f\n', D_KL_mean(m,2)/stdDev(m,2))
 end
 
 %% Plot
-figure()
-plot(D_KL_mean(:,1)./stdDev(:,1))
+f=figure()
+plot(D_KL_mean(:,1)./stdDev(:,1),'DisplayName','P_{Noise}')
 hold on
 plot(D_KL_mean(:,2)./stdDev(:,2))
+xlabel('$\alpha$','interpreter','latex')
+ylabel('$\frac{D_{KL}(P_{reg}||P_i)}{\sigma_i}$','interpreter','latex')
+set(gca,'FontSize',14)
+
 
 
 %% Plot Behaviour

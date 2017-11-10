@@ -9,8 +9,8 @@ for x=1:X
    for y=1:Y 
        for a=1:A
             for b=1:B
-                if behaviourNoise(a,b,x,y)~=0
-                    D=D+behaviourReg(a,b,x,y)*log(behaviourReg(a,b,x,y) / behaviourNoise(a,b,x,y));
+                if  behaviourNoise(a,b,x,y)>0 && behaviourReg(a,b,x,y) ~= 0
+                    D=D+behaviourNoise(a,b,x,y)*log(behaviourNoise(a,b,x,y) / behaviourReg(a,b,x,y));
                 end
             end
        end

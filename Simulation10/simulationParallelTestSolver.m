@@ -15,7 +15,7 @@ ns_method = 'liang';
 %ns_method = 'alberto';
 
 % Choose Number of Simulations
-nMeasurement=5;
+nMeasurement=100;
 
 % Choose White Noise Model lambda factor
 lambda = 0.8;
@@ -26,12 +26,12 @@ maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
 ga=0;
-fmin=1;
+fmin=0;
 lstsqr=0;
 
 % Choose if Solver Convergence Output is created
 solverOutput=1;
-OutputFolder = 'Output1000_Noise100_WNM08/';
+OutputFolder = 'Output100_Noise100_WNM08_NS_Q/';
 
 % Choose Logfile
 logfile = [OutputFolder,'log.txt'];
@@ -124,16 +124,16 @@ fprintf('\n#### \t done \t #### \n');
 
 
 %% Start Simulation
-P_Noise=cell(nMeasurement,2);
+P_Noise=cell(nMeasurement,3);
 M_Noise=cell(nMeasurement,2);
-rho_Noise=cell(nMeasurement,8);
+rho_Noise=cell(nMeasurement,9);
 tElapsed=zeros(nMeasurement,8);
 
 fprintf('\n Starting parallel Simulations... \n');
 %poolobj = parpool;
 ppm = ParforProgMon('Simulation Progress', nMeasurement);
 
-parfor ii=1:nMeasurement
+for ii=1:nMeasurement
     fprintf('\n#### \t Start Sim.\t %i von\t %i \t #### \n', ii, nMeasurement);
 
     P = P_Noise(ii,:);
@@ -144,14 +144,16 @@ parfor ii=1:nMeasurement
     % Apply Noise on each Measurement
     [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_WNM, maxCount,countFactor);
 
-    % Project on NS Polytop
+    % Regularization on NS Polytop
     if strcmp(ns_method,'alberto')
         P{2} = nonSignaling(P{1});
     elseif strcmp(ns_method,'liang')
         P{2} = FindNA_KL_PENLAB(P{1},[]);
     end
     
-
+    % Regularization to Q
+    P{3} = FindNA_KL_PENLAB(P{1},qvx.di.HierarchyLevel.local(1));
+    r{9} = qst_linearinversion(Chi,P_QST_Selection(P{3}));
     
     % QST Linear Inversion: Reconstruct Density Matrix
     tic;
@@ -160,6 +162,7 @@ parfor ii=1:nMeasurement
     tic;
     [r{2}, M{2}] = qst_linearinversion(Chi,P_QST_Selection(P{2}));
     t(2) = toc; 
+    
     
     formatSpec = '%i\t %e\t %i\t %s\n';
     
