@@ -21,7 +21,7 @@ nMeasurement=100;
 lambda = 0.8;
 
 % Choose Noise Factor
-countFactor=100; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+countFactor=5; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
@@ -148,11 +148,11 @@ for ii=1:nMeasurement
     if strcmp(ns_method,'alberto')
         P{2} = nonSignaling(P{1});
     elseif strcmp(ns_method,'liang')
-        P{2} = FindNA_KL_PENLAB(P{1},[]);
+        [P{2} flag(ii,1) prob] = FindNA_KL_PENLAB(P{1},[]);
     end
     
     % Regularization to Q
-    P{3} = FindNA_KL_PENLAB(P{1},qvx.di.HierarchyLevel.local(1));
+    [P{3} flag(ii,2) prob] = FindNA_KL_PENLAB(P{1},qvx.di.HierarchyLevel.local(1));
     r{9} = qst_linearinversion(Chi,P_QST_Selection(P{3}));
     
     % QST Linear Inversion: Reconstruct Density Matrix
@@ -245,8 +245,28 @@ end
 delete(poolobj)
 diary off
 
-%% Histogram
+%% Histogram of Eigenvalues
+eigs_Noise=[];
+eigs_NS=[];
+eigs_Q=[];
 
+for i=1:nMeasurement
+    eigs_Noise = [eigs_Noise; eig(rho_Noise{i,1})];
+    eigs_NS = [eigs_NS; eig(rho_Noise{i,2})];
+    eigs_Q = [eigs_Q; eig(rho_Noise{i,9})];
+end
 
+%%
+edges=[-0.5:0.01:2];
+figure()
+histogram(eigs_Noise,edges,'DisplayName','$\rho^{Noise}$')
+hold on
+histogram(eigs_NS,edges,'DisplayName','$\rho_{\mathcal{NS}}^{reg}$')
+histogram(eigs_Q,edges,'DisplayName','$\rho_{\mathcal{Q}}^{reg}$')
+xlabel('Eigenvalues')
+ylabel('Count rate')
+h=legend('show')
+set(h,'interpreter','latex')
+set(gca,'FontSize',20)
 
 
