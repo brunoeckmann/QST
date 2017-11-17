@@ -15,23 +15,23 @@ ns_method = 'liang';
 %ns_method = 'alberto';
 
 % Choose Number of Simulations
-nMeasurement=100;
+nMeasurement=1000;
 
 % Choose White Noise Model lambda factor
-lambda = 0.8;
+lambda = 0.52;
 
 % Choose Noise Factor
-countFactor=100; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+countFactor=20; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
 ga=0;
-fmin=0;
+fmin=1;
 lstsqr=0;
 
 % Choose if Solver Convergence Output is created
 solverOutput=1;
-OutputFolder = 'Output100_Noise100_WNM08_NS_Q/';
+OutputFolder = 'Output1000_Noise20_WNM052/';
 
 % Choose Logfile
 logfile = [OutputFolder,'log.txt'];

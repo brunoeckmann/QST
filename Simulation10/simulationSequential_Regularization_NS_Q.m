@@ -18,10 +18,10 @@ ns_method = 'liang';
 nMeasurement=100;
 
 % Choose White Noise Model lambda factor
-lambda = 0.8;
+lambda = 0.52; % This way F(rho_ideal, rho_WNM) = 0.8 as in Weinfurter
 
 % Choose Noise Factor
-countFactor=5; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+countFactor=20; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
@@ -31,7 +31,7 @@ lstsqr=0;
 
 % Choose if Solver Convergence Output is created
 solverOutput=1;
-OutputFolder = 'Output100_Noise100_WNM08_NS_Q/';
+OutputFolder = 'Output100_Noise20_WNM08_NS_Q/';
 
 % Choose Logfile
 logfile = [OutputFolder,'log.txt'];
@@ -112,7 +112,6 @@ fprintf('\n#### \t done \t #### \n');
 
 % BEHAVIOUR of Ideal State
 P_Ideal=behaviour(MM, rho_Ideal);
-
 % White Noise Model
 rho_WNM = rho_Ideal * lambda + (1-lambda)/4*eye(4);
 P_WNM = behaviour(MM, rho_WNM);
@@ -245,7 +244,7 @@ end
 delete(poolobj)
 diary off
 
-%% Histogram of Eigenvalues
+%% Compute Eigenvalues
 eigs_Noise=[];
 eigs_NS=[];
 eigs_Q=[];
@@ -256,7 +255,8 @@ for i=1:nMeasurement
     eigs_Q = [eigs_Q; eig(rho_Noise{i,9})];
 end
 
-%%
+%% Histogram of Eigenvalues
+
 edges=[-0.5:0.01:2];
 figure()
 histogram(eigs_Noise,edges,'DisplayName','$\rho^{Noise}$')

@@ -20,11 +20,11 @@ nMeasurement=1000;
 nAlpha=20;
 
 % Choose White Noise Model lambda factor
-lambda = 0.8;
+lambda = 0.52;
 
 % Choose Noise Factor
 countFactor1=100; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
-countFactor2=20;
+countFactor2=200;
 maxCount=1;
 
 %% Complete tomographic set: Measurement basis
@@ -117,8 +117,8 @@ for m=1:length(sig_coeff)
         %P_SYS_SIG = P{1}*(1-sig_coeff(m)) + sig_coeff(m)*P_sys_sig;
         
         %[P{2}, Sigma{ii,1}] = P_Noise_Poisson(P_SYS_SIG, maxCount,countFactor);
-        P{3} = P{1}*(1-sig_coeff(m)) + sig_coeff(m)*P_sys_sig;
-        P{4} = P{2}*(1-sig_coeff(m)) + sig_coeff(m)*P_sys_sig;
+        P{3} = P_Noise_Poisson(P_Ideal*(1-sig_coeff(m)) + sig_coeff(m)*P_sys_sig, maxCount,countFactor1);
+        P{4} = P_Noise_Poisson(P_Ideal*(1-sig_coeff(m)) + sig_coeff(m)*P_sys_sig, maxCount,countFactor2);
         P_Noise(m,ii,:) = P;
 
     end
@@ -180,6 +180,7 @@ end
 
 %% Plot
 f=figure();
+set(gcf, 'Position', get(0, 'Screensize'));
 plot(sig_coeff(1:end-1),D_KL_mean_sys1(1:end-1)./stdDev_sys1(1:end-1),'DisplayName','$P_\alpha^{stat+sys}=\alpha P^{sys} + (1-\alpha)P^{stat}$, Low Noise','Marker','s','LineWidth',1)
 hold on
 plot(sig_coeff(1:end-1),D_KL_mean_sys2(1:end-1)./stdDev_sys1(1:end-1),'DisplayName','$P_\alpha^{stat+sys}=\alpha P^{sys} + (1-\alpha)P^{stat}$, High Noise','Marker','s','LineWidth',1)
@@ -194,7 +195,8 @@ set(get(gca,'XLabel'),'FontSize',16)
 h1 = get(yl, 'position');
 %set(yl, 'position', [-0.1 h1(2) h1(3)])
 set(gca,'FontSize',20)
-
+saveas(gcf,'OutputSystematicSignaling/dkl_alpha_plot_100_200.fig')
+saveas(gcf,'OutputSystematicSignaling/dkl_alpha_plot_100_200','eps')
 
 %% Plot Behaviour
 figure()
@@ -219,6 +221,7 @@ title('Example Behaviour with systematic signalling')
 
 %% Histogramm Plot
 figure
+set(gcf, 'Position', get(0, 'Screensize'));
 edges = [0:0.01:1];
 subplot(2,1,1)
 histogram(D_KL_sys1(1,:),edges,'DisplayName','$D_{KL}(P_{reg}^\alpha,P_{\alpha=0}^{stat+sys})$','Normalization','probability')
@@ -228,11 +231,12 @@ histogram(D_KL_sys1(end-1,:),edges,'DisplayName','$D_{KL}(P_{reg}^\alpha,P_{\alp
 h=legend('show');
 set(h,'interpreter','latex')   
 xlim([0 0.6])
-ylim([0 0.7])
+ylim([0 0.4])
 xlabel('Kullback-Leibler Divergence','interpreter','latex')
 ylabel('Probability','interpreter','latex')
-title('\textbf{Low Statistical Noise}','interpreter','Latex')
+title(['\textbf{count factor } $\mathcal{N}=',num2str(countFactor1),'$'],'interpreter','latex')
 set(gca,'FontSize',20)
+
 
 subplot(2,1,2)
 histogram(D_KL_sys2(1,:),edges,'DisplayName','$D_{KL}(P_{reg}^\alpha,P_{\alpha=0}^{stat+sys})$','Normalization','probability')
@@ -242,8 +246,11 @@ histogram(D_KL_sys2(end-1,:),edges,'DisplayName','$D_{KL}(P_{reg}^\alpha,P_{\alp
 h=legend('show');
 set(h,'interpreter','latex')   
 xlim([0 0.6])
-ylim([0 0.7])
+ylim([0 0.4])
 xlabel('Kullback-Leibler Divergence','interpreter','latex')
 ylabel('Probability','interpreter','latex')
-title('\textbf{High Statistical Noise}','interpreter','latex')
+title(['\textbf{count factor } $\mathcal{N}=',num2str(countFactor2),'$'],'interpreter','latex')
 set(gca,'FontSize',20)
+
+saveas(gcf,'OutputSystematicSignaling/histogram_Dkl_100_200.fig')
+saveas(gcf,'OutputSystematicSignaling/histogram_Dkl_100_200','eps')

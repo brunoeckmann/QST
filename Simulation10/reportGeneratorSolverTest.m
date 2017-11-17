@@ -17,7 +17,7 @@ lsqnonlin=0;
 solverdetails=[1,100]; % Choose simulations for which detailed solver analysis is done
 
 
-outputFolder = 'Output1000_Noise20_WNM08/';
+outputFolder = 'Output1000_Noise20_WNM052/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -67,7 +67,7 @@ MM{3,2}=chi{6};
 
 %% Initial State
 plotRho(rho_Ideal,[outputFolder,'rho_targetState.pdf'],'\textbf{Target State $\rho_{ideal}$}');
-plotRho(rho_Ideal,[outputFolder,'rho_targetStateWNM.pdf'],['\textbf{Target State $\rho_{WNM}$ White Noise $\lambda=$',num2str(lambda),'}']);
+plotRho(rho_WNM,[outputFolder,'rho_targetStateWNM.pdf'],['\textbf{Target State $\rho_{WNM}$ White Noise $\lambda=$',num2str(lambda),'}']);
 
 
 %% Check Signaling of Noisy and Regularized Behaviours
@@ -100,7 +100,7 @@ end
 
 for i = ll
     fidelityList(:,i)=(cellfun(@(A) Fidelity(A,rho_Ideal),{rho_Noise{:,i}})); % Fidelity with respect to 
-    superfidelityList(:,i)=(cellfun(@(A) SuperFidelity(A,rho_Ideal),{rho_Noise{:,i}})); % Fidelity with respect to 
+    %superfidelityList(:,i)=(cellfun(@(A) SuperFidelity(A,rho_Ideal),{rho_Noise{:,i}})); % Fidelity with respect to 
 
     %fidelityList(:,i)=(cellfun(@(A)
     %Fidelity(A,rho_WNM),{rho_Noise{:,i}})); %Fidelity with respect to
@@ -267,60 +267,71 @@ str_list={'fminsearch','genetic algorithm','lsqnonlin'};
 
 for i=1:3
     fig=figure()
-    edges=linspace(0.8525,1.0475,40);
+    edges=linspace(0,2,300);
     subplot(2,1,1)
-    h1=histogram(real(fidelityList(:,1)),edges) % Noisy with LI
+    histogram(real(fidelityList(:,1)),edges) % Noisy with LI
     %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
     hold on
     histogram(real(fidelityList(:,2)),edges) % reg with LI
     ax = gca;
     ax.ColorOrderIndex = 1;
-    plot([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--')
-    plot([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--')
-
-    h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Linear Inversion',...
-        'average','average');
+    ylabel('# States')
+     h=legend('$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ Linear Inversion','$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ Linear Inversion');
     legend('Location','northwest')
     set(h,'Interpreter','latex')
+    plot([mean(fidelityList(:,1)), mean(fidelityList(:,1))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+    plot([mean(fidelityList(:,2)), mean(fidelityList(:,2))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+    plot([0.8 0.8],get(gca,'YLim'),'k--','LineWidth',2)
 
+    xlabel('Fidelity w.r.t. $\rho_{target}$','interpreter','latex')
+    xlim([0.6 1])
     subplot(2,1,2)
     %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
     if fmin==1 && i==1
-        histogram(real(fidelityList(:,3)),edges) % Noisy with ML
+        h1=histogram(real(fidelityList(:,3)),edges); % Noisy with ML
         hold on
-        histogram(real(fidelityList(:,4)),edges) % reg with ML
+        h2=histogram(real(fidelityList(:,4)),edges); % reg with ML
         ax = gca;
         ax.ColorOrderIndex = 1;
-        plot([mean(fidelityList(:,3)), mean(fidelityList(:,3))],get(gca,'YLim'),'LineStyle','--')
-        plot([mean(fidelityList(:,4)), mean(fidelityList(:,4))],get(gca,'YLim'),'LineStyle','--')
+        plot([mean(fidelityList(:,3)), mean(fidelityList(:,3))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        plot([mean(fidelityList(:,4)), mean(fidelityList(:,4))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        h=legend([h1 h2],{['$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ ML ',str_list{i}],['$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ ML ',str_list{i}]});
 
     end
     
     if ga==1 && i==2
-        histogram(real(fidelityList(:,5)),edges) % Noisy with ga
+        h1=histogram(real(fidelityList(:,5)),edges); % Noisy with ga
         hold on
-        histogram(real(fidelityList(:,6)),edges) % reg with ga
+        h2=histogram(real(fidelityList(:,6)),edges); % reg with ga
             ax = gca;
         ax.ColorOrderIndex = 1;
-        plot([mean(fidelityList(:,5)), mean(fidelityList(:,5))],get(gca,'YLim'),'LineStyle','--')
-        plot([mean(fidelityList(:,6)), mean(fidelityList(:,6))],get(gca,'YLim'),'LineStyle','--')
+        plot([mean(fidelityList(:,5)), mean(fidelityList(:,5))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        plot([mean(fidelityList(:,6)), mean(fidelityList(:,6))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        h=legend([h1 h2],{['$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ ML ',str_list{i}],['$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ ML ',str_list{i}]});
+
     end
     
     if lsqnonlin==1 && i==3
-        histogram(real(fidelityList(:,7)),edges) % Noisy with nonlinlsq
+        h1=histogram(real(fidelityList(:,7)),edges); % Noisy with nonlinlsq
         hold on
-        histogram(real(fidelityList(:,8)),edges) % reg with nonlinlsq
+        h2=histogram(real(fidelityList(:,8)),edges); % reg with nonlinlsq
         ax = gca;
         ax.ColorOrderIndex = 1;    
-        plot([mean(fidelityList(:,7)), mean(fidelityList(:,7))],get(gca,'YLim'),'LineStyle','--')
-        plot([mean(fidelityList(:,8)), mean(fidelityList(:,8))],get(gca,'YLim'),'LineStyle','--')
+        plot([mean(fidelityList(:,7)), mean(fidelityList(:,7))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        plot([mean(fidelityList(:,8)), mean(fidelityList(:,8))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        h=legend([h1 h2],{['$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ ML ',str_list{i}],['$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ ML ',str_list{i}]});
+
     end
    
-    h=legend(['$\mathcal{F}(\rho_{Noise},\rho_{Ideal})$ ML ',str_list{i}],['$\mathcal{F}(\rho_{reg},\rho_{Ideal})$ ML ',str_list{i}]);
-    legend('Location','northwest')
-    set(h,'Interpreter','latex')
+    plot([0.8 0.8],get(gca,'YLim'),'k--','LineWidth',2)
+    xlim([0.6 1])
 
+    
+    set(h,'Interpreter','latex')
+    set(h,'Location','northwest')
     fig.PaperOrientation='landscape';
+    ylabel('# States')
+    xlabel('Fidelity w.r.t. $\rho_{target}$','interpreter','latex')
     print('-fillpage',[outputFolder, 'fidelityHistogramm_',str_list{i}],'-dpdf')
 end
     
@@ -366,6 +377,177 @@ fig.PaperPositionMode = 'auto';
 %saveas(fig,[outputFolder,'trace.pdf']);
 print('-fillpage',[outputFolder, 'trace'],'-dpdf')
 %close(fig)
+
+%% Histrogram Trace
+str_list={'fminsearch','genetic algorithm','lsqnonlin'};
+x0=0.2;
+x1=1.05;
+for i=1:3
+    fig=figure()
+    edges=linspace(0,2,300);
+    subplot(2,1,1)
+    histogram(real(traceRho2List(:,1)),edges) % Noisy with LI
+    %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
+    hold on
+    histogram(real(traceRho2List(:,2)),edges) % reg with LI
+    ax = gca;
+    ax.ColorOrderIndex = 1;
+    ylabel('# States')
+    h=legend('$\rho^{noise}$ Linear Inversion','$\rho^{reg}$ Linear Inversion');
+    legend('Location','northwest')
+    set(h,'Interpreter','latex')
+    plot([mean(traceRho2List(:,1)), mean(traceRho2List(:,1))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+    plot([mean(traceRho2List(:,2)), mean(traceRho2List(:,2))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+    plot([1 1],get(gca,'YLim'),'k--','LineWidth',2)
+
+    xlabel('Tr[$\rho^2$]','interpreter','latex')
+    xlim([x0 x1])
+    subplot(2,1,2)
+    %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
+    if fmin==1 && i==1
+        h1=histogram(real(traceRho2List(:,3)),edges); % Noisy with ML
+        hold on
+        h2=histogram(real(traceRho2List(:,4)),edges); % reg with ML
+        ax = gca;
+        ax.ColorOrderIndex = 1;
+        plot([mean(traceRho2List(:,3)), mean(traceRho2List(:,3))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        plot([mean(traceRho2List(:,4)), mean(traceRho2List(:,4))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        h=legend([h1 h2],{['$\rho^{noise}$ ML ',str_list{i}],['$\rho^{reg}$ ML ',str_list{i}]});
+
+    end
+    
+    if ga==1 && i==2
+        h1=histogram(real(traceRho2List(:,5)),edges); % Noisy with ga
+        hold on
+        h2=histogram(real(traceRho2List(:,6)),edges); % reg with ga
+            ax = gca;
+        ax.ColorOrderIndex = 1;
+        plot([mean(traceRho2List(:,5)), mean(traceRho2List(:,5))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        plot([mean(traceRho2List(:,6)), mean(traceRho2List(:,6))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        h=legend([h1 h2],{['$\rho^{noise}$ ML ',str_list{i}],['$\rho^{reg}$ ML ',str_list{i}]});
+
+    end
+    
+    if lsqnonlin==1 && i==3
+        h1=histogram(real(traceRho2List(:,7)),edges); % Noisy with nonlinlsq
+        hold on
+        h2=histogram(real(traceRho2List(:,8)),edges); % reg with nonlinlsq
+        ax = gca;
+        ax.ColorOrderIndex = 1;    
+        plot([mean(traceRho2List(:,7)), mean(traceRho2List(:,7))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        plot([mean(traceRho2List(:,8)), mean(traceRho2List(:,8))],get(gca,'YLim'),'LineStyle','--','LineWidth',2)
+        h=legend([h1 h2],{['$\rho^{noise}$ ML ',str_list{i}],['$\rho^{reg}$ ML ',str_list{i}]});
+
+    end
+   
+    plot([1 1],get(gca,'YLim'),'k--','LineWidth',2)
+    xlim([x0 x1])
+
+    
+    set(h,'Interpreter','latex')
+    set(h,'Location','northwest')
+    fig.PaperOrientation='landscape';
+    ylabel('# States')
+    xlabel('Tr[$\rho^2$]','interpreter','latex')
+    print('-fillpage',[outputFolder, 'traceHistogramm_',str_list{i}],'-dpdf')
+end
+
+%% Histrogram Eigenvalues
+str_list={'fminsearch','genetic algorithm','lsqnonlin'};
+
+for i=1:3
+    eigs_Noise=[];
+    eigs_NS=[];
+    for m=1:nMeasurement
+        eigs_Noise = [eigs_Noise; eig(rho_Noise{m,1})];
+        eigs_NS = [eigs_NS; eig(rho_Noise{m,2})];
+    end
+    
+    x0=min(eigs_Noise);  
+    x1=max(eigs_Noise)+0.1;
+    
+    fig=figure()
+    edges=linspace(-1,1,200);
+    subplot(2,1,1)
+    histogram(eigs_Noise,edges) % Noisy with LI
+    %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
+    hold on
+    histogram(eigs_NS,edges) % reg with LI
+    ax = gca;
+    ax.ColorOrderIndex = 1;
+    ylabel('# Eigenvalues')
+    h=legend('$\rho^{noise}$ Linear Inversion','$\rho^{reg}$ Linear Inversion');
+    legend('Location','northwest')
+    set(h,'Interpreter','latex')
+    plot([0 0],get(gca,'YLim'),'k--','LineWidth',2)
+    plot([1 1],get(gca,'YLim'),'k--','LineWidth',2)
+    yll=get(gca,'YLim');
+
+    xlabel('Eigenvalues','interpreter','latex')
+    xlim([x0 x1])
+    subplot(2,1,2)
+    %set(gca,'YLim',[0,length(fidelityList)*1.1]) 
+    if fmin==1 && i==1
+        eigs_Noise=[];
+        eigs_NS=[];
+        for m=1:nMeasurement
+            eigs_Noise = [eigs_Noise; eig(rho_Noise{m,3})];
+            eigs_NS = [eigs_NS; eig(rho_Noise{m,4})];
+        end
+        h1=histogram(eigs_Noise,edges); % Noisy with ML
+        hold on
+        h2=histogram(eigs_NS,edges); % reg with ML
+        ax = gca;
+        ax.ColorOrderIndex = 1;
+        h=legend([h1 h2],{['$\rho^{noise}$ ML ',str_list{i}],['$\rho^{reg}$ ML ',str_list{i}]});
+
+    end
+    
+    if ga==1 && i==2
+        eigs_Noise=[];
+        eigs_NS=[];
+        for m=1:nMeasurement
+            eigs_Noise = [eigs_Noise; eig(rho_Noise{m,5})];
+            eigs_NS = [eigs_NS; eig(rho_Noise{m,6})];
+        end
+        h1=histogram(eigs_Noise,edges); % Noisy with ML
+        hold on
+        h2=histogram(eigs_NS,edges); % reg with ML
+        ax = gca;
+        ax.ColorOrderIndex = 1;
+        h=legend([h1 h2],{['$\rho^{noise}$ ML ',str_list{i}],['$\rho^{reg}$ ML ',str_list{i}]});
+
+    end
+    
+    if lsqnonlin==1 && i==3        
+        eigs_Noise=[];
+        eigs_NS=[];
+        for m=1:nMeasurement
+            eigs_Noise = [eigs_Noise; eig(rho_Noise{m,7})];
+            eigs_NS = [eigs_NS; eig(rho_Noise{m,8})];
+        end
+        h1=histogram(eigs_Noise,edges); % Noisy with ML
+        hold on
+        h2=histogram(eigs_NS,edges); % reg with ML
+        ax = gca;
+        ax.ColorOrderIndex = 1;    
+        h=legend([h1 h2],{['$\rho^{noise}$ ML ',str_list{i}],['$\rho^{reg}$ ML ',str_list{i}]});
+
+    end
+    
+    plot([0 0],get(gca,'YLim'),'k--','LineWidth',2)
+    plot([1 1],get(gca,'YLim'),'k--','LineWidth',2)
+    xlim([x0 x1])
+    ylim(yll)
+
+    
+    set(h,'Interpreter','latex')
+    set(h,'Location','northwest')
+    fig.PaperOrientation='landscape';
+    ylabel('# Eigenvalues')
+    xlabel('Eigenvalues','interpreter','latex')
+    print('-fillpage',[outputFolder, 'eigenvaluesHistogramm_',str_list{i}],'-dpdf')
+end
 
 %% Plot Solver Time
 fig=figure();
@@ -555,17 +737,17 @@ end
 fig=figure();
 subplot(2,1,1)
 if fmin==1
-h1=histogram(log(res(:,1)),'DisplayName','fminsearch $\rho_{noise}$')
+h1=histogram(log10(res(:,1)),'DisplayName','fminsearch $\rho_{noise}$')
 h1.BinWidth=0.4;
 hold on
 end
 if ga==1
-h2=histogram(log(res(:,3)),'DisplayName','genetic algorithm $\rho_{noise}$')
+h2=histogram(log10(res(:,3)),'DisplayName','genetic algorithm $\rho_{noise}$')
 h2.BinWidth=0.4;
 hold on
 end
 if lsqnonlin==1
-h3=histogram(log(res(:,5)),'DisplayName','lsqnonlin $\rho_{noise}$')
+h3=histogram(log10(res(:,5)),'DisplayName','lsqnonlin $\rho_{noise}$')
 h3.BinWidth=0.4;
 end
 ylabel('counts','interpreter','latex')
@@ -576,17 +758,17 @@ xl=get(gca,'xlim')
 yl=get(gca,'ylim')
 subplot(2,1,2)
 if fmin==1
-h1=histogram(log(res(:,2)),'DisplayName','fminsearch $\rho_{reg}$')
+h1=histogram(log10(res(:,2)),'DisplayName','fminsearch $\rho_{reg}$')
 h1.BinWidth=2;
 hold on
 end
 if ga==1
-h2=histogram(log(res(:,4)),'DisplayName','genetic algorithm $\rho_{reg}$')
+h2=histogram(log10(res(:,4)),'DisplayName','genetic algorithm $\rho_{reg}$')
 h2.BinWidth=2;
 hold on
 end
 if lsqnonlin==1
-h3=histogram(log(res(:,6)),'DisplayName','lsqnonlin $\rho_{reg}$')
+h3=histogram(log10(res(:,6)),'DisplayName','lsqnonlin $\rho_{reg}$')
 h3.BinWidth=2;
 end
 l=legend('show')
@@ -597,6 +779,8 @@ ylabel('counts','interpreter','latex')
 xlabel('log[min($\mathcal{L}$)]','interpreter','latex')
 fig.PaperOrientation='landscape';
 print('-fillpage',[outputFolder, 'convergence_residual_histogram'],'-dpdf')
+
+%% 
 
 %%
 if(closefig==1)
