@@ -17,7 +17,7 @@ lsqnonlin=0;
 solverdetails=[1,100]; % Choose simulations for which detailed solver analysis is done
 
 
-outputFolder = 'Output1000_Noise20_WNM052/';
+outputFolder = 'Output1000_Noise200_WNM052/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -735,50 +735,64 @@ for i=1:nMeasurement
 end
 
 fig=figure();
+fig.Position = [10   10   700   500];
 subplot(2,1,1)
 if fmin==1
-h1=histogram(log10(res(:,1)),'DisplayName','fminsearch $\rho_{noise}$')
+h1=histogram(log10(res(:,1)),'DisplayName','fminsearch')
 h1.BinWidth=0.4;
 hold on
 end
 if ga==1
-h2=histogram(log10(res(:,3)),'DisplayName','genetic algorithm $\rho_{noise}$')
+h2=histogram(log10(res(:,3)),'DisplayName','genetic algorithm')
 h2.BinWidth=0.4;
 hold on
 end
 if lsqnonlin==1
-h3=histogram(log10(res(:,5)),'DisplayName','lsqnonlin $\rho_{noise}$')
+h3=histogram(log10(res(:,5)),'DisplayName','lsqnonlin')
 h3.BinWidth=0.4;
 end
-ylabel('counts','interpreter','latex')
-xlabel('log[min($\mathcal{L}$)]','interpreter','latex')
+title('noisy data')
+ylabel('\# samples','interpreter','latex')
 l=legend('show')
-set(l,'interpreter','latex')
+set(l,'interpreter','latex','box','off','location','north')
 xl=get(gca,'xlim')
 yl=get(gca,'ylim')
+box
+grid
+
 subplot(2,1,2)
 if fmin==1
-h1=histogram(log10(res(:,2)),'DisplayName','fminsearch $\rho_{reg}$')
+h1=histogram(log10(res(:,2)),'DisplayName','fminsearch')
 h1.BinWidth=2;
 hold on
 end
 if ga==1
-h2=histogram(log10(res(:,4)),'DisplayName','genetic algorithm $\rho_{reg}$')
+h2=histogram(log10(res(:,4)),'DisplayName','genetic algorithm')
 h2.BinWidth=2;
 hold on
 end
 if lsqnonlin==1
-h3=histogram(log10(res(:,6)),'DisplayName','lsqnonlin $\rho_{reg}$')
+h3=histogram(log10(res(:,6)),'DisplayName','lsqnonlin')
 h3.BinWidth=2;
 end
-l=legend('show')
-set(l,'interpreter','latex')
+l=legend('show');
+
+set(l,'interpreter','latex','box','off','location','north')
 %set(gca,'xlim',xl)
 %set(gca,'ylim',yl)
-ylabel('counts','interpreter','latex')
-xlabel('log[min($\mathcal{L}$)]','interpreter','latex')
+title('regularized data')
+ylabel('\# samples','interpreter','latex')
+xlabel('log[min($L$)]','interpreter','latex')
 fig.PaperOrientation='landscape';
 print('-fillpage',[outputFolder, 'convergence_residual_histogram'],'-dpdf')
+set(gcf, 'Renderer', 'opengl')
+set(gca,'FontName','Helvetica');
+box
+grid
+
+%print([outputFolder, 'convergence_residual_histogram.eps'],'-depsc2')
+saveas(gcf,[outputFolder, 'convergence_residual_histogram'],'epsc')
+
 
 %% 
 
