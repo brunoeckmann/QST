@@ -1,0 +1,57 @@
+% Simulation RhoNoise with and without Regularization
+% Units:    [fsec, mum]         
+% Date:     06.12.2017
+% Author:   Bruno Eckmann, Sacha Schwarz
+%
+% Abstact:  As a function of the total sample number N, the density matrix
+%           reconstruction of noisy relative frequencies as well as of 
+%           regularized noisy relative frequencies is performed.
+%
+% Comments: -> Code is written for mixed two-qubit states as target state
+% 
+%**************************************************************************
+clear all
+close all
+clc
+scrsz = get(0,'ScreenSize');
+
+set(0,'defaulttextinterpreter','latex')
+
+%% USER INPUT
+%--------------------------------------------------------------------------
+% total number of simulation samples
+Ntot = 1000;
+
+% mixing parameter for Werner state
+lambda = 0.52;
+
+%% DEFINE MIXED TWO_QUBIT STATE
+%--------------------------------------------------------------------------
+% state dimension yields corresponding Bell scenario
+d = 2;
+numbInputs = 2*d-1;
+numbOfOutputs = d*(numbInputs-d);
+
+% pure quantum state
+ket0 = [1 0];
+ket1 = [0 1];
+psi = kron(ket0,ket0) + kron(ket1,ket1);
+psiNorm = psi*psi';
+psi = 1psiNorm)*psi;
+rhoPure = psi'*psi;
+
+% Werner state
+RhoTarget = lambda*rhoPure+(1-lambda)/d^2*eye(d^2)
+
+%% DEFINING OUTPUT ARRAYS
+%--------------------------------------------------------------------------
+% behaviors
+Pvec = [];
+Pvec_Noise = [];
+Pvec_Noise_Reg = [];
+
+% reconstructed density matrices
+
+
+%% SIMULATION
+%--------------------------------------------------------------------------
