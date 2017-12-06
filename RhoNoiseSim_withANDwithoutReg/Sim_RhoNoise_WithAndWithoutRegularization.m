@@ -44,18 +44,18 @@ rhoPure = psi'*psi;
 % Werner state
 RhoTarget = lambda*rhoPure+(1-lambda)/d^2*eye(d^2);
 
-%% DEFINING OUTPUT ARRAYS
+%% DEFINING OUTPUT ARRAY DIMENSIONS
 %--------------------------------------------------------------------------
 % behaviors
-Pvec = [];
-Pvec_Noise = [];
-Pvec_Noise_Reg = [];
+Pvec = zeros(numbInputs^2*numbOfOutputs^2);
+Pvec_Noise = zeros(numbInputs^2*numbOfOutputs^2);
+Pvec_Noise_Reg = zeros(numbInputs^2*numbOfOutputs^2);
 
 % reconstructed density matrices
-Rho_Noise_LIN = [];
-Rho_Noise_ML = [];
-Rho_Noise_Reg_LIN = [];
-Rho_Noise_Reg_ML = [];
+Rho_Noise_LIN = zeros(d^4);
+Rho_Noise_ML = zeros(d^4);
+Rho_Noise_Reg_LIN = zeros(d^4);
+Rho_Noise_Reg_ML = zeros(d^4);
 
 %% SIMULATION
 %--------------------------------------------------------------------------
