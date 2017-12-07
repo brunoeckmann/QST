@@ -29,7 +29,7 @@ nMeasurement = 100;
 lambda = 0.52;
 
 % noise factor
-countFactor=20; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+N_tot=5120; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 %% DEFINE MIXED TWO_QUBIT STATE
@@ -98,9 +98,9 @@ MM{3,2}=chi{6};
 % initial behavior
 P_WNM = behaviour(MM, RhoTarget);
 
-fprintf('\n Starting parallel Simulations... \n');
-poolobj = parpool;
-ppm = ParforProgMon('Simulation Progress', nMeasurement);
+%fprintf('\n Starting parallel Simulations... \n');
+%poolobj = parpool;
+%ppm = ParforProgMon('Simulation Progress ', nMeasurement);
 
 for ii=1:nMeasurement
     fprintf('\n#### \t Start Sim.\t %i von\t %i \t #### \n', ii, nMeasurement);
@@ -111,13 +111,13 @@ for ii=1:nMeasurement
     t = tElapsed(ii,:);
 
     % Apply Noise on each Measurement
-    [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_WNM, maxCount,countFactor);
+    [P{1}, Sigma{ii,1}] = P_Noise_Poisson(P_WNM, maxCount,N_tot);
 
     % Regularization on NS Polytop
-    [P{2} flag(ii,1) prob] = FindNA_KL_PENLAB(P{1},[]);
+    [P{2} flag prob] = FindNA_KL_PENLAB(P{1},[]);
 
     % Regularization to Q
-    [P{3} flag(ii,2) prob] = FindNA_KL_PENLAB(P{1},qvx.di.HierarchyLevel.local(1));
+    [P{3} flag prob] = FindNA_KL_PENLAB(P{1},qvx.di.HierarchyLevel.local(1));
     r{9} = qst_linearinversion(Chi,P_QST_Selection(P{3}));
     
     % QST Linear Inversion: Reconstruct Density Matrix
@@ -131,6 +131,7 @@ for ii=1:nMeasurement
     formatSpec = '%i\t %e\t %i\t %s\n';
 
     % QST Maximum Likelihood fminsearch: Reconstruct Density Matrix
+    fprintf('\n#### \t ML\t %i von\t %i \t #### \n', ii, nMeasurement);
     tic;
     [r{3},Output] = qst_maximumlikelihood_fmin(r{2},Chi,P_QST_Selection(P{1}));
     t(3) = toc;
@@ -156,10 +157,10 @@ for ii=1:nMeasurement
     fprintf('\t QST Maximum Likelihood lstsqr for Projected Behaviour in %f Seconds\n',t(8));
     fprintf('#### \t \t \t #### \t \t \t \t ####\n');
     
-    ppm.increment(); 
+    %ppm.increment(); 
 
 end
-delete(poolobj)
+%delete(poolobj)
 diary off
 
 %% SAVE RHO_NOISE TO MAT
@@ -170,7 +171,17 @@ diary off
 %matName = sprintf('RESULTS/rho_Noise_%d.mat',nMeasurement);
 save('Rho_Pure')
 save('Rho_Target')
-matName = sprintf('rho_Noise_%d.mat',nMeasurement);
+matName = sprintf('rho_Noise_R%d_N%d.mat',nMeasurement,N_tot);
+if N_tot < 1000
+    matName = sprintf('rho_Noise_R%d_N0%d.mat',nMeasurement,N_tot);
+end
+if N_tot < 100
+    matName = sprintf('rho_Noise_R%d_N00%d.mat',nMeasurement,N_tot);
+end
+if N_tot < 10
+    matName = sprintf('rho_Noise_R%d_N000%d.mat',nMeasurement,N_tot);
+end        
+
 save(matName,'rho_Noise')
 
 

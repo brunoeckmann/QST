@@ -19,7 +19,7 @@ set(0,'defaulttextinterpreter','latex')
 
 %% USER INPUT
 %--------------------------------------------------------------------------
-
+RfixNvariation = 1;
 
 %% INPUT DATA
 %--------------------------------------------------------------------------
@@ -36,26 +36,43 @@ if iscell(mFile) == 0
     numbOfFpoints = 1;
 end
     
-for i = 1:length(mFile)
-    if length(mFile) == 1
+for i = 1:numbOfFpoints
+    if numbOfFpoints == 1
         load(mFile)
     else
         load(mFile{i})
     end
-    nMeasurements = size(rho_Noise,1);
+    nMeasurements(i) = size(rho_Noise,1);
     for k = 1:4
-        for kk = 1:nMeasurements
-            F(kk,k) = Fidelity(rho_Noise{kk,k}, RhoTarget);
+        for kk = 1:nMeasurements(i)
+            F(kk,k) = real(Fidelity(rho_Noise{kk,k}, RhoPure));
         end
-        F_mean(k) = mean(F(:,k));
-        F_s(k) = std(F(:,k));
+        F_mean(i,k) = mean(F(:,k));
+        F_std(i,k) = std(F(:,k))/sqrt(nMeasurements(i));
     end
 end
 
+%% Plot
+%--------------------------------------------------------------------------
+if RfixNvariation == 1
+    
+    
+    nMeasurements = str2num(mFile(end-7:end-4));
+end
 
+figure(1)
+subplot(2,1,1)
+hold on
+ep(1) = errorbar(nMeasurements,F_mean(:,1),F_std(:,1));
+ep(2) = errorbar(nMeasurements,F_mean(:,2),F_std(:,2));
+box
+grid
 
-
-
-
+subplot(2,1,2)
+hold on
+ep(3) = errorbar(nMeasurements,F_mean(:,3),F_std(:,3));
+ep(4) = errorbar(nMeasurements,F_mean(:,4),F_std(:,4));
+box
+grid
 
 
