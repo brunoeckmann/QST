@@ -26,7 +26,7 @@ maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
 ga=0;
-fmin=0;
+fmin=1;
 lstsqr=0;
 
 % Choose if Solver Convergence Output is created
