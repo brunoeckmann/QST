@@ -1,6 +1,6 @@
 Problem name: KL minimization
 Description:  SDP constraints with nonlinear objective
-Start time:   03-Dec-2017 16:39:48
+Start time:   08-Dec-2017 18:40:50
 All option settings (* = set by user):
   outlev                : 2 
   outlev_file           : 5 
@@ -70,10 +70,10 @@ Matrix constraints
 Min./Max. box-mult.:    1.000000 /  1.000000
 Min./Max. equal-mult.:  0.000000 /  0.000000
 ******************** Start *********************
-Objective                 4.3984507618373136E-01
-Augmented Lagrangian      4.8455159921313260E+01
+Objective                 4.2721007269235922E-01
+Augmented Lagrangian      4.8442524917821892E+01
 |f(x) - Lagr(x)|          4.8015314845129531E+01
-Grad augm. lagr.          3.0223955211429544E+01
+Grad augm. lagr.          3.0223697561049097E+01
 Feasibility (max)         1.3263347186148164E-01
 Feasibility eqx           0.0000000000000000E+00
 Feasibility ineq     
@@ -84,56 +84,56 @@ Minimal penalty           8.3333333333333337E-01
 ************************************************
  
 ************* Start of outer step   1 **********
-object(x_  0) =   4.8455159921313260E+01
-||grad(x)||_2 =   3.0223955211429544E+01
+object(x_  0) =   4.8442524917821892E+01
+||grad(x)||_2 =   3.0223697561049097E+01
 infeas_eq     =   0.0000000000000000E+00
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -1.426969e+00 0.000000e+00 0.000000
+LSEQ (pen): NU: -1.433477e+00 0.000000e+00 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   4.7638997491018628E+01
-||grad(x)||_2 =   7.9147551721043607E-01
-infeas_eq     =   2.7894008272968645E-16
+object(x_  1) =   4.7622362188369912E+01
+||grad(x)||_2 =   7.9423950389588482E-01
+infeas_eq     =   3.1278945182801732E-16
         --- end of   1 in. iter ---
 
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -7.237953e-02 7.780757e-32 0.000000
+LSEQ (pen): NU: -7.400355e-02 9.783724e-32 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  2) =   4.7604923300061081E+01
-||grad(x)||_2 =   3.7985941227921940E-02
-infeas_eq     =   4.5437835560060704E-16
+object(x_  2) =   4.7587616033790624E+01
+||grad(x)||_2 =   3.9277311169488779E-02
+infeas_eq     =   6.4378577495323172E-16
         --- end of   2 in. iter ---
 
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -7.580445e-04 2.064597e-31 0.000000
+LSEQ (pen): NU: -8.152367e-04 4.144601e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  3) =   4.7604539461295246E+01
-||grad(x)||_2 =   7.2539235973110791E-04
-infeas_eq     =   4.2819216562854678E-16
+object(x_  3) =   4.7587203031957905E+01
+||grad(x)||_2 =   7.8128938002203967E-04
+infeas_eq     =   4.1725779438208954E-16
         --- end of   3 in. iter ---
 
 ************ Result of outer step   1 **********
-Objective                 3.1105892790790546E-01
-Augmented Lagrangian      4.7604539461295246E+01
-|f(x) - f(x_old)|         1.2878614827582591E-01
-|f(x) - Lagr(x)|          4.7293480533387338E+01
-Grad augm. lagr.          7.2539235973110791E-04
+Objective                 2.9576718628490151E-01
+Augmented Lagrangian      4.7587203031957905E+01
+|f(x) - f(x_old)|         1.3144288640745772E-01
+|f(x) - Lagr(x)|          4.7291435845673007E+01
+Grad augm. lagr.          7.8128938002203967E-04
 Feasibility (max)         2.2204460492503131E-16
 Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
-Complementarity           2.0216689512182964E-01
+Complementarity           2.0125702169913173E-01
 Minimal penalty           8.3333333333333337E-01
 Newton steps                                   3
 Inner steps                                    3
@@ -143,87 +143,87 @@ Time of the minimization step          0.03125 s
 ************************************************
  
 ************* Start of outer step   2 **********
-object(x_  0) =   1.4354802121331568E+01
-||grad(x)||_2 =   1.6906621011974440E+01
-infeas_eq     =   4.2819216562854678E-16
+object(x_  0) =   1.4340619279583592E+01
+||grad(x)||_2 =   1.6911990468877057E+01
+infeas_eq     =   4.1725779438208954E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -1.650413e-01 1.833485e-31 0.000000
+LSEQ (pen): NU: -1.581530e-01 1.741041e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   1.4271307717151204E+01
-||grad(x)||_2 =   1.3658627487675787E-01
-infeas_eq     =   4.5522528710086682E-16
+object(x_  1) =   1.4259972824353706E+01
+||grad(x)||_2 =   1.2269616856430228E-01
+infeas_eq     =   5.8484626879477743E-16
         --- end of   1 in. iter ---
 
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -1.434534e-03 2.072301e-31 0.000000
+LSEQ (pen): NU: -1.318110e-03 3.420452e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  2) =   1.4270577681335913E+01
-||grad(x)||_2 =   1.4767663643113220E-03
-infeas_eq     =   3.0150272531948617E-16
+object(x_  2) =   1.4259300115827994E+01
+||grad(x)||_2 =   1.5333213951945045E-03
+infeas_eq     =   4.0697662735997785E-16
         --- end of   2 in. iter ---
 
 ************ Result of outer step   2 **********
-Objective                 1.8053832554115207E-01
-Augmented Lagrangian      1.4270577681335913E+01
-|f(x) - f(x_old)|         1.3052060236675339E-01
-|f(x) - Lagr(x)|          1.4090039355794762E+01
-Grad augm. lagr.          1.4767663643113220E-03
-Feasibility (max)         2.2204460492503131E-16
+Objective                 1.7193099268487230E-01
+Augmented Lagrangian      1.4259300115827994E+01
+|f(x) - f(x_old)|         1.2383619360002920E-01
+|f(x) - Lagr(x)|          1.4087369123143121E+01
+Grad augm. lagr.          1.5333213951945045E-03
+Feasibility (max)         1.2562060356140132E-03
 Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
-Feasibility m.ineq        0.0000000000000000E+00
+Feasibility m.ineq        1.2562060356140132E-03
 Complementarity           7.5000000000000011E-02
 Minimal penalty           2.9999999999999999E-01
 Newton steps                                   2
 Inner steps                                    2
 Linesearch steps                               2
-Time of the minimization step          0.03125 s
+Time of the minimization step                0 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step   3 **********
-object(x_  0) =   4.3087923644243977E+00
-||grad(x)||_2 =   5.1804692000188348E+00
-infeas_eq     =   3.0150272531948617E-16
+object(x_  0) =   4.3025910020924201E+00
+||grad(x)||_2 =   5.1807943302664698E+00
+infeas_eq     =   4.0697662735997785E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -1.023680e-01 9.090389e-32 0.000000
+LSEQ (pen): NU: -9.325481e-02 1.656300e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   4.2604960422860092E+00
-||grad(x)||_2 =   1.6866178510674473E-01
-infeas_eq     =   4.4235108494242803E-16
+object(x_  1) =   4.2577909553878719E+00
+||grad(x)||_2 =   1.2821613892668796E-01
+infeas_eq     =   4.6609537406723979E-16
         --- end of   1 in. iter ---
 
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -9.327283e-04 1.956745e-31 0.000000
+LSEQ (pen): NU: -4.315509e-04 2.172449e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  2) =   4.2600232970396750E+00
-||grad(x)||_2 =   2.6051421624886943E-03
-infeas_eq     =   5.3963006549982931E-16
+object(x_  2) =   4.2575738612303580E+00
+||grad(x)||_2 =   8.2473033567524463E-04
+infeas_eq     =   3.6401096161220450E-16
         --- end of   2 in. iter ---
 
 ************ Result of outer step   3 **********
-Objective                 7.2349872702911114E-02
-Augmented Lagrangian      4.2600232970396750E+00
-|f(x) - f(x_old)|         1.0818845283824095E-01
-|f(x) - Lagr(x)|          4.1876734243367641E+00
-Grad augm. lagr.          2.6051421624886943E-03
+Objective                 7.2186828869748920E-02
+Augmented Lagrangian      4.2575738612303580E+00
+|f(x) - f(x_old)|         9.9744163815123382E-02
+|f(x) - Lagr(x)|          4.1853870323606088E+00
+Grad augm. lagr.          8.2473033567524463E-04
 Feasibility (max)         2.2204460492503131E-16
 Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
@@ -234,46 +234,46 @@ Minimal penalty           8.9999999999999997E-02
 Newton steps                                   2
 Inner steps                                    2
 Linesearch steps                               2
-Time of the minimization step          0.03125 s
+Time of the minimization step         0.015625 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step   4 **********
-object(x_  0) =   1.2810953300813774E+00
-||grad(x)||_2 =   1.6602902127086092E+00
-infeas_eq     =   5.3963006549982931E-16
+object(x_  0) =   1.2825682679144705E+00
+||grad(x)||_2 =   1.6550317573278732E+00
+infeas_eq     =   3.6401096161220450E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -4.250199e-02 2.912006e-31 0.000000
+LSEQ (pen): NU: -3.866996e-02 1.325040e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   1.2614268157979782E+00
-||grad(x)||_2 =   1.0745064802387462E-01
-infeas_eq     =   2.7511642410880956E-16
+object(x_  1) =   1.2641483041362194E+00
+||grad(x)||_2 =   7.1447969743811332E-02
+infeas_eq     =   3.1767708303541691E-16
         --- end of   1 in. iter ---
 
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -6.323575e-04 7.568905e-32 0.000000
+LSEQ (pen): NU: -2.784699e-04 1.009187e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  2) =   1.2611050846241825E+00
-||grad(x)||_2 =   2.6993843658366778E-03
-infeas_eq     =   2.9925865470192580E-16
+object(x_  2) =   1.2640081463804926E+00
+||grad(x)||_2 =   6.5641192043037729E-04
+infeas_eq     =   3.9642891350404610E-16
         --- end of   2 in. iter ---
 
 ************ Result of outer step   4 **********
-Objective                 3.4270613701617089E-02
-Augmented Lagrangian      1.2611050846241825E+00
-|f(x) - f(x_old)|         3.8079259001294025E-02
-|f(x) - Lagr(x)|          1.2268344709225654E+00
-Grad augm. lagr.          2.6993843658366778E-03
-Feasibility (max)         1.1102230246251565E-16
-Feasibility eqx           1.1102230246251565E-16
+Objective                 3.7948766968855914E-02
+Augmented Lagrangian      1.2640081463804926E+00
+|f(x) - f(x_old)|         3.4238061900893006E-02
+|f(x) - Lagr(x)|          1.2260593794116368E+00
+Grad augm. lagr.          6.5641192043037729E-04
+Feasibility (max)         2.2204460492503131E-16
+Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
@@ -282,46 +282,46 @@ Minimal penalty           2.7000000000000000E-02
 Newton steps                                   2
 Inner steps                                    2
 Linesearch steps                               2
-Time of the minimization step          0.03125 s
+Time of the minimization step                0 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step   5 **********
-object(x_  0) =   3.8553343507135018E-01
-||grad(x)||_2 =   5.3482852527870950E-01
-infeas_eq     =   2.9925865470192580E-16
+object(x_  0) =   3.8895135037023321E-01
+||grad(x)||_2 =   5.2471602837459541E-01
+infeas_eq     =   3.9642891350404610E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -8.545144e-03 8.955574e-32 0.000000
+LSEQ (pen): NU: -7.985290e-03 1.571559e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   3.8144759502680958E-01
-||grad(x)||_2 =   3.0580995384365144E-02
-infeas_eq     =   2.7371275972570859E-16
+object(x_  1) =   3.8507745148214489E-01
+||grad(x)||_2 =   2.4331909628938261E-02
+infeas_eq     =   5.0229157141517706E-16
         --- end of   1 in. iter ---
 
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -6.842601e-05 7.491867e-32 0.000000
+LSEQ (pen): NU: -5.290230e-05 2.522968e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  2) =   3.8141317044504319E-01
-||grad(x)||_2 =   2.7677144232269338E-04
-infeas_eq     =   2.2420252351056811E-16
+object(x_  2) =   3.8505083658403183E-01
+||grad(x)||_2 =   1.5974649155743085E-04
+infeas_eq     =   4.1191555942998253E-16
         --- end of   2 in. iter ---
 
 ************ Result of outer step   5 **********
-Objective                 2.7399672645477532E-02
-Augmented Lagrangian      3.8141317044504319E-01
-|f(x) - f(x_old)|         6.8709410561395567E-03
-|f(x) - Lagr(x)|          3.5401349779956565E-01
-Grad augm. lagr.          2.7677144232269338E-04
-Feasibility (max)         1.1102230246251565E-16
-Feasibility eqx           1.1102230246251565E-16
+Objective                 3.1756486690557396E-02
+Augmented Lagrangian      3.8505083658403183E-01
+|f(x) - f(x_old)|         6.1922802782985176E-03
+|f(x) - Lagr(x)|          3.5329434989347441E-01
+Grad augm. lagr.          1.5974649155743085E-04
+Feasibility (max)         2.2204460492503131E-16
+Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
@@ -330,33 +330,33 @@ Minimal penalty           8.0999999999999996E-03
 Newton steps                                   2
 Inner steps                                    2
 Linesearch steps                               2
-Time of the minimization step          0.03125 s
+Time of the minimization step                0 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step   6 **********
-object(x_  0) =   1.3373471195597911E-01
-||grad(x)||_2 =   1.7067237082626024E-01
-infeas_eq     =   2.2420252351056811E-16
+object(x_  0) =   1.3741311459555364E-01
+||grad(x)||_2 =   1.6784191966919723E-01
+infeas_eq     =   4.1191555942998253E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -1.057295e-03 5.026677e-32 0.000000
+LSEQ (pen): NU: -9.863432e-04 1.696744e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   1.3321741929118758E-01
-||grad(x)||_2 =   4.3663234312705940E-03
-infeas_eq     =   3.6082248300317588E-16
+object(x_  1) =   1.3692761034138831E-01
+||grad(x)||_2 =   2.8410693186115116E-03
+infeas_eq     =   4.4689924505749205E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step   6 **********
-Objective                 2.6471765298886549E-02
-Augmented Lagrangian      1.3321741929118758E-01
-|f(x) - f(x_old)|         9.2790734659098373E-04
-|f(x) - Lagr(x)|          1.0674565399230103E-01
-Grad augm. lagr.          4.3663234312705940E-03
+Objective                 3.0900409468112122E-02
+Augmented Lagrangian      1.3692761034138831E-01
+|f(x) - f(x_old)|         8.5607722244527423E-04
+|f(x) - Lagr(x)|          1.0602720087327619E-01
+Grad augm. lagr.          2.8410693186115116E-03
 Feasibility (max)         2.2204460492503131E-16
 Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
@@ -367,33 +367,33 @@ Minimal penalty           2.4299999999999999E-03
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step          0.03125 s
+Time of the minimization step                0 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step   7 **********
-object(x_  0) =   6.0819612834500721E-02
-||grad(x)||_2 =   5.0329603757640416E-02
-infeas_eq     =   3.6082248300317588E-16
+object(x_  0) =   6.4948694664729412E-02
+||grad(x)||_2 =   5.1469895619410622E-02
+infeas_eq     =   4.4689924505749205E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -8.588197e-05 1.301929e-31 0.000000
+LSEQ (pen): NU: -8.608761e-05 1.997189e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   6.0776939015696287E-02
-||grad(x)||_2 =   3.7726007584912058E-04
-infeas_eq     =   3.6348149084233214E-16
+object(x_  1) =   6.4905858977629641E-02
+||grad(x)||_2 =   2.7258860416557622E-04
+infeas_eq     =   4.4278625581494802E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step   7 **********
-Objective                 2.6395733536280944E-02
-Augmented Lagrangian      6.0776939015696287E-02
-|f(x) - f(x_old)|         7.6031762605604375E-05
-|f(x) - Lagr(x)|          3.4381205479415339E-02
-Grad augm. lagr.          3.7726007584912058E-04
+Objective                 3.0825507344915810E-02
+Augmented Lagrangian      6.4905858977629641E-02
+|f(x) - f(x_old)|         7.4902123196312481E-05
+|f(x) - Lagr(x)|          3.4080351632713834E-02
+Grad augm. lagr.          2.7258860416557622E-04
 Feasibility (max)         2.2204460492503131E-16
 Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
@@ -404,35 +404,35 @@ Minimal penalty           7.2899999999999994E-04
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step                0 s
+Time of the minimization step         0.015625 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step   8 **********
-object(x_  0) =   3.7374723715770393E-02
-||grad(x)||_2 =   1.5209364942318716E-02
-infeas_eq     =   3.6348149084233214E-16
+object(x_  0) =   4.1733337825762766E-02
+||grad(x)||_2 =   1.4995474675811910E-02
+infeas_eq     =   4.4278625581494802E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -6.893134e-06 1.321188e-31 0.000000
+LSEQ (pen): NU: -6.449479e-06 1.960597e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   3.7371283592161866E-02
-||grad(x)||_2 =   3.2346517264514104E-05
-infeas_eq     =   2.5324586304240974E-16
+object(x_  1) =   4.1730117355711527E-02
+||grad(x)||_2 =   2.0587974823871416E-05
+infeas_eq     =   4.0626616427409522E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step   8 **********
-Objective                 2.6389685174787028E-02
-Augmented Lagrangian      3.7371283592161866E-02
-|f(x) - f(x_old)|         6.0483614939162156E-06
-|f(x) - Lagr(x)|          1.0981598417374838E-02
-Grad augm. lagr.          3.2346517264514104E-05
-Feasibility (max)         1.1102230246251565E-16
-Feasibility eqx           1.1102230246251565E-16
+Objective                 3.0819940146974419E-02
+Augmented Lagrangian      4.1730117355711527E-02
+|f(x) - f(x_old)|         5.5671979413904338E-06
+|f(x) - Lagr(x)|          1.0910177208737108E-02
+Grad augm. lagr.          2.0587974823871416E-05
+Feasibility (max)         2.2204460492503131E-16
+Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
@@ -441,33 +441,33 @@ Minimal penalty           2.1869999999999998E-04
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step         0.046875 s
+Time of the minimization step                0 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step   9 **********
-object(x_  0) =   2.9765620233967366E-02
-||grad(x)||_2 =   4.5610448287626941E-03
-infeas_eq     =   2.5324586304240974E-16
+object(x_  0) =   3.4181302641091239E-02
+||grad(x)||_2 =   4.3891033859998502E-03
+infeas_eq     =   4.0626616427409522E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -5.002672e-07 6.413347e-32 0.000000
+LSEQ (pen): NU: -4.368920e-07 1.650522e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   2.9765370225520209E-02
-||grad(x)||_2 =   2.3283659700921581E-06
-infeas_eq     =   2.3138896355264040E-16
+object(x_  1) =   3.4181084266271498E-02
+||grad(x)||_2 =   1.3011264816016011E-06
+infeas_eq     =   2.6258006780611329E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step   9 **********
-Objective                 2.6389227850391349E-02
-Augmented Lagrangian      2.9765370225520209E-02
-|f(x) - f(x_old)|         4.5732439567930383E-07
-|f(x) - Lagr(x)|          3.3761423751288606E-03
-Grad augm. lagr.          2.3283659700921581E-06
+Objective                 3.0819544146333370E-02
+Augmented Lagrangian      3.4181084266271498E-02
+|f(x) - f(x_old)|         3.9600064104944321E-07
+|f(x) - Lagr(x)|          3.3615401199381285E-03
+Grad augm. lagr.          1.3011264816016011E-06
 Feasibility (max)         1.1102230246251565E-16
 Feasibility eqx           1.1102230246251565E-16
 Feasibility ineq     
@@ -478,35 +478,35 @@ Minimal penalty           6.5609999999999990E-05
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step          0.03125 s
+Time of the minimization step         0.015625 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step  10 **********
-object(x_  0) =   2.7408123943539055E-02
-||grad(x)||_2 =   1.3723396479951315E-03
-infeas_eq     =   2.3138896355264040E-16
+object(x_  0) =   3.1834832420918550E-02
+||grad(x)||_2 =   1.3159135212322804E-03
+infeas_eq     =   2.6258006780611329E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -4.223685e-08 5.354085e-32 0.000000
+LSEQ (pen): NU: -3.563607e-08 6.894829e-32 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   2.7408102828171341E-02
-||grad(x)||_2 =   1.9515913062648958E-07
-infeas_eq     =   2.9010883917888854E-16
+object(x_  1) =   3.1834814604517765E-02
+||grad(x)||_2 =   1.0308857929485348E-07
+infeas_eq     =   2.9958026538549762E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step  10 **********
-Objective                 2.6389188699215790E-02
-Augmented Lagrangian      2.7408102828171341E-02
-|f(x) - f(x_old)|         3.9151175558471696E-08
-|f(x) - Lagr(x)|          1.0189141289555503E-03
-Grad augm. lagr.          1.9515913062648958E-07
-Feasibility (max)         2.2204460492503131E-16
-Feasibility eqx           2.2204460492503131E-16
+Objective                 3.0819511172532350E-02
+Augmented Lagrangian      3.1834814604517765E-02
+|f(x) - f(x_old)|         3.2973801019492432E-08
+|f(x) - Lagr(x)|          1.0153034319854148E-03
+Grad augm. lagr.          1.0308857929485348E-07
+Feasibility (max)         1.1102230246251565E-16
+Feasibility eqx           1.1102230246251565E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
@@ -515,33 +515,33 @@ Minimal penalty           1.9682999999999998E-05
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step                0 s
+Time of the minimization step         0.015625 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step  11 **********
-object(x_  0) =   2.6695215477610820E-02
-||grad(x)||_2 =   4.1206930924891580E-04
-infeas_eq     =   2.9010883917888854E-16
+object(x_  0) =   3.1124507793024010E-02
+||grad(x)||_2 =   3.9496440837318063E-04
+infeas_eq     =   2.9958026538549762E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -3.771162e-09 8.416314e-32 0.000000
+LSEQ (pen): NU: -3.159317e-09 8.974834e-32 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   2.6695213592111848E-02
-||grad(x)||_2 =   1.7407672190729172E-08
-infeas_eq     =   3.3936795764237480E-16
+object(x_  1) =   3.1124506213408558E-02
+||grad(x)||_2 =   9.0963910016723786E-09
+infeas_eq     =   4.2774214746361787E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step  11 **********
-Objective                 2.6389185197312020E-02
-Augmented Lagrangian      2.6695213592111848E-02
-|f(x) - f(x_old)|         3.5019037704364653E-09
-|f(x) - Lagr(x)|          3.0602839479982810E-04
-Grad augm. lagr.          1.7407672190729172E-08
+Objective                 3.0819508239621006E-02
+Augmented Lagrangian      3.1124506213408558E-02
+|f(x) - f(x_old)|         2.9329113443443688E-09
+|f(x) - Lagr(x)|          3.0499797378755189E-04
+Grad augm. lagr.          9.0963910016723786E-09
 Feasibility (max)         2.2204460492503131E-16
 Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
@@ -552,35 +552,35 @@ Minimal penalty           5.9048999999999991E-06
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step         0.046875 s
+Time of the minimization step                0 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step  12 **********
-object(x_  0) =   2.6481012370657836E-02
-||grad(x)||_2 =   1.2365204546699044E-04
-infeas_eq     =   3.3936795764237480E-16
+object(x_  0) =   3.0911029262553479E-02
+||grad(x)||_2 =   1.1850697739292847E-04
+infeas_eq     =   4.2774214746361787E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -3.393650e-10 1.151706e-31 0.000000
+LSEQ (pen): NU: -2.839998e-10 1.829633e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   2.6481012200977292E-02
-||grad(x)||_2 =   1.5666720207788359E-09
-infeas_eq     =   3.7289695893739658E-16
+object(x_  1) =   3.0911029120554677E-02
+||grad(x)||_2 =   8.1732673287397030E-10
+infeas_eq     =   5.3135800534777750E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step  12 **********
-Objective                 2.6389184882164175E-02
-Augmented Lagrangian      2.6481012200977292E-02
-|f(x) - f(x_old)|         3.1514784532005180E-10
-|f(x) - Lagr(x)|          9.1827318813117453E-05
-Grad augm. lagr.          1.5666720207788359E-09
-Feasibility (max)         2.2204460492503131E-16
-Feasibility eqx           2.2204460492503131E-16
+Objective                 3.0819507975901765E-02
+Augmented Lagrangian      3.0911029120554677E-02
+|f(x) - f(x_old)|         2.6371924088941512E-10
+|f(x) - Lagr(x)|          9.1521144652911834E-05
+Grad augm. lagr.          8.1732673287397030E-10
+Feasibility (max)         3.3306690738754696E-16
+Feasibility eqx           3.3306690738754696E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
@@ -589,39 +589,39 @@ Minimal penalty           1.7714699999999997E-06
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step          0.03125 s
+Time of the minimization step         0.015625 s
   - factorizations in the step               0 s
 ************************************************
  
 ************* Start of outer step  13 **********
-object(x_  0) =   2.6416734031425835E-02
-||grad(x)||_2 =   3.7098401432048921E-05
-infeas_eq     =   3.7289695893739658E-16
+object(x_  0) =   3.0846965428196732E-02
+||grad(x)||_2 =   3.5553662215105542E-05
+infeas_eq     =   5.3135800534777750E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -3.054988e-11 1.390521e-31 0.000000
+LSEQ (pen): NU: -2.556121e-11 2.823413e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   2.6416734016151182E-02
-||grad(x)||_2 =   1.4104477948448577E-10
-infeas_eq     =   3.6664684659523401E-16
+object(x_  1) =   3.0846965415416254E-02
+||grad(x)||_2 =   7.3561722076587220E-11
+infeas_eq     =   4.3132914650856485E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step  13 **********
-Objective                 2.6389184853795652E-02
-Augmented Lagrangian      2.6416734016151182E-02
-|f(x) - f(x_old)|         2.8368522808630559E-11
-|f(x) - Lagr(x)|          2.7549162355530038E-05
-Grad augm. lagr.          1.4104477948448577E-10
+Objective                 3.0819507952165814E-02
+Augmented Lagrangian      3.0846965415416254E-02
+|f(x) - f(x_old)|         2.3735950704928399E-11
+|f(x) - Lagr(x)|          2.7457463250439573E-05
+Grad augm. lagr.          7.3561722076587220E-11
 Feasibility (max)         2.2204460492503131E-16
 Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
-Complementarity           1.3286024999999999E-07
+Complementarity           1.3286024999999997E-07
 Minimal penalty           5.3144099999999987E-07
 Newton steps                                   1
 Inner steps                                    1
@@ -631,30 +631,30 @@ Time of the minimization step                0 s
 ************************************************
  
 ************* Start of outer step  14 **********
-object(x_  0) =   2.6397449650630705E-02
-||grad(x)||_2 =   1.1129771329852912E-05
-infeas_eq     =   3.6664684659523401E-16
+object(x_  0) =   3.0827745247166950E-02
+||grad(x)||_2 =   1.0666239682800157E-05
+infeas_eq     =   4.3132914650856485E-16
         --- start of inner iter ---
  
 LDL KKT OK, factor in 0.000000s, total 0.000000s, no pert=0, pert=0.0000e+00
 LSEQ: max step 1.0e+00, 0 steps
 LSEQ (pen): penalty par. NU=0.100000
-LSEQ (pen): NU: -2.749748e-12 1.344299e-31 0.000000
+LSEQ (pen): NU: -2.300632e-12 1.860448e-31 0.000000
 LSEQ (pen): 1 steps, rel. width 1.000000
  
-object(x_  1) =   2.6397449649255882E-02
-||grad(x)||_2 =   1.2695591178451557E-11
-infeas_eq     =   3.0054303251241967E-16
+object(x_  1) =   3.0827745246017235E-02
+||grad(x)||_2 =   6.6210495288155334E-12
+infeas_eq     =   4.3399994073855777E-16
         --- end of   1 in. iter ---
 
 ************ Result of outer step  14 **********
-Objective                 2.6389184851242399E-02
-Augmented Lagrangian      2.6397449649255882E-02
-|f(x) - f(x_old)|         2.5532527481164635E-12
-|f(x) - Lagr(x)|          8.2647980134825660E-06
-Grad augm. lagr.          1.2695591178451557E-11
-Feasibility (max)         1.1102230246251565E-16
-Feasibility eqx           1.1102230246251565E-16
+Objective                 3.0819507950029551E-02
+Augmented Lagrangian      3.0827745246017235E-02
+|f(x) - f(x_old)|         2.1362633884081106E-12
+|f(x) - Lagr(x)|          8.2372959876834961E-06
+Grad augm. lagr.          6.6210495288155334E-12
+Feasibility (max)         2.2204460492503131E-16
+Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Feasibility m.ineq        0.0000000000000000E+00
@@ -663,20 +663,20 @@ Minimal penalty           1.5943229999999994E-07
 Newton steps                                   1
 Inner steps                                    1
 Linesearch steps                               1
-Time of the minimization step         0.046875 s
+Time of the minimization step                0 s
   - factorizations in the step               0 s
 ************************************************
  
 *******************************************************************************
 PenLab converged: optimal solution
 *******************************************************************************
-Objective                 2.6389184851242399E-02
-Augmented Lagrangian      2.6397449649255882E-02
-Relative precision        8.2647980134825660E-06
-Compl. Slackness          3.9845671926929777E-01
-Grad augm. lagr.          1.2695591178451557E-11
-Feasibility (max)         1.1102230246251565E-16
-Feasibility eqx           1.1102230246251565E-16
+Objective                 3.0819507950029551E-02
+Augmented Lagrangian      3.0827745246017235E-02
+Relative precision        8.2372959876834961E-06
+Compl. Slackness          3.8968658619436181E-01
+Grad augm. lagr.          6.6210495288155334E-12
+Feasibility (max)         2.2204460492503131E-16
+Feasibility eqx           2.2204460492503131E-16
 Feasibility ineq     
 Feasibility box           0.0000000000000000E+00
 Minimal penalty           1.5943229999999994E-07
@@ -688,11 +688,11 @@ Number of evaluations of
    - gradient values                          34
    - hessian values                           20
 Time statistics
-   - total process time                 0.4375 s
-   - all minimization steps           0.390625 s
+   - total process time               0.171875 s
+   - all minimization steps           0.109375 s
    - all factorizations                      0 s
-   - function values evaluation       0.140625 s
-   - gradient values evaluation         0.1875 s
-   - hessian values evaluation               0 s
+   - function values evaluation       0.015625 s
+   - gradient values evaluation        0.03125 s
+   - hessian values evaluation        0.015625 s
 *******************************************************************************
  

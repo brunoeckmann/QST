@@ -21,7 +21,7 @@ nMeasurement=1000;
 lambda = 0.52;
 
 % Choose Noise Factor
-countFactor=200; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+countFactor=225; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 % Choose Active MaximumLikelihood Solvers
@@ -31,7 +31,7 @@ lstsqr=0;
 
 % Choose if Solver Convergence Output is created
 solverOutput=1;
-OutputFolder = 'Output1000_Noise200_WNM052/';
+OutputFolder = 'Output1000_Noise225_WNM052/';
 
 % Choose Logfile
 logfile = [OutputFolder,'log.txt'];
@@ -133,7 +133,7 @@ fprintf('\n Starting parallel Simulations... \n');
 %poolobj = parpool;
 ppm = ParforProgMon('Simulation Progress', nMeasurement);
 
-for ii=1:nMeasurement
+parfor ii=1:nMeasurement
     fprintf('\n#### \t Start Sim.\t %i von\t %i \t #### \n', ii, nMeasurement);
 
     P = P_Noise(ii,:);
