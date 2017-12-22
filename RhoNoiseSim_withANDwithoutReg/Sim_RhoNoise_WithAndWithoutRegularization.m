@@ -138,6 +138,10 @@ for ii=1:nMeasurement
     tic;
     [r{4},Output] = qst_maximumlikelihood_fmin(r{2},Chi,P_QST_Selection(P{2}));
     t(4) = toc;
+    
+    % QST Linear Inversion and ML with regularized Data onto Q
+    [r{5}, M{3}] = qst_linearinversion(Chi,P_QST_Selection(P{3}));
+    [r{6},Output] = qst_maximumlikelihood_fmin(r{5},Chi,P_QST_Selection(P{3}));
 
     % Save data
     P_Noise(ii,:) = P;
