@@ -23,13 +23,13 @@ set(0,'defaulttextinterpreter','latex')
 %% USER INPUT
 %--------------------------------------------------------------------------
 % total number of simulation samples
-nMeasurement = 100;
+nMeasurement = 1000;
 
 % mixing parameter for Werner state
 lambda = 0.52;
 
 % noise factor
-N_tot=5120; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+N_tot=100; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 %% DEFINE MIXED TWO_QUBIT STATE
@@ -53,7 +53,7 @@ RhoTarget = lambda*RhoPure+(1-lambda)/d^2*eye(d^2);
 %% DEFINING OUTPUT ARRAY DIMENSIONS
 %--------------------------------------------------------------------------
 P_Noise=cell(nMeasurement,3);
-M_Noise=cell(nMeasurement,2);
+M_Noise=cell(nMeasurement,3);
 rho_Noise=cell(nMeasurement,9);
 tElapsed=zeros(nMeasurement,8);
 
@@ -175,15 +175,15 @@ diary off
 %matName = sprintf('RESULTS/rho_Noise_%d.mat',nMeasurement);
 save('Rho_Pure')
 save('Rho_Target')
-matName = sprintf('rho_Noise_R%d_N%d.mat',nMeasurement,N_tot);
+matName = sprintf('rhoNoiseNew_R%d_N%d.mat',nMeasurement,N_tot);
 if N_tot < 1000
-    matName = sprintf('rho_Noise_R%d_N0%d.mat',nMeasurement,N_tot);
+    matName = sprintf('rhoNoiseNew_R%d_N0%d.mat',nMeasurement,N_tot);
 end
 if N_tot < 100
-    matName = sprintf('rho_Noise_R%d_N00%d.mat',nMeasurement,N_tot);
+    matName = sprintf('rhoNoiseNew_R%d_N00%d.mat',nMeasurement,N_tot);
 end
 if N_tot < 10
-    matName = sprintf('rho_Noise_R%d_N000%d.mat',nMeasurement,N_tot);
+    matName = sprintf('rhoNoiseNew_R%d_N000%d.mat',nMeasurement,N_tot);
 end        
 
 save(matName,'rho_Noise')
