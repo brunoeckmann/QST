@@ -10,14 +10,14 @@ closefig=0; % Close figures after completion?
 simIndex=1; % Choose index for detailed report of this simulation
 
 % Choose Active MaximumLikelihood Solvers
-ga=0;
+ga=1;
 fmin=1;
-lsqnonlin=0;
+lsqnonlin=1;
 
 solverdetails=[1,100]; % Choose simulations for which detailed solver analysis is done
 
 
-outputFolder = 'Output1000_Noise200_WNM052/';
+outputFolder = 'OutputSolverTest100_Noise100_WNM08/';
 
 if (exist(outputFolder) == false)
     mkdir(outputFolder);
@@ -751,7 +751,7 @@ if lsqnonlin==1
 h3=histogram(log10(res(:,5)),'DisplayName','lsqnonlin')
 h3.BinWidth=0.4;
 end
-title('noisy data')
+title('before regularization')
 ylabel('\# samples','interpreter','latex')
 l=legend('show')
 set(l,'interpreter','latex','box','off','location','north')
@@ -780,7 +780,7 @@ l=legend('show');
 set(l,'interpreter','latex','box','off','location','north')
 %set(gca,'xlim',xl)
 %set(gca,'ylim',yl)
-title('regularized data')
+title('after regularization')
 ylabel('\# samples','interpreter','latex')
 xlabel('log[min($L$)]','interpreter','latex')
 fig.PaperOrientation='landscape';
@@ -789,7 +789,7 @@ set(gcf, 'Renderer', 'opengl')
 set(gca,'FontName','Helvetica');
 box
 grid
-
+tightfig;
 %print([outputFolder, 'convergence_residual_histogram.eps'],'-depsc2')
 saveas(gcf,[outputFolder, 'convergence_residual_histogram'],'epsc')
 
