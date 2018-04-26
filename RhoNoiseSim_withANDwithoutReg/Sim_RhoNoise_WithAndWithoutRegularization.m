@@ -29,7 +29,7 @@ nMeasurement = 1000;
 lambda = 0.52;
 
 % noise factor
-N_tot=100; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
+N_tot=45; % >0, if countFactor is low, Noise is higher. Good values are around 10-200
 maxCount=1;
 
 %% DEFINE MIXED TWO_QUBIT STATE
